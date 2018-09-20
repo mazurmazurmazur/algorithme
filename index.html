@@ -11,6 +11,16 @@
   crossorigin="anonymous"></script>
 </head>
 <body>
+
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav('mySidenav')">×</a>
+        <a href="#">About</a>		
+        <a href="#">Services</a>		
+        <a href="#">Clients</a>		
+        <a href="#">Contact</a>			
+      </div>
+
+  <div id="bodyWrapper">
     <div id="headMenu">
         <a class = "noMobile menuA headMenuA" href = "/#">OX</a>
         <a class = "noMobile menuA headMenuA" href = "/#">CAMPAIGN</a>
@@ -114,15 +124,15 @@
 
 
     <div id="bottomMenu">
-    <a class="noMobile  menuA bottomMenuA" href="">ABOUT</a>  
-    <a class="noMobile  menuA bottomMenuA" href="">PAST STORIES</a>
-    <a class="noMobile  menuA bottomMenuA" href="">NEWS</a>
-    <a class="noMobile  menuA bottomMenuA" href="">CONTACT</a>
+    <a onclick="openNav('mySidenav')" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);">ABOUT</a>  
+    <a onclick="openNav('mySidenav')" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);">PAST STORIES</a>
+    <a onclick="openNav('mySidenav')" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);">NEWS</a>
+    <a onclick="openNav('mySidenav')" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);">CONTACT</a>
     </div>
 
 
     <script src="script.js"></script>
 
-    
+  </div>
 </body>
 </html>

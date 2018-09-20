@@ -1,48 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400');
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
 
 
 
@@ -119,7 +76,7 @@ left: 10vw;
   #resource-slider .arrow {
     cursor: pointer;
     position: absolute;
-    width: 2em;
+    width: 4em;
     height: 100%;
     padding: 0;
     margin: 0;
@@ -139,8 +96,8 @@ left: 10vw;
     left: 0;
     right: 0;
     bottom: 0;
-    width: 1.75em;
-    height: 1.75em;
+    width: 2.75em;
+    height: 2.75em;
     margin: auto;
     border-style: solid;
   }
@@ -308,6 +265,55 @@ left: 10vw;
   }
 
 
+  /**pushing body navigation**/
+
+
+
+body {
+  transition: background-color .5s;
+}
+
+.sidenav {
+  height: 0;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+  color: #f1f1f1;
+}
+
+.closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px !important;
+  margin-left: 50px;
+}
+
+#bodyWrapper {
+  transition: margin-top .5s;
+height: 100vh;
+position: relative;
+}
+
+
+/**end pushing body navigation**/
 }
 /******* END DESKTOP********/
 

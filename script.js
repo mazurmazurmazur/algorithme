@@ -105,3 +105,22 @@ function defer(method) {
   });
 
 
+////DESKTOP NAV PUSHING MAIN CONTENT BELOW
+
+
+
+
+function openNav(a) {
+  document.getElementById(a).style.height = "50vh";
+  document.getElementById("bodyWrapper").style.marginTop = "-50vh";
+  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+}
+
+function closeNav(a) {
+  document.getElementById(a).style.height = "0";
+  document.getElementById("bodyWrapper").style.marginTop= "0";
+  document.body.style.backgroundColor = "white";
+}
+
+
+////END OF DESKTOP NAV PUSHING MAIN CONTENT

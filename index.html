@@ -6,23 +6,123 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-    <script src="main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
 </head>
 <body>
     <div id="headMenu">
-        <a href = "/#">OX</a>
-        <a href = "/#">CAMPAIGN</a>
-        <a href = "/#">OX-ED</a>
+        <a class = "noMobile menuA headMenuA" href = "/#">OX</a>
+        <a class = "noMobile menuA headMenuA" href = "/#">CAMPAIGN</a>
+        <a class = "noMobile menuA headMenuA" href = "/#">OX-ED</a>
     </div>
     <div id="mainContent">
 
+        <div class="row resources ">
+            <div class="container" id="resource-slider">
+              <button class='arrow prev'></button>
+              <button class='arrow next'></button>
+              <div class="resource-slider-frame">
+          
+                <div class="resource-slider-item">
+                  <div class="resource-slider-inset">
+                    <div class="resource">
+                        <a href="/#"><img id= "lol" src="images/panda.jpg"></a>
+                   </div>
+                  </div>
+                </div>
+          
+                <div class="resource-slider-item">
+                  <div class="resource-slider-inset">
+                    <div class="resource">
+                        <a href="/#"><img id= "lol" src="images/testimg.png"></a>
+                    </div>
+                  </div>
+                </div>
+          
+                <div class="resource-slider-item">
+                  <div class="resource-slider-inset">
+                    <div class="resource">
+                        <a href="/#"><img id="lol" src="images/testimg.png"></a>
+                    </div>
+                  </div>
+                </div>
+          
+          
+                <div class="resource-slider-item">
+                  <div class="resource-slider-inset">
+                    <div class="resource">
+                        <a href="/#"><img id= "lol" src="images/testimg.png"></a>
+                    </div>
+                  </div>
+                </div>
+          
+                <div class="resource-slider-item">
+                  <div class="resource-slider-inset">
+                    <div class="resource">
+                        <a href="/#"><img id= "lol" src="images/testimg.png"></a>
+                    </div>
+                  </div>
+                </div>
+          
+                <div class="resource-slider-item">
+                  <div class="resource-slider-inset">
+                    <div class="resource">
+                      <a href="/#"><img id= "lol" src="images/testimg.png"></a>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
     </div>
+
+
+
+
+
+<!-- The overlay -->
+<div id="myNav" class="overlay noDesktop">
+
+  <!-- Button to close the overlay navigation -->
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+  <!-- Overlay content -->
+  <div class="overlay-content">
+      <a  id="mobileMenuLogo" href="#"><img id="mobileMenuLogoImg" src="images/logoClassic.png"></a>
+
+
+
+      <a class="upperMobileItem" href="#">OX</a>
+      <a class="upperMobileItem" href="#">CAMPAIGN</a>
+      <a class="upperMobileItem" href="#">OX-ED</a>
+<br><br>
+    <a class="bottomMobileItem" href="#"><span>ABOUT</span></a>
+    <a class="bottomMobileItem" href="#"><span>PAST STORIES</span></a>
+    <a class="bottomMobileItem" href="#"><span>NEWS</span></a>
+    <a class="bottomMobileItem" href="#"><span>CONTACT</span></a>
+  </div>
+
+</div>
+
+<!-- Use any element to open/show the overlay navigation menu -->
+<span class="noDesktop" id = "openMobileNav" onclick="openNav()">MENU</span>
+
+
+
+
+
     <div id="bottomMenu">
-    <a href="">ABOUT</a>  
-    <a href="">PAST STORIES</a>
-    <a href="">NEWS</a>
-    <a href="">CONTACT</a>
+    <a class="noMobile  menuA bottomMenuA" href="">ABOUT</a>  
+    <a class="noMobile  menuA bottomMenuA" href="">PAST STORIES</a>
+    <a class="noMobile  menuA bottomMenuA" href="">NEWS</a>
+    <a class="noMobile  menuA bottomMenuA" href="">CONTACT</a>
     </div>
+
+
+    <script src="script.js"></script>
+
     
 </body>
 </html>

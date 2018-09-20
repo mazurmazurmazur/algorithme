@@ -1,5 +1,51 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400');
 
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
 body{
     font-family: 'Montserrat', sans-serif;
     font-weight: 200;
@@ -22,7 +68,7 @@ right: 10vw;
     bottom: 2vh;
 }
 
-a{
+.menuA{
     text-decoration: none;
     color: black;
     transition: 0.3s ease-in;
@@ -30,8 +76,299 @@ a{
     margin-left: 20vh;
 }
 
-a:hover{
+.menuA:hover{
     background: black;
     color: white;
     
 }
+
+#mainContent{
+  position: absolute;
+width: 80vw;
+top: 30vh;
+left: 10vw;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+/*******SLIDER BELOW*********/
+
+
+#resource-slider {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 13em;
+    margin: auto;
+    background: transparent;
+    overflow: hidden;
+  }
+  
+  #resource-slider .arrow {
+    cursor: pointer;
+    position: absolute;
+    width: 2em;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    background: transparent;
+    border-width: 0;
+  }
+  
+  #resource-slider .arrow:hover {
+    color: rgba(0, 0, 0, 0.1);
+  }
+  
+  #resource-slider .arrow:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 1.75em;
+    height: 1.75em;
+    margin: auto;
+    border-style: solid;
+  }
+  
+  #resource-slider .prev {
+    left: 0;
+    bottom: 0;
+  }
+  
+  #resource-slider .prev:before {
+    left: 0.25em;
+    border-width: 3px 0 0 3px;
+    border-color: #333 transparent transparent #333;
+    transform: rotate(-45deg);
+  }
+  
+  #resource-slider .next {
+    right: 0;
+    bottom: 0;
+  }
+  
+  #resource-slider .next:before {
+    right: 0.25em;
+    border-width: 3px 3px 0 0;
+    border-color: #333 #333 transparent transparent;
+    transform: rotate(45deg);
+  }
+  
+  #resource-slider .resource-slider-frame {
+    position: absolute;
+    top: 0;
+    left: 2em;
+    right: 2em;
+    bottom: 0;
+    border-left: 0.25em solid transparent;
+    border-right: 0.25em solid transparent;
+    overflow: hidden;
+  }
+  
+  #resource-slider .resource-slider-item {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 25%;
+    height: 100%;
+  }
+  
+  #resource-slider .resource-slider-inset {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0.5em 0.25em;
+    overflow: hidden;
+  }
+  
+  @media ( max-width: 60em ) {
+    #resource-slider .resource-slider-item {
+      width: 33.33%;
+    }
+    #resource-slider {
+      height: 16em;
+    }
+  }
+  
+  @media ( max-width: 45em ) {
+    #resource-slider .resource-slider-item {
+      width: 50%;
+    }
+  }
+  
+  @media ( max-width: 30em ) {
+    #resource-slider .resource-slider-item {
+      width: 100%;
+    }
+    #resource-slider {
+      height: 19em;
+    }
+  }
+
+  #lol{
+    height: 200px;
+    width: auto;
+}
+  
+  /************END SLIDER**********/
+
+
+
+  /**********OVERLAY MENU***********/
+
+
+  @media screen and (max-width: 760px) {
+
+
+  /* The Overlay (background) */
+  .overlay {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0, 0.9);
+    overflow-y: hidden;
+    transition: 0.5s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    bottom: 1vh;
+    right: 2vw;
+    font-size: 100px;
+    font-weight: 100;
+    color: rgba(197, 55, 66, 0.7);
+    z-index: 10;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay {overflow-y: auto;}
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+  
+  }
+
+/******END OVERLAY MENU*********/
+
+
+
+
+
+/******SPECIFICALLY DESKTOP*********/
+
+@media screen and (min-width: 761px) {
+
+  .noDesktop{
+    display:none;
+  }
+
+
+}
+/******* END DESKTOP********/
+
+/******SPECIFICALLY MOBILE*********/
+
+@media screen and (max-width: 760px) {
+
+.noMobile{
+  display:none;
+}
+
+#mobileMenuLogoImg{
+  position: absolute;
+  width: 100vw;
+  left: 0;
+  top: -20vh;
+  
+}
+
+#openMobileNav{
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  position: absolute;
+  margin: 5px;
+  padding: 5px;
+  right: 10px;
+  border: 1px solid rgb(0, 0, 0);
+  font-weight: 300;
+}
+
+
+.upperMobileItem{
+font-size: 36px;
+padding-bottom: 50px;
+
+}
+
+.bottomMobileItem{
+  margin-bottom: 10px;
+}
+
+.bottomMobileItem span{
+  font-size: 22px;
+  background-color: white;
+  padding: 3px 10px 3px 10px;
+}
+
+
+.upperMobileItem:after {
+  content: ""; /* This is necessary for the pseudo element to work. */ 
+  display: block; /* This will put the pseudo element on its own line. */
+  margin: 0 auto; /* This will center the border. */
+  width: 35%; /* Change this to whatever width you want. */
+  padding-top: 20px; /* This creates some space between the element and the border. */
+  border-bottom: 1px solid rgb(253, 253, 253); /* This creates the border. Replace black with whatever color you want. */
+}
+
+
+
+
+
+}
+
+/****** END MOBILE *******/

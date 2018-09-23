@@ -1,12 +1,12 @@
 
   /**NAVIGATION MOBILE */
   /* Open */
-  function openNav() {
+  function openMobileNav() {
     document.getElementById("myNav").style.height = "100%";
   }
   
   /* Close */
-  function closeNav() {
+  function closeMobileNav() {
     document.getElementById("myNav").style.height = "0%";
   }
   
@@ -105,15 +105,16 @@ function defer(method) {
   });
 
 
-////DESKTOP NAV PUSHING MAIN CONTENT BELOW
+////DESKTOP BOTTOM NAV PUSHING MAIN CONTENT BELOW
 
 
 
 
-function openNav(a) {
+function openNav(a, fromLeft) {
   document.getElementById(a).style.height = "50vh";
   document.getElementById("bodyWrapper").style.marginTop = "-50vh";
   document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+  document.getElementById("sideNavWrapperA").style.left = fromLeft +"vw";
 }
 
 function closeNav(a) {
@@ -123,4 +124,23 @@ function closeNav(a) {
 }
 
 
-////END OF DESKTOP NAV PUSHING MAIN CONTENT
+////END OF DESKTOP BOTTOM NAV PUSHING MAIN CONTENT
+
+
+////DESKTOP HEAD NAV PUSHING MAIN CONTENT BELOW
+
+function openHeadNav(a, fromRight) {
+  document.getElementById(a).style.height = "50vh";
+  document.getElementById("bodyWrapper").style.marginBottom = "50vh";
+  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+  document.getElementById("sideNavWrapperA").style.left = fromRight +"vw";
+}
+
+function closeHeadNav(a) {
+  document.getElementById(a).style.height = "0";
+  document.getElementById("bodyWrapper").style.marginBottom= "0";
+  document.body.style.backgroundColor = "white";
+}
+
+
+////END OF DESKTOP HEAD NAV PUSHING MAIN CONTENT

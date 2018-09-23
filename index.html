@@ -13,14 +13,27 @@
 <body>
 
     <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav('mySidenav')">×</a>
-        <a href="#">About</a>		
-        <a href="#">Services</a>		
-        <a href="#">Clients</a>		
-        <a href="#">Contact</a>			
+        <a class = "noMobile closebtn" href="javascript:void(0)"  onclick="closeNav('mySidenav')">×</a>
+        <div id="sideNavWrapperA">
+        <a class = "noMobile" href="#">About</a>		
+        <a class = "noMobile" href="#">Services</a>		
+        <a class = "noMobile" href="#">Clients</a>		
+        <a class = "noMobile" href="#">Contact</a>	
+      </div>		
       </div>
 
+     
+
   <div id="bodyWrapper">
+
+      <div id= "logoContainerDesktop" class="noMobile" >
+          <img id = "logoDesktop" src="images/logoClassic.png">
+        </div>
+        <div id= "logoContainerMobile" class="noDesktop">
+          <img id="logoMobile" src="images/logoClassic.png">
+        </div>
+
+
     <div id="headMenu">
         <a class = "noMobile menuA headMenuA" href = "/#">OX</a>
         <a class = "noMobile menuA headMenuA" href = "/#">CAMPAIGN</a>
@@ -37,7 +50,9 @@
                 <div class="resource-slider-item">
                   <div class="resource-slider-inset">
                     <div class="resource">
-                        <a href="/#"><img id= "lol" src="images/panda.jpg"></a>
+                        <a href="/#"><img id= "lol" src="images/sampler.jpg"></a>
+                        <p class= "underTitle">Kolorowa Kiecuszka</p>
+                        <p class="priceUnderTitle">$15</p>
                    </div>
                   </div>
                 </div>
@@ -45,7 +60,9 @@
                 <div class="resource-slider-item">
                   <div class="resource-slider-inset">
                     <div class="resource">
-                        <a href="/#"><img id= "lol" src="images/testimg.png"></a>
+                        <a href="/#"><img id= "lol" src="images/sampler.jpg"></a>
+                        <p class= "underTitle">Kolorowa Kiecuszka</p>
+                        <p class="priceUnderTitle">$15</p>
                     </div>
                   </div>
                 </div>
@@ -53,7 +70,9 @@
                 <div class="resource-slider-item">
                   <div class="resource-slider-inset">
                     <div class="resource">
-                        <a href="/#"><img id="lol" src="images/testimg.png"></a>
+                        <a href="/#"><img id="lol" src="images/sampler.jpg"></a>
+                        <p class= "underTitle">Kolorowa Kiecuszka</p>
+                        <p class="priceUnderTitle">$15</p>
                     </div>
                   </div>
                 </div>
@@ -62,7 +81,9 @@
                 <div class="resource-slider-item">
                   <div class="resource-slider-inset">
                     <div class="resource">
-                        <a href="/#"><img id= "lol" src="images/testimg.png"></a>
+                        <a href="/#"><img id= "lol" src="images/sampler.jpg"></a>
+                        <p class= "underTitle">Kolorowa Kiecuszka</p>
+                        <p class="priceUnderTitle">$15</p>
                     </div>
                   </div>
                 </div>
@@ -70,7 +91,9 @@
                 <div class="resource-slider-item">
                   <div class="resource-slider-inset">
                     <div class="resource">
-                        <a href="/#"><img id= "lol" src="images/testimg.png"></a>
+                        <a href="/#"><img id= "lol" src="images/sampler.jpg"></a>
+                        <p class= "underTitle">Kolorowa Kiecuszka</p>
+                        <p class="priceUnderTitle">$15</p>
                     </div>
                   </div>
                 </div>
@@ -78,7 +101,9 @@
                 <div class="resource-slider-item">
                   <div class="resource-slider-inset">
                     <div class="resource">
-                      <a href="/#"><img id= "lol" src="images/testimg.png"></a>
+                      <a href="/#"><img id= "lol" src="images/sampler.jpg"></a>
+                      <p class= "underTitle">Kolorowa Kiecuszka</p>
+                      <p class="priceUnderTitle">$15</p>
                   </div>
                   </div>
                 </div>
@@ -96,7 +121,7 @@
 <div id="myNav" class="overlay noDesktop">
 
   <!-- Button to close the overlay navigation -->
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="javascript:void(0)" class="closebtn" onclick="closeMobileNav()">&times;</a>
 
   <!-- Overlay content -->
   <div class="overlay-content">
@@ -117,17 +142,17 @@
 </div>
 
 <!-- Use any element to open/show the overlay navigation menu -->
-<span class="noDesktop" id = "openMobileNav" onclick="openNav()">MENU</span>
+<span class="noDesktop" id = "openMobileNav" onclick="openMobileNav()">MENU</span>
 
 
 
 
 
     <div id="bottomMenu">
-    <a onclick="openNav('mySidenav')" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);">ABOUT</a>  
-    <a onclick="openNav('mySidenav')" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);">PAST STORIES</a>
-    <a onclick="openNav('mySidenav')" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);">NEWS</a>
-    <a onclick="openNav('mySidenav')" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);">CONTACT</a>
+    <a onclick="openNav('mySidenav', 7)" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);">ABOUT</a>  
+    <a onclick="openNav('mySidenav', 25)" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);">PAST STORIES</a>
+    <a onclick="openNav('mySidenav', 45)" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);">NEWS</a>
+    <a onclick="openNav('mySidenav', 60)" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);">CONTACT</a>
     </div>
 
 

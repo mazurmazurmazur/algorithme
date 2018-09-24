@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400');
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
+
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -23,7 +25,8 @@ time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;
+  vertical-align: baseline;
+  text-decoration: none;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -114,6 +117,25 @@ left: 10vw;
 /*******SLIDER BELOW*********/
 
 
+#resource-slider .next #arrowThereIs{
+  transform: rotate(45deg);
+  position: relative;
+  top: -15px;
+  right: -15px;
+  font-size: 8px;
+}
+
+#resource-slider .next #arrowMore{
+  position: relative;
+  transform: rotate(-225deg);
+  bottom: -15px;
+  right: -15px;
+  font-size: 8px;
+
+
+}
+
+
 #resource-slider {
     position: relative;
     top: 0;
@@ -171,6 +193,7 @@ left: 10vw;
   #resource-slider .next {
     right: 0;
     bottom: 0;
+    margin-right: 10px;
   }
   
   #resource-slider .next:before {
@@ -262,6 +285,87 @@ font-size: 13px;
   
   /************END SLIDER**********/
 
+
+  /************SOCIAL MEDIA BUTTONS**********/
+
+
+.smButton, .smButton:hover {
+	color: #000;
+	text-decoration: none;
+	padding: 10px;
+}
+
+.socialbtns{
+  position: absolute;
+  right: 1vw;
+  bottom: 15vh;
+}
+
+.socialbtnsbtnsbtns, .socialbtnsbtnsbtns ul, .socialbtnsbtnsbtns li {
+	margin: 0;
+	padding: 5px;
+}
+
+.socialbtnsbtnsbtns li {
+    list-style: none outside none;
+    display: block;
+}
+
+.socialbtns li {
+    list-style: none outside none;
+    display: block;
+}
+
+.socialbtns .fa {
+	color: #FFF;
+	text-shadow: 1px 1px 0px #000,
+			1px -1px 0px #000,
+			-1px 1px 0px #000,
+			-1px -1px 0px #000;
+	-webkit-text-shadow: 1px 1px 0px #000,
+			1px -1px 0px #000,
+			-1px 1px 0px #000,
+			-1px -1px 0px #000;
+	-moz-text-shadow: 1px 1px 0px #000,
+			1px -1px 0px #000,
+			-1px 1px 0px #000,
+			-1px -1px 0px #000;
+	-o-text-shadow: 1px 1px 0px #000,
+			1px -1px 0px #000,
+			-1px 1px 0px #000,
+			-1px -1px 0px #000;
+	transition: all ease-out 0.5s;
+	-moz-transition: all ease-out 0.5s;
+	-webkit-transition: all ease-out 0.5s;
+	-o-transition: all ease-out 0.5s;
+}
+
+.socialbtns .fa:hover {
+	color: #000;
+	text-shadow: 1px 1px 0px #fff,
+			1px -1px 0px #fff,
+			-1px 1px 0px #fff,
+			-1px -1px 0px #fff;
+	-webkit-text-shadow: 1px 1px 0px #fff,
+			1px -1px 0px #fff,
+			-1px 1px 0px #fff,
+			-1px -1px 0px #fff;
+	-moz-text-shadow: 1px 1px 0px #fff,
+			1px -1px 0px #fff,
+			-1px 1px 0px #fff,
+			-1px -1px 0px #fff;
+	-o-text-shadow: 1px 1px 0px #fff,
+			1px -1px 0px #fff,
+			-1px 1px 0px #fff,
+			-1px -1px 0px #fff;
+	transition: all ease 0.5s;
+	-moz-transition: all ease-in 0.5s;
+	-webkit-transition: all ease-in 0.5s;
+	-o-transition: all ease-in 0.5s;
+}
+
+
+  /************END OF SOCIAL MEDIA BUTTONS**********/
 
 
   /**********OVERLAY MENU***********/
@@ -480,6 +584,187 @@ font-size: 13px;
   border-width: 2px;
 }
 
+
+/**NESLETTER**/
+
+#newsletterInput {
+  font-size: 15px;
+  padding: 15px 10px 10px;
+  border: 1px solid black;
+  background: transparent;
+  color:#4c4c4c;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 200px;
+  max-width: 600px;
+}
+#submitNewsletter {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 25px;
+  background-color: black;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 70px;
+  padding-left: 35px;
+  border: 1px solid black;
+  -webkit-transition: .5s;
+  transition: .5s;
+  cursor: pointer;
+  width: 30%;
+  color: #fff;
+}
+#submitNewsletter:hover {
+  background: rgb(197, 202, 202);
+}
+/* main container */
+#newsletterContainer {
+  display: none;
+  position: absolute;
+  width: 600px;
+  height: 500px;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #fff;
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+/* text container */
+.text-container {
+  position: absolute;
+  margin: auto;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  width: 297px;
+}
+.title-container {
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: 20%;
+  height: 70px;
+  width: 200px;
+  text-align: center;
+}
+.p1-container {
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  bottom: 40%;
+  height: 70px;
+  text-align: center;
+}
+.p2-container {
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  bottom: 20%;
+  height: 70px;
+  width: 200px;
+  text-align: center;
+}
+.logo-container {
+  margin: auto;
+  margin-top: 20%;
+  top: 5%;
+  text-align: center;
+  z-index: -1;
+}
+#logoNewsletterImg{
+width: 100%;
+}
+
+
+
+
+
+
+
+.sliderNewsletter {
+  max-width: 300px;
+  height: 100%;
+  position: relative;
+}
+.slide1,.slide2,.slide3,.slide4,.slide5 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.slide1 {
+  background: url(images/slide2.png)no-repeat center;
+      background-size: cover;
+    animation:fade 8s infinite;
+-webkit-animation:fade 8s infinite;
+
+} 
+.slide2 {
+  background: url(images/slide3.png)no-repeat center;
+      background-size: cover;
+    animation:fade2 8s infinite;
+-webkit-animation:fade2 8s infinite;
+}
+.slide3 {
+    background: url(images/slide1.png)no-repeat center;
+      background-size: cover;
+    animation:fade3 8s infinite;
+-webkit-animation:fade3 8s infinite;
+}
+@keyframes fade
+{
+  0%   {opacity:1}
+  33.333% { opacity: 0}
+  66.666% { opacity: 0}
+  100% { opacity: 1}
+}
+@keyframes fade2
+{
+  0%   {opacity:0}
+  33.333% { opacity: 1}
+  66.666% { opacity: 0 }
+  100% { opacity: 0}
+}
+@keyframes fade3
+{
+  0%   {opacity:0}
+  33.333% { opacity: 0}
+  66.666% { opacity: 1}
+  100% { opacity: 0}
+}
+
+
+
+
+
+.closebtnNewsletter {
+  
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 40px !important;
+  margin-left: 50px;
+  color: black;
+  z-index: 20;
+}
+
+.closebtnNewsletter:hover{
+  color: gray;
+}
+
+
+/**END NEWSLETTER**/
+
   /**pushing body navigation**/
 
 
@@ -614,6 +899,12 @@ left: 10vw;
 #resource-slider .resource-slider-item {
 margin-left: 0;
 
+}
+
+.socialbtns{
+  position: absolute;
+  right: 1vw;
+  bottom: 1vh;
 }
 
 .upperMobileItem{

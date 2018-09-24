@@ -179,3 +179,26 @@ function closeNav(a) {
 ////END OF DESKTOP BOTTOM NAV PUSHING MAIN CONTENT
 
 
+//////NEWSLETTER 
+
+
+$(document).ready(function () {
+  setTimeout(fnShowPopup, 5000);
+});
+function fnShowPopup() {
+  document.getElementById("newsletterContainer").style.display = "block";
+  document.getElementById("newsletterContainer").style.zIndex = 30;
+  document.getElementById("overlayMain").style.backgroundColor = "rgba(0,0,0,0.4)";
+  document.getElementById("overlayMain").style.zIndex = 20;
+
+  //code to show popup
+}
+
+function closeNewsletter(){
+  document.getElementById("newsletterContainer").style.display = "none";
+  document.getElementById("overlayMain").style.backgroundColor = "transparent";
+  document.getElementById("overlayMain").style.zIndex = -10;
+}
+
+
+////END OF NEWSLETTER

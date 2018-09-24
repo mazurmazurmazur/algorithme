@@ -106,10 +106,22 @@
       </div>
       <!-- /Modal -->
 
-
-
+        <!-- social media buttons -->
+        <br/>
+        <div class="socialbtns">
+        <ul>
+        <li><a href="#" class=" smButton fa fa-lg fa-facebook"></a></li>
+        <li><a href="#" class=" smButton fa fa-lg fa-pinterest"></a></li>
+        <li><a href="#" class=" smButton fa fa-lg fa-instagram"></a></li>
+        <li><a href="#" class=" smButton fa fa-lg fa-youtube"></a></li>
+        </ul>
+        </div>
+  
+      <!-- /social media buttons -->
 
     <div id="mainContent">
+
+
 
 <!-- PRODUCTS IN SLIDER -->
 
@@ -117,7 +129,7 @@
         <div class="row resources ">
             <div class="container" id="resource-slider">
               <button class='arrow prev'></button>
-              <button class='arrow next'></button>
+              <button class='arrow next'><p id= "arrowThereIs">there </p><p id = "arrowMore"> is more</p></button>
               <div class="resource-slider-frame">
           
                 <div class="resource-slider-item">
@@ -188,7 +200,42 @@
 
 
 
+<!-- NEWSLETTER-->
 
+<div class=" noMobile " id = "newsletterContainer">
+    <a href="javascript:void(0)" class="closebtnNewsletter" onclick="closeNewsletter()">&times;</a>
+    <div class='sliderNewsletter'>
+      <div class='slide1'></div>
+      <div class='slide2'></div>
+      <div class='slide3'></div>
+    </div>
+  
+    <div class="text-container">
+        <div class="logo-container"> 
+      <img id = "logoNewsletterImg" src= "images/logoClassic.png">
+       
+  
+    </div>
+      <div class="title-container">
+        <p>NEWSLETTER</p>
+      </div>
+      <div class="p1-container">
+        <p style="font-family: 'Encode Sans Semi Condensed', sans-serif; font-size: 15px; letter-spacing: 2px;">
+          Better not to be behind...
+        </p>
+           </div>
+      <div class="p2-container">
+  
+        <input  id ="newsletterInput"type="email" name="email" placeholder="Email" />
+        <button onclick="closeNewsletter()" id="submitNewsletter" type="submit">
+        Send
+      </button>
+      </div>
+    </div>
+  </div>
+
+
+<!--END NEWSLETTER-->
 
 <!-- The overlay -->
 <div id="myNav" class="overlay noDesktop">

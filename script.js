@@ -105,7 +105,57 @@ function defer(method) {
   });
 
 
-////DESKTOP BOTTOM NAV PUSHING MAIN CONTENT BELOW
+
+
+
+////DESKTOP HEAD NAV PUSHING MAIN CONTENT 
+
+function openHeadNav(a, fromRight) {
+  document.getElementById(a).style.height = "50vh";
+  document.getElementById("bodyWrapper").style.marginTop = "50vh";
+  document.getElementById("overlayMain").style.backgroundColor = "rgba(0,0,0,0.4)";
+  document.getElementById("overlayMain").style.zIndex = 20;
+  document.getElementById("sideNavHeadWrapperA").style.right = fromRight +"vw";
+}
+
+function closeHeadNav(a) {
+  document.getElementById(a).style.height = "0";
+  document.getElementById("bodyWrapper").style.marginTop= "0";
+  document.getElementById("overlayMain").style.backgroundColor = "transparent";
+  document.getElementById("overlayMain").style.zIndex = -10;
+
+}
+
+
+////END OF DESKTOP HEAD NAV PUSHING MAIN CONTENT
+
+
+
+//////MODAL WITH PRODUCT DETAILS///////
+
+$('.openmodale').click(function (e) {
+         e.preventDefault();
+         $('.modale').addClass('opened');
+    });
+$('.closemodale').click(function (e) {
+         e.preventDefault();
+         $('.modale').removeClass('opened');
+    });
+
+
+//////END OF MODAL WITH PRODUCT DETAILS///////
+
+
+////COLOR PICKER///
+
+$('select[name="colorpicker"]').simplecolorpicker();
+$('select[name="colorpicker"]').simplecolorpicker('selectColor', '#7bd148');
+$('select[name="colorpicker"]').simplecolorpicker('destroy');
+$('select[name="colorpicker"]').simplecolorpicker({picker: false});
+////END COLOR PICKER///
+
+
+////DESKTOP BOTTOM NAV PUSHING MAIN CONTENT 
 
 
 
@@ -113,34 +163,19 @@ function defer(method) {
 function openNav(a, fromLeft) {
   document.getElementById(a).style.height = "50vh";
   document.getElementById("bodyWrapper").style.marginTop = "-50vh";
-  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+  document.getElementById("overlayMain").style.backgroundColor = "rgba(0,0,0,0.4)";
+  document.getElementById("overlayMain").style.zIndex = 20;
   document.getElementById("sideNavWrapperA").style.left = fromLeft +"vw";
 }
 
 function closeNav(a) {
   document.getElementById(a).style.height = "0";
   document.getElementById("bodyWrapper").style.marginTop= "0";
-  document.body.style.backgroundColor = "white";
+  document.getElementById("overlayMain").style.backgroundColor = "transparent";
+  document.getElementById("overlayMain").style.zIndex = -10;
 }
 
 
 ////END OF DESKTOP BOTTOM NAV PUSHING MAIN CONTENT
 
 
-////DESKTOP HEAD NAV PUSHING MAIN CONTENT BELOW
-
-function openHeadNav(a, fromRight) {
-  document.getElementById(a).style.height = "50vh";
-  document.getElementById("bodyWrapper").style.marginBottom = "50vh";
-  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-  document.getElementById("sideNavWrapperA").style.left = fromRight +"vw";
-}
-
-function closeHeadNav(a) {
-  document.getElementById(a).style.height = "0";
-  document.getElementById("bodyWrapper").style.marginBottom= "0";
-  document.body.style.backgroundColor = "white";
-}
-
-
-////END OF DESKTOP HEAD NAV PUSHING MAIN CONTENT

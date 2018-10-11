@@ -1,3 +1,6 @@
+var x = window.matchMedia("(min-width: 900px)")
+
+
 
   /**NAVIGATION MOBILE */
   /* Open */
@@ -183,7 +186,8 @@ function closeNav(a) {
 
 
 $(document).ready(function () {
-  setTimeout(fnShowPopup, 5000);
+  if(x.matches){
+  setTimeout(fnShowPopup, 5000);}
 });
 function fnShowPopup() {
   document.getElementById("newsletterContainer").style.display = "block";

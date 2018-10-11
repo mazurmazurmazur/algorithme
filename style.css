@@ -279,7 +279,7 @@ left: 10vw;
 }
 
 .underTitle{
-font-weight: 300;
+font-weight: 100;
 font-size: 13px;
 }
   
@@ -556,7 +556,7 @@ font-size: 13px;
     position: absolute;
     width: 30vw;
     border-bottom: #818181;
-    border-bottom-style: solid;
+    border-bottom-style: none;
     border-width: 1px;
     top: 1vh;
     left: 1vh;
@@ -850,6 +850,10 @@ position: relative;
 }
 
 
+#newsletterContainer{
+display: none !important;
+}
+
 #logoContainerMobile{
   position: fixed;
   width: 100vw;
@@ -868,8 +872,8 @@ left: 10vw;
 
 #mobileMenuLogoImg{
   position: absolute;
-  width: 100vw;
-  left: 0;
+  width: 70vw;
+  left: 15vw;
   top: -20vh;
   
 }

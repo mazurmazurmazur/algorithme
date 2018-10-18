@@ -5,281 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
-    <link rel="stylesheet" href="jquery.simplecolorpicker.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script>
-  <script src="jquery.simplecolorpicker.js"></script>
-
-
+    <link rel="stylesheet" type="text/css" media="screen" href="css/frontPage.css" />
+ 
 </head>
 <body>
 
-    <div id="mySidenav" class="sidenav">
-        <a class = "noMobile closebtn" href="javascript:void(0)"  onclick="closeNav('mySidenav')">×</a>
-        <div id="sideNavWrapperA">
-        <a class = "noMobile" href="#">About</a>		
-        <a class = "noMobile" href="#">Services</a>		
-        <a class = "noMobile" href="#">Clients</a>		
-        <a class = "noMobile" href="#">Contact</a>	
-      </div>		
-      </div>
-
-
-      <div id="mySidenavHead" class="sidenavHead">
-          <a class = "noMobile closebtn" href="javascript:void(0)"  onclick="closeHeadNav('mySidenavHead')">×</a>
-          <div id="sideNavHeadWrapperA">
-          <a class = "noMobile" href="#">About</a>		
-          <a class = "noMobile" href="#">Services</a>		
-          <a class = "noMobile" href="#">Clients</a>		
-          <a class = "noMobile" href="#">Contact</a>	
-        </div>		
-        </div>
-
-     
-
-  <div id="bodyWrapper">
-
-      <div id= "logoContainerDesktop" class="noMobile" >
-          <img id = "logoDesktop" src="images/logoClassic.png">
-        </div>
-        <div id= "logoContainerMobile" class="noDesktop">
-          <img id="logoMobile" src="images/logoClassic.png">
-        </div>
-
-
-    <div id="headMenu">
-        <a onclick="openHeadNav('mySidenavHead', 40)" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);" >OX</a>
-        <a onclick="openHeadNav('mySidenavHead', 26)" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);" >CAMPAIGN</a>
-        <a onclick="openHeadNav('mySidenavHead', 9)" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);" >OX-ED</a>
-    </div>
-
-
-    <!-- MODAL DISPLAYING SELECTED PRODUCT -->
-
-
-    <div class="modale" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-header">
-            <h2>Kolorowa kiecuszka</h2>
-            <a href="#" class="btn-close closemodale" aria-hidden="true">&times;</a>
-          </div>
-          <div class="modal-body">
-              <a href="/#"><img id= "imageInModal" src="images/sampler.jpg"></a><br>
-
-                <!--Size picker-->
-
-<select id="sizepicker">
-    <option value="XS">XS</option>
-    <option value="S">S</option>
-    <option value="M">M</option>
-    <option value="L">L</option>
-    <option value="XL">XL</option>
-  </select>
-  <br>
-
-  <!--/Size picker-->
-
-                    <!--Color picker-->
-      <select name="colorpicker">
-          <option value="#7bd148">Green</option>
-          <option value="#46d6db">Turquoise</option>
-          <option value="#7ae7bf">Light green</option>
-          <option value="#fbd75b">Yellow</option>
-          <option value="#ffb878">Orange</option>
-          <option value="#dc2127">Bold red</option>
-          <option value="#dbadff">Purple</option>
-          <option value="#e1e1e1">Gray</option>
-        </select><br>
-<!--/Color picker-->
-
-                  
-
-            <input type="number" name="u" placeholder="Amount" size="20" /><br>
-          <div class="modal-footer">
-        
+    <img id = "mainOverlayImage"src= "images/algoMainMosaic.png">
+    
+    <ul class='slideshow'>
+        <li>
       
-            <a href="#" class="btn closemodale" id="btn_ingresar">Order</a>
-          </div>
-        </div>
-      </div>
-      <!-- /Modal -->
-
-        <!-- social media buttons -->
-        <br/>
-        <div class="socialbtns">
-        <ul>
-        <li><a href="#" class=" smButton fa fa-lg fa-facebook"></a></li>
-        <li><a href="#" class=" smButton fa fa-lg fa-pinterest"></a></li>
-        <li><a href="#" class=" smButton fa fa-lg fa-instagram"></a></li>
-        <li><a href="#" class=" smButton fa fa-lg fa-youtube"></a></li>
-        </ul>
-        </div>
-  
-      <!-- /social media buttons -->
-
-    <div id="mainContent">
-
-
-
-<!-- PRODUCTS IN SLIDER -->
-
-
-        <div class="row resources ">
-            <div class="container" id="resource-slider">
-              <button class='arrow prev'></button>
-              <button class='arrow next'><p id= "arrowThereIs">there </p><p id = "arrowMore"> is more</p></button>
-              <div class="resource-slider-frame">
-          
-                <div class="resource-slider-item">
-                  <div class="resource-slider-inset">
-                    <div class="resource">
-                        <a href="/#"><img id= "lol" class = "openmodale" src="images/sampler.jpg"></a>
-                        <p class= "underTitle">Kolorowa Kiecuszka</p>
-                        <p class="priceUnderTitle">$15</p>
-                   </div>
-                  </div>
-                </div>
-          
-                <div class="resource-slider-item">
-                  <div class="resource-slider-inset">
-                    <div class="resource">
-                        <a href="/#"><img id= "lol" class = "openmodale" src="images/sampler.jpg"></a>
-                        <p class= "underTitle">Kolorowa Kiecuszka</p>
-                        <p class="priceUnderTitle">$15</p>
-                    </div>
-                  </div>
-                </div>
-          
-                <div class="resource-slider-item">
-                  <div class="resource-slider-inset">
-                    <div class="resource">
-                        <a href="/#"><img id="lol" class = "openmodale" src="images/sampler.jpg"></a>
-                        <p class= "underTitle">Kolorowa Kiecuszka</p>
-                        <p class="priceUnderTitle">$15</p>
-                    </div>
-                  </div>
-                </div>
-          
-          
-                <div class="resource-slider-item">
-                  <div class="resource-slider-inset">
-                    <div class="resource">
-                        <a href="/#"><img id= "lol" class = "openmodale" src="images/sampler.jpg"></a>
-                        <p class= "underTitle">Kolorowa Kiecuszka</p>
-                        <p class="priceUnderTitle">$15</p>
-                    </div>
-                  </div>
-                </div>
-          
-                <div class="resource-slider-item">
-                  <div class="resource-slider-inset">
-                    <div class="resource">
-                        <a href="/#"><img id= "lol" class = "openmodale" src="images/sampler.jpg"></a>
-                        <p class= "underTitle">Kolorowa Kiecuszka</p>
-                        <p class="priceUnderTitle">$15</p>
-                    </div>
-                  </div>
-                </div>
-          
-                <div class="resource-slider-item">
-                  <div class="resource-slider-inset">
-                    <div class="resource">
-                      <a href="/#"><img id= "lol" class = "openmodale" src="images/sampler.jpg"></a>
-                      <p class= "underTitle">Kolorowa Kiecuszka</p>
-                      <p class="priceUnderTitle">$15</p>
-                  </div>
-                  </div>
-                </div>
-              </div>
+      
+          <span>Summer</span>
+        </li>
+        <li>
+          <span>Fall</span>
+        </li>
+        <li>
+          <span>Winter</span>
+        </li>
+        <li>
+      
+          <span>Spring</span>
+        </li>
+      </ul>
+      
+      <div class="bounceWrapper">
+            <a href="/mainShop.html" id = "captionCheck"> Check us out</a>
+            <div class="bounce">
+              <a> ></a>
             </div>
-          </div>
-
-    </div>
-
-
-
-<!-- NEWSLETTER-->
-
-<div class=" noMobile " id = "newsletterContainer">
-    <a href="javascript:void(0)" class="closebtnNewsletter" onclick="closeNewsletter()">&times;</a>
-    <div class='sliderNewsletter'>
-      <div class='slide1'></div>
-      <div class='slide2'></div>
-      <div class='slide3'></div>
-    </div>
-  
-    <div class="text-container">
-        <div class="logo-container"> 
-      <img id = "logoNewsletterImg" src= "images/logoClassic.png">
-       
-  
-    </div>
-      <div class="title-container">
-        <p>NEWSLETTER</p>
-      </div>
-      <div class="p1-container">
-        <p style="font-family: 'Encode Sans Semi Condensed', sans-serif; font-size: 15px; letter-spacing: 2px;">
-          Better not to be behind...
-        </p>
-           </div>
-      <div class="p2-container">
-  
-        <input  id ="newsletterInput"type="email" name="email" placeholder="Email" />
-        <button onclick="closeNewsletter()" id="submitNewsletter" type="submit">
-        Send
-      </button>
-      </div>
-    </div>
-  </div>
-
-
-<!--END NEWSLETTER-->
-
-<!-- The overlay -->
-<div id="myNav" class="overlay noDesktop">
-
-  <!-- Button to close the overlay navigation -->
-  <a href="javascript:void(0)" class="closebtn" onclick="closeMobileNav()">&times;</a>
-
-  <!-- MOBILE MENU -->
-  <div class="overlay-content">
-      <a  id="mobileMenuLogo" href="#"><img id="mobileMenuLogoImg" src="images/logoInvert.png"></a>
-
-
-
-      <a class="upperMobileItem" href="#">OX</a>
-      <a class="upperMobileItem" href="#">CAMPAIGN</a>
-      <a class="upperMobileItem" href="#">OX-ED</a>
-<br><br>
-    <a class="bottomMobileItem" href="#"><span>ABOUT</span></a>
-    <a class="bottomMobileItem" href="#"><span>PAST STORIES</span></a>
-    <a class="bottomMobileItem" href="#"><span>NEWS</span></a>
-    <a class="bottomMobileItem" href="#"><span>CONTACT</span></a>
-  </div>
-
-</div>
-
-<!-- Use any element to open/show the overlay navigation menu -->
-<span class="noDesktop" id = "openMobileNav" onclick="openMobileNav()">MENU</span>
-
-
-
-
-
-    <div id="bottomMenu">
-    <a onclick="openNav('mySidenav', 7)" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);">ABOUT</a>  
-    <a onclick="openNav('mySidenav', 25)" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);">PAST STORIES</a>
-    <a onclick="openNav('mySidenav', 45)" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);">NEWS</a>
-    <a onclick="openNav('mySidenav', 60)" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);">CONTACT</a>
-    </div>
-
-
-
-    <div id = "overlayMain"></div>
-
-  </div>
-  <script src="script.js"></script>
+            </div>
 </body>
 </html>

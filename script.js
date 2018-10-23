@@ -17,8 +17,13 @@ var x = window.matchMedia("(min-width: 900px)")
 
 
 
+function animateMainContent(){
+  document.getElementById("mainContent").children[0].style.transition = "ease-in-out 1.5s";
 
 
+}
+
+animateMainContent();
 
 
 function defer(method) {

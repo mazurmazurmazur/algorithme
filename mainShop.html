@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
     <link rel="stylesheet" href="jquery.simplecolorpicker.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.js"
+    <script src="jquery-3.3.1.js"
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   crossorigin="anonymous"></script>
   <script src="jquery.simplecolorpicker.js"></script>
@@ -50,7 +50,7 @@
 
 
     <div id="headMenu">
-        <a onclick="openHeadNav('mySidenavHead', 40)" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);" >OX</a>
+        <a onclick="load_home('shopSliderGeneric.html',1)" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);" >OX</a>
         <a onclick="openHeadNav('mySidenavHead', 26)" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);" >CAMPAIGN</a>
         <a onclick="openHeadNav('mySidenavHead', 9)" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);" >OX-ED</a>
     </div>
@@ -121,82 +121,7 @@
       <!-- /social media buttons -->
 
     <div id="mainContent">
-
-
-
-<!-- PRODUCTS IN SLIDER -->
-
-
-        <div class="row resources ">
-            <div class="container" id="resource-slider">
-              <button class='arrow prev'></button>
-              <button class='arrow next'><p id= "arrowThereIs">there </p><p id = "arrowMore"> is more</p></button>
-              <div class="resource-slider-frame">
-          
-                <div class="resource-slider-item">
-                  <div class="resource-slider-inset">
-                    <div class="resource">
-                        <a href="/#"><img id= "lol" class = "openmodale" src="images/sampler.jpg"></a>
-                        <p class= "underTitle">Kolorowa Kiecuszka</p>
-                        <p class="priceUnderTitle">$15</p>
-                   </div>
-                  </div>
-                </div>
-          
-                <div class="resource-slider-item">
-                  <div class="resource-slider-inset">
-                    <div class="resource">
-                        <a href="/#"><img id= "lol" class = "openmodale" src="images/sampler.jpg"></a>
-                        <p class= "underTitle">Kolorowa Kiecuszka</p>
-                        <p class="priceUnderTitle">$15</p>
-                    </div>
-                  </div>
-                </div>
-          
-                <div class="resource-slider-item">
-                  <div class="resource-slider-inset">
-                    <div class="resource">
-                        <a href="/#"><img id="lol" class = "openmodale" src="images/sampler.jpg"></a>
-                        <p class= "underTitle">Kolorowa Kiecuszka</p>
-                        <p class="priceUnderTitle">$15</p>
-                    </div>
-                  </div>
-                </div>
-          
-          
-                <div class="resource-slider-item">
-                  <div class="resource-slider-inset">
-                    <div class="resource">
-                        <a href="/#"><img id= "lol" class = "openmodale" src="images/sampler.jpg"></a>
-                        <p class= "underTitle">Kolorowa Kiecuszka</p>
-                        <p class="priceUnderTitle">$15</p>
-                    </div>
-                  </div>
-                </div>
-          
-                <div class="resource-slider-item">
-                  <div class="resource-slider-inset">
-                    <div class="resource">
-                        <a href="/#"><img id= "lol" class = "openmodale" src="images/sampler.jpg"></a>
-                        <p class= "underTitle">Kolorowa Kiecuszka</p>
-                        <p class="priceUnderTitle">$15</p>
-                    </div>
-                  </div>
-                </div>
-          
-                <div class="resource-slider-item">
-                  <div class="resource-slider-inset">
-                    <div class="resource">
-                      <a href="/#"><img id= "lol" class = "openmodale" src="images/sampler.jpg"></a>
-                      <p class= "underTitle">Kolorowa Kiecuszka</p>
-                      <p class="priceUnderTitle">$15</p>
-                  </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
+      <div></div>
     </div>
 
 
@@ -272,7 +197,7 @@
     <div id="bottomMenu">
     <a onclick="openNav('mySidenav', 7)" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);">ABOUT</a>  
     <a onclick="openNav('mySidenav', 25)" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);">PAST STORIES</a>
-    <a onclick="openNav('mySidenav', 45)" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);">NEWS</a>
+    <a onclick="load_home('news.html', 0)" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);">NEWS</a>
     <a onclick="openNav('mySidenav', 60)" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);">CONTACT</a>
     </div>
 
@@ -281,13 +206,71 @@
     <div id = "overlayMain"></div>
 
   </div>
-  <script src="script.js"></script>
+ 
     <script>
-function load_home() {
-     document.getElementById("mainContent").innerHTML='<object type="text/html" id ="newsGallery" data="news.html" ></object>';
+      
+
+
+//FUNCTION TAKING CARE OF MOVING OUT PREVIOUS MAIN CONTENT IN ORDER TO REPLACE IT WITH NEW ONE
+
+function load_home(element_flowing_in, startBottomOrTop) { //bottom is 0, top is 1
+  let mainContent = document.getElementById("mainContent");
+  let mainContentCurrentChild = mainContent.children[0];  //this is the current element in the main content area
+  mainContentCurrentChild.style.transition = "ease-in-out 1.5s"; // adding smooth animation to every new element
+
+
+
+
+
+    
+
+  setTimeout(function(){
+      if(startBottomOrTop == 0)
+    mainContentCurrentChild.style.transform="translateY(-120vh)";
+  else
+    mainContentCurrentChild.style.transform="translateY(100vh)";
+
+  }, 1000)
+   
+  setTimeout(function(){
+    mainContent.removeChild(mainContentCurrentChild);
+
+  }, 2000)
+   
+
+    let newObject = document.createElement('object');     ///////
+    $(newObject).attr('type', 'text/html');              //////
+    $(newObject).attr('data',element_flowing_in);       //////TAKES CARE OF IMPORTING NEW HTML FILE INTO MAIN SPACE
+    newObject.classList.add("newsGallery");       //////
+    
+
+ 
+
+
+    mainContent.appendChild(newObject);                 //////
+
+       let flowing_in_content = mainContent.children[1];
+       
+       if(startBottomOrTop == 0)                                        
+          flowing_in_content.style.transform="translateY(100vh)";
+       else
+          flowing_in_content.style.transform="translateY(-100vh)";
+
+        flowing_in_content.style.display= "block";                ///showing and placing the new item in the main space
+        flowing_in_content.style.transform="translateY(0)";       ////
+        
+       
+      
+      
+       
 }
 
-load_home();
+load_home('shopSliderGeneric.html',1);
+
+//END OF FUNCTION TAKING CARE OF MOVING OUT PREVIOUS MAIN CONTENT IN ORDER TO REPLACE IT WITH NEW ONE
+
 </script>
+
+<script src="script.js"></script>
 </body>
 </html>

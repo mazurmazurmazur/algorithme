@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400');
+
+
+
+
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+  vertical-align: baseline;
+  text-decoration: none;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+
+
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+input{
+  text-align:center;
+}
+
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+
+}
+
+
+
+
+
+
+#mainAboutWrapper{
+    position:absolute; /*it can be fixed too*/
+   
+    margin:auto;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+
+
+
+   
+}
+
+.aboutSection{
+    font-weight: 100;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    display:inline-block;
+    white-space: nowrap;
+    cursor: pointer;
+    width: 20vw;
+    vertical-align: top;
+    
+}
+
+
+
+.glyphicon{
+    font-size: 20px;
+    font-weight: 100 !important;
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    
+}
+
+.sectionText{
+    font-size: 2vw;
+    white-space: normal;
+    max-width: 20vw;
+    display: none;
+    padding:0;
+    margin:0;
+}
+
+
+
+
+
+
+/* DESKTOP */
+@media screen and (min-device-width: 1000px){
+.aboutSection{
+    font-size: 50px;
+}
+
+
+
+
+
+
+}
+
+/* SMARTPHONES */
+@media screen and (max-device-width: 640px) {            
+    .aboutSection{
+        font-size: 25px;
+    }
+
+
+
+
+    }
+    
+
+    /* TABLETS */
+    @media screen and (max-device-width: 999px){
+        .aboutSection{
+            font-size: 35px;
+        }
+
+
+
+
+        }
+
+  

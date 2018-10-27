@@ -2,10 +2,7 @@
 @import url('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
 
 
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
+
 
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -71,6 +68,7 @@ position: absolute;
 text-decoration: none;
 color:black;
 right: 10vw;
+
 }
 
 #bottomMenu{
@@ -79,6 +77,20 @@ right: 10vw;
     color:black;
     left: 0vw;
     bottom: 2vh;
+}
+
+.dropdownHead{
+    margin-left: 20vh;
+    display: inline-block;
+
+}
+
+.dropdownHead a{
+  text-decoration: none;
+  color: black;
+  transition: 0.3s ease-in;
+  font-size: 20px;
+  z-index: 25;
 }
 
 .menuA{
@@ -96,6 +108,91 @@ right: 10vw;
     
 }
 
+.dropdownHead a:hover{
+  background: black;
+  color: white;
+  
+}
+
+
+
+
+
+
+
+
+.dropdownHead-content{              /*  THIS IS A STYLING FOR DROPDOWNS IN MAIN MENU  */
+  display: none;
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  padding-top: 10px;
+  width: inherit;
+}
+
+.dropdownHead-content a {
+  text-decoration: none;
+  display: block;
+  margin-top: 5px;
+  text-align: right;
+}
+
+
+
+.dropdownHead:hover .dropdownHead-content {
+  display: block;
+}
+
+.dragonflyImg{
+  width: inherit;
+}
+
+.dragonflyDiv {
+  z-index: -20;
+  pointer-events: none;
+  transform: rotate(130deg);
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    animation-name: Player1;
+    animation-duration: 4s;
+    animation-timing-function: cubic-bezier(1.6, 0.8, 0.1, 0.1);
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-play-state: running;
+}
+@keyframes Player1 {
+    0% {
+        
+        left:-40%;
+        top:0%;
+    }
+    25% {
+        transform: rotate(220deg);
+        left:100%;
+        top:0%;
+    }
+    50% {
+        transform: rotate(310deg);
+        left:100%;
+        top:100%;
+   }
+   
+    75% {
+        transform: rotate(40deg);
+        left:-40%;
+        top:100%;
+   }
+    100% {
+        transform: rotate(130deg);
+        left:-40%;
+        top:0%;
+    }
+}
+
+                                       /*  THIS IS AN END OF STYLING FOR DROPDOWNS IN MAIN MENU  */
+
 #mainContent{
   position: absolute;
 width: 80vw;
@@ -105,7 +202,8 @@ left: 10vw;
 }
 
 #mainContent > *{
-  transition: all 1.5s ease-in-out 1.5s;
+  transition: all 1s ease-in-out 1s;
+  transition-timing-function: cubic-bezier(0,.48,.74,.80);
 
 }
 
@@ -570,18 +668,7 @@ font-size: 13px;
   }
 
 
-#mySidenav{
-  margin-top: 5vh;
-}
 
-#sideNavWrapperA{
-  position: absolute;
-}
-
-#sideNavHeadWrapperA{
-  position: absolute;
-  bottom: 3vh;
-}
 
 #lol:hover{
   border-width: 2px;
@@ -776,50 +863,6 @@ body {
   transition: background-color .5s;
 }
 
-.sidenav {
-  height: 0;
-  width: 100%;
-  position: fixed;
-  z-index: 1;
-  bottom: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  transition: 0.5s;
-}
-
-.sidenavHead {
-  height: 0;
-  width: 100%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  overflow-x: hidden;
-  transition: 0.5s;
-}
-
-.sidenav a, .sidenavHead a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s
-}
-
-.sidenav a:hover, .offcanvas a:focus{
-  color: #f1f1f1;
-}
-
-.closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 56px !important;
-  margin-left: 50px;
-}
 
 #bodyWrapper {
   transition: margin-top .5s;

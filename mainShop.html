@@ -15,28 +15,6 @@
 
 </head>
 <body>
-
-    <div id="mySidenav" class="sidenav">
-        <a class = "noMobile closebtn" href="javascript:void(0)"  onclick="closeNav('mySidenav')">×</a>
-        <div id="sideNavWrapperA">
-        <a class = "noMobile" href="#">About</a>		
-        <a class = "noMobile" href="#">Services</a>		
-        <a class = "noMobile" href="#">Clients</a>		
-        <a class = "noMobile" href="#">Contact</a>	
-      </div>		
-      </div>
-
-
-      <div id="mySidenavHead" class="sidenavHead">
-          <a class = "noMobile closebtn" href="javascript:void(0)"  onclick="closeHeadNav('mySidenavHead')">×</a>
-          <div id="sideNavHeadWrapperA">
-          <a class = "noMobile" href="#">About</a>		
-          <a class = "noMobile" href="#">Services</a>		
-          <a class = "noMobile" href="#">Clients</a>		
-          <a class = "noMobile" href="#">Contact</a>	
-        </div>		
-        </div>
-
      
 
   <div id="bodyWrapper">
@@ -50,9 +28,20 @@
 
 
     <div id="headMenu">
-        <a onclick="load_home('shopSliderGeneric.html',1)" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);" >OX</a>
-        <a onclick="openHeadNav('mySidenavHead', 26)" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);" >CAMPAIGN</a>
-        <a onclick="openHeadNav('mySidenavHead', 9)" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);" >OX-ED</a>
+        <a onclick="load_home('news.html',1)" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);" >CAMPAIGN</a>
+        <a onclick="load_home('shopSliderGeneric.html',1)" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);" >OX-ED</a>
+        <div class="dropdownHead"><a class=" noMobile" href="javascript:void(0);" >NEWS SECTION</a>
+          <div class="dropdownHead-content">
+            <div class="dragonflyDiv"><img src="images/dragonfly.png" class="dragonflyImg"></div>
+              <a>editori</a>
+              <a>kunstfond</a>
+              <a>MALWA</a>
+              <a>Finders</a>
+              <a>Watcher</a>
+              <a>IMTV</a>
+              <a>ECO CHIC</a>
+            </div>
+        </div>
     </div>
 
 
@@ -195,10 +184,9 @@
 
 
     <div id="bottomMenu">
-    <a onclick="openNav('mySidenav', 7)" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);">ABOUT</a>  
-    <a onclick="openNav('mySidenav', 25)" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);">PAST STORIES</a>
-    <a onclick="load_home('news.html', 0)" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);">NEWS</a>
-    <a onclick="openNav('mySidenav', 60)" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);">CONTACT</a>
+    <a onclick="load_home('about.html', 0)" class=" noMobile  menuA" href="javascript:void(0);">ABOUT</a>  
+    <a onclick="openNav('past.html', 0)" class=" noMobile  menuA" href="javascript:void(0);">PAST STORIES</a>
+    <a onclick="load_home('contact.html', 0)" class=" noMobile  menuA" href="javascript:void(0);">CONTACT</a>
     </div>
 
 
@@ -216,21 +204,17 @@
 function load_home(element_flowing_in, startBottomOrTop) { //bottom is 0, top is 1
   let mainContent = document.getElementById("mainContent");
   let mainContentCurrentChild = mainContent.children[0];  //this is the current element in the main content area
-  mainContentCurrentChild.style.transition = "ease-in-out 1.5s"; // adding smooth animation to every new element
-
-
-
-
+  mainContentCurrentChild.style.transition = "ease-in-out 1s"; // adding smooth animation to every new element
 
     
 
-  setTimeout(function(){
-      if(startBottomOrTop == 0)
+  
+  if(startBottomOrTop == 0)
     mainContentCurrentChild.style.transform="translateY(-120vh)";
   else
     mainContentCurrentChild.style.transform="translateY(100vh)";
 
-  }, 1000)
+ 
    
   setTimeout(function(){
     mainContent.removeChild(mainContentCurrentChild);

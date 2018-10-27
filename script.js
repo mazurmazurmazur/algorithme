@@ -116,26 +116,7 @@ function defer(method) {
 
 
 
-////DESKTOP HEAD NAV PUSHING MAIN CONTENT 
 
-function openHeadNav(a, fromRight) {
-  document.getElementById(a).style.height = "50vh";
-  document.getElementById("bodyWrapper").style.marginTop = "50vh";
-  document.getElementById("overlayMain").style.backgroundColor = "rgba(0,0,0,0.4)";
-  document.getElementById("overlayMain").style.zIndex = 20;
-  document.getElementById("sideNavHeadWrapperA").style.right = fromRight +"vw";
-}
-
-function closeHeadNav(a) {
-  document.getElementById(a).style.height = "0";
-  document.getElementById("bodyWrapper").style.marginTop= "0";
-  document.getElementById("overlayMain").style.backgroundColor = "transparent";
-  document.getElementById("overlayMain").style.zIndex = -10;
-
-}
-
-
-////END OF DESKTOP HEAD NAV PUSHING MAIN CONTENT
 
 
 
@@ -163,28 +144,7 @@ $('select[name="colorpicker"]').simplecolorpicker({picker: false});
 ////END COLOR PICKER///
 
 
-////DESKTOP BOTTOM NAV PUSHING MAIN CONTENT 
 
-
-
-
-function openNav(a, fromLeft) {
-  document.getElementById(a).style.height = "50vh";
-  document.getElementById("bodyWrapper").style.marginTop = "-50vh";
-  document.getElementById("overlayMain").style.backgroundColor = "rgba(0,0,0,0.4)";
-  document.getElementById("overlayMain").style.zIndex = 20;
-  document.getElementById("sideNavWrapperA").style.left = fromLeft +"vw";
-}
-
-function closeNav(a) {
-  document.getElementById(a).style.height = "0";
-  document.getElementById("bodyWrapper").style.marginTop= "0";
-  document.getElementById("overlayMain").style.backgroundColor = "transparent";
-  document.getElementById("overlayMain").style.zIndex = -10;
-}
-
-
-////END OF DESKTOP BOTTOM NAV PUSHING MAIN CONTENT
 
 
 //////NEWSLETTER 

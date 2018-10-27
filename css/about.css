@@ -103,14 +103,7 @@ body{
     
 }
 
-.sectionText{
-    font-size: 2vw;
-    white-space: normal;
-    max-width: 20vw;
-    display: none;
-    padding:0;
-    margin:0;
-}
+
 
 
 
@@ -131,9 +124,22 @@ body{
 }
 
 /* SMARTPHONES */
-@media screen and (max-device-width: 640px) {            
+@media screen and (max-device-width: 650px) {            
     .aboutSection{
+        margin-top: 10vh;
         font-size: 25px;
+        display:block;
+        margin-left: 10vw;
+        width: 80vw;
+    }
+
+    .sectionText{
+        font-size: 4vw;
+        white-space: normal;
+        max-width: 80vw;
+        display: none;
+        padding:0;
+        margin:0;
     }
 
 

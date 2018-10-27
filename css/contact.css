@@ -136,9 +136,9 @@ input[type=submit]:hover {
         background-color: #fff;
         padding: 20px;
         border-radius: 0;
-        border: 1px solid #d6d6d6;
-        position: absolute;
-        left:10vw;
+		border: 1px solid #d6d6d6;
+		position: initial;
+        
       }
 
 }
@@ -167,6 +167,10 @@ input[type=submit]:hover {
 	justify-content: center;
 	align-items: center;
 }
+
+/* MOBILE */
+
+
 
 .card{
   height: auto;
@@ -275,3 +279,18 @@ ul{
 *::selection{
 	background-color: #CCFF90;
 }
+
+@media screen and (max-device-width: 760px) {  
+
+	#contactCardContainer{
+		position: initial;
+		display: block;
+		max-width: 80vw;
+		margin-left: 10vw;
+	}
+	
+	.card{
+		width: 80vw;
+	}
+	
+	 }

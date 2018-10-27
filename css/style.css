@@ -667,6 +667,7 @@ font-size: 13px;
     width: 30vw;
   }
 
+ 
 
 
 
@@ -928,6 +929,20 @@ display: none !important;
 position: relative;
 width: 80vw;
 left: 10vw;
+}
+
+#lol{
+  transform: translateX(-8vw);
+}
+
+#mainContent{
+  top: 10vh;
+}
+
+
+.newsGallery{
+  top:0;
+  height: 100vh;
 }
 
 

@@ -17,6 +17,39 @@ var x = window.matchMedia("(min-width: 900px)")
 
 
 
+    /** submenus hide/show **/
+
+
+let aOX = $("#aOX");
+let aOXED = $("#aOXED");
+let aOXs = $("#aOX span");
+let aOXEDs = $("#aOXED span");
+
+aOX.on("click", function(){
+  $(this).find("span").css({"background" : "black",
+"color" : "white"});
+  $(this).next().slideDown();
+  aOXED.next().slideUp();
+  aOXEDs.css({"background" : "transparent",
+  "color" : "black"});
+})
+
+aOXED.on("click", function(){
+  $(this).find("span").css({"background" : "black",
+  "color" : "white"});
+    $(this).next().slideDown();
+  aOX.next().slideUp();
+  aOXs.css({"background" : "transparent",
+  "color" : "black"});
+
+})
+
+
+ /** submenus hide/show  END**/
+
+
+
+
 function animateMainContent(){
   document.getElementById("mainContent").children[0].style.transition = "ease-in-out 1.5s";
 
@@ -120,19 +153,7 @@ function defer(method) {
 
 
 
-//////MODAL WITH PRODUCT DETAILS///////
 
-$('.openmodale').click(function (e) {
-         e.preventDefault();
-         $('.modale').addClass('opened');
-    });
-$('.closemodale').click(function (e) {
-         e.preventDefault();
-         $('.modale').removeClass('opened');
-    });
-
-
-//////END OF MODAL WITH PRODUCT DETAILS///////
 
 
 ////COLOR PICKER///
@@ -150,10 +171,10 @@ $('select[name="colorpicker"]').simplecolorpicker({picker: false});
 //////NEWSLETTER 
 
 
-$(document).ready(function () {
-  if(x.matches){
-  setTimeout(fnShowPopup, 5000);}
-});
+// $(document).ready(function () {
+//   if(x.matches){                           //FUNCTION THAT SHOWS NEWSLETTER AUTOMATICALLY
+//   setTimeout(fnShowPopup, 5000);}
+// });
 function fnShowPopup() {
   document.getElementById("newsletterContainer").style.display = "block";
   document.getElementById("newsletterContainer").style.zIndex = 30;

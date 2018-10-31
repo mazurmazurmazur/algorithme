@@ -105,6 +105,15 @@ body{
 
 
 
+.sectionText{
+    font-size: 2vw;
+    white-space: normal;
+    max-width: 20vw;
+    display: none;
+    padding:0;
+    margin:0;
+}
+
 
 
 

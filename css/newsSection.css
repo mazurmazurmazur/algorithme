@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400');
+@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
+
+
+
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+  vertical-align: baseline;
+  text-decoration: none;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+
+
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+input{
+  text-align:center;
+}
+
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 200;
+
+}
+
+
+
+/* ----------- Mobile Screens -----------*/
+
+@media screen and (max-width: 812px) {
+
+
+/* ----------- Mobile Gallery ----------- */
+
+    h2[id*=button20]{
+        display: inline-block;
+        font-size: 0.8em;
+        margin-left: 1.38em;
+        padding: 1em 0.1em;
+        cursor: pointer;
+    }
+
+  /* ----------- Mobile H2 "Recent Projects"/"See More" ----------- */
+.recentProject{
+  font-size: 24px;
+  font-weight: 200;
+  line-height: 36px;
+  text-align: center;
+  padding: 6vw;
+}
+.seeMore {
+  display: none;
+}
+
+
+ .parent{
+    margin: 2% 5% 2% 5%;
+    display: flex;
+    flex-direction: column;
+}
+    #leftImg img{
+        width: 100%;
+    }
+      #rightImg img{
+        width: 100%;
+    }
+
+    #arrow{
+        display: none;
+    }
+
+
+
+
+
+}/*-----------END OF MOBILE MEDIA QUERY------------*/
+   
+@media screen
+and (min-width: 815px)
+and (-webkit-min-device-pixel-ratio: 1) {
+    /*--------------GALLERY-----------------*/
+
+
+    .parent {
+    display: flex;
+    align-items: center;
+    padding-left: 20%;
+    padding-right: 20%;
+        padding-top: 7%;
+}
+
+
+    .parent > div {
+        flex: 1;
+    }
+
+    #leftImg img{
+        width: 100%;
+
+    }
+     #leftImg {
+         padding-right: 1%;
+        align-self: flex-start;
+}
+
+     #rightImg{
+                width: 100%;
+          align-self: flex-start;
+
+
+    }
+
+
+    #rightImg img{
+                width: 100%;
+
+
+    }
+
+    h2[id*=button20]{
+        font-weight: 200;
+        position: fixed;
+        right: 10%;
+        font-size: 20px;
+        cursor: pointer;
+        vertical-align: top;
+    }
+
+    #button2012{
+
+    }
+    #button2013{
+        top: 10.6%;
+    }
+    #button2014{
+        top: 14.6%;
+    }
+    #button2015{
+        top: 18.6%;
+    }
+    #button2016{
+        top: 22.6%;
+    }
+    #button2017{
+        top: 26.6%;
+    }
+    #button2018{
+        top: 30.6%;
+    }
+
+    h2[id*=button20]:hover{
+        opacity: 0.7;
+    }
+
+     }/* ---------------- END OF MEDIA QUERIES --------------------*/
+
+
+
+
+
+
+
+

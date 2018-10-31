@@ -87,3 +87,36 @@ function defer(method) {
 
 
 
+  //////MODAL WITH PRODUCT DETAILS///////
+  var parentBody = window.parent.document.body
+  let modale = window.parent.document.querySelector(".modale");
+  let closemodale = $(".closemodale", parentBody);
+  
+  
+//   $('.openmodale').click(function () {
+//     modale.classList.add("opened");
+// });
+// closemodale.click(function () {
+//     modale.classList.remove('opened');
+// });
+
+
+
+//////END OF MODAL WITH PRODUCT DETAILS///////
+
+
+
+
+
+$(".openmodale").on(
+  {
+    mouseenter: function() 
+    {
+      $(this).next().css("display", "block");
+    },
+    mouseleave: function()
+    {
+      $(this).next().css("display", "none");
+    }
+})
+;

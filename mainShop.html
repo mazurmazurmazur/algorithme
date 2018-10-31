@@ -6,11 +6,11 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
-    <link rel="stylesheet" href="jquery.simplecolorpicker.css">
-    <script src="jquery-3.3.1.js"
+    <link rel="stylesheet" href="css/jquery.simplecolorpicker.css">
+    <script src="js/jquery-3.3.1.js"
   integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   crossorigin="anonymous"></script>
-  <script src="jquery.simplecolorpicker.js"></script>
+  <script src="js/jquery.simplecolorpicker.js"></script>
 
 
 </head>
@@ -28,20 +28,27 @@
 
 
     <div id="headMenu">
-        <a onclick="load_home('news.html',1)" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);" >CAMPAIGN</a>
-        <a onclick="load_home('shopSliderGeneric.html',1)" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);" >OX-ED</a>
-        <div class="dropdownHead"><a class=" noMobile" href="javascript:void(0);" >NEWS SECTION</a>
+        <div class="dropdownHead"><a onclick="load_home('shopSliderGeneric.html',1)" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);" >WEBSHOP</a>
           <div class="dropdownHead-content">
             <div class="dragonflyDiv"><img src="images/dragonfly.png" class="dragonflyImg"></div>
-              <a>editori</a>
-              <a>kunstfond</a>
-              <a>MALWA</a>
-              <a>Finders</a>
-              <a>Watcher</a>
-              <a>IMTV</a>
-              <a>ECO CHIC</a>
+            
+              <a id="aOX"><span>OX⌄</span></a>
+              <div class ="subSubMenu" id="OXdiv">
+              <a><span>O - women</span></a>
+              <a><span>X - men</span></a>
+              <a><span>OX - uni</span></a></div>
+              <a id="aOXED"><span>OX-ED⌄</span></a>
+              <div class ="subSubMenu" id = "OXEDdiv">
+                  <a><span>O - women</span></a>
+                  <a><span>X - men</span></a>
+                  <a><span>OX - uni</span></a>
+              <a><span>what is OX-ED</span></a></div>
             </div>
         </div>
+        
+        <a onclick="load_home('http://blog.mazurmazurmazur.pl/',1)" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);" >CAMPAIGN</a>
+        <a onclick="load_home('newsSection.html',1)" class=" menuA noMobile bottomMenuA" href="javascript:void(0);" >NEWS SECTION</a>
+       
     </div>
 
 
@@ -254,6 +261,6 @@ load_home('shopSliderGeneric.html',1);
 
 </script>
 
-<script src="script.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>

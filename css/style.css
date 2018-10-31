@@ -68,6 +68,8 @@ position: absolute;
 text-decoration: none;
 color:black;
 right: 10vw;
+z-index: 100;
+top: 2vh;
 
 }
 
@@ -79,40 +81,52 @@ right: 10vw;
     bottom: 2vh;
 }
 
-.dropdownHead{
-    margin-left: 20vh;
-    display: inline-block;
+#bottomMenu a, #headMenu a{
+  cursor: pointer;
+}
 
+.dropdownHead{
+    display: inline-block;
+    position: relative;
+  
 }
 
 .dropdownHead a{
   text-decoration: none;
-  color: black;
+  color: white;
   transition: 0.3s ease-in;
   font-size: 20px;
   z-index: 25;
 }
 
-.menuA{
-    text-decoration: none;
-    color: black;
-    transition: 0.3s ease-in;
-    font-size: 20px;
-    margin-left: 20vh;
-    z-index: 25;
+.dropdownHead-content a{
+  color:black ;
+
 }
 
-.menuA:hover{
-    background: black;
-    color: white;
+.dropdownHead-content a span:hover{
+  color:white !important;
+  background-color:black !important;
+}
+
+.menuA{
+    text-decoration: none;
+    color:white;
+    transition: 0.3s ease-in;
+    font-size: 20px;
+   margin-left: 10vw;
+    z-index: 25;
+    background:black;
     
 }
 
-.dropdownHead a:hover{
-  background: black;
-  color: white;
-  
+
+.menuA:hover{
+    background:white;
+    color: black;
+    
 }
+
 
 
 
@@ -127,7 +141,7 @@ right: 10vw;
   z-index: 1;
   right: 0;
   padding-top: 10px;
-  width: inherit;
+  width: calc(100% - 10vw);
 }
 
 .dropdownHead-content a {
@@ -165,7 +179,7 @@ right: 10vw;
 @keyframes Player1 {
     0% {
         
-        left:-40%;
+        left:0;
         top:0%;
     }
     25% {
@@ -181,28 +195,38 @@ right: 10vw;
    
     75% {
         transform: rotate(40deg);
-        left:-40%;
+        left:0;
         top:100%;
    }
     100% {
         transform: rotate(130deg);
-        left:-40%;
+        left:0;
         top:0%;
     }
 }
+
+
+.subSubMenu{
+  display: none;
+}
+
+.subSubMenu a{
+  font-size: 15px;
+}
+
+
 
                                        /*  THIS IS AN END OF STYLING FOR DROPDOWNS IN MAIN MENU  */
 
 #mainContent{
   position: absolute;
-width: 80vw;
-top: 20vh;
-left: 10vw;
+width: 100vw;
+top:0;
     
 }
 
 #mainContent > *{
-  transition: all 1s ease-in-out 1s;
+  transition: all .3s ease-in-out .3s;
   transition-timing-function: cubic-bezier(0,.48,.74,.80);
 
 }
@@ -360,15 +384,32 @@ left: 10vw;
 
   .resource{
     text-align: center;
+    position: relative;
   }
 
   #lol{
     height: 80vh;
     width: auto;
-    border-top: solid 0px rgb(0, 0, 0);
-    border-bottom: solid 0px rgb(0, 0, 0);
     transition: border-width 0.2s ease-in-out;
+    border-bottom: solid 0px rgb(0, 0, 0);
+   
 }
+
+
+
+/* hover effects under item \/ */
+.galleryItemHover{
+  position: absolute;
+  bottom:5%;
+  left: 25%;
+  height: 5px;
+  width: 50%;
+  background: #000;
+  pointer-events: none;
+  display:none;
+  margin-bottom: 5px;
+}
+
 
 #imageInModal{
   height: 50vh;
@@ -386,6 +427,13 @@ font-size: 13px;
   
   /************END SLIDER**********/
 
+
+  /*TUMBLR BLOG STYLIN  */
+#object.iframe-controls-right{
+  display:none;
+}
+
+/* END TUMBLR BLOG STYLING */
 
   /************SOCIAL MEDIA BUTTONS**********/
 
@@ -661,6 +709,7 @@ font-size: 13px;
     border-width: 1px;
     top: 1vh;
     left: 1vh;
+    z-index: 100;
   }
 
   #logoDesktop{
@@ -671,9 +720,7 @@ font-size: 13px;
 
 
 
-#lol:hover{
-  border-width: 2px;
-}
+
 
 
 /**NESLETTER**/
@@ -885,8 +932,8 @@ position: relative;
 /* NEWS GALLERY STLING */
 
 .newsGallery{
-  height: 70vh;
-  width: 80vw;
+  height: 80vh;
+  width: 100vw;
   display: none;
   position: absolute;
   top: 0vh;
@@ -980,6 +1027,8 @@ left: 10vw;
 margin-left: 0;
 
 }
+
+
 
 .socialbtns{
   position: absolute;

@@ -13,7 +13,7 @@ var years = [];
 
 
 function getAllPaintings() {
-  fetch("http://dashboard.algorithme.co/wp-json/wp/v2/newsitem?_embed&per_page=50")
+  fetch("http://dashboard.algorithme.co/wp-json/wp/v2/paststory?_embed&per_page=50")
     .then(res => res.json())
     .then(showPaintings)
 }
@@ -41,7 +41,6 @@ getAllPaintings();
 
 
     function fillColumns(){
-                    console.log(paintings.length);
         for(i=0; i<paintings.length; i=i+2){
             var img = document.createElement("img");
             img.src = paintings[i];

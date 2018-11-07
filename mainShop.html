@@ -28,7 +28,7 @@
 
 
     <div id="headMenu">
-        <div class="dropdownHead"><a onclick="load_home('shopSliderGeneric.html',1)" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);" >WEBSHOP</a>
+        <div class="dropdownHead"><a onclick="load_home('testGall.html',1,'webshop' )" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);" >WEBSHOP</a>
           <div class="dropdownHead-content">
             <div class="dragonflyDiv"><img src="images/dragonfly.png" class="dragonflyImg"></div>
             
@@ -43,14 +43,21 @@
                   <a><span>X - men</span></a>
                   <a><span>OX - uni</span></a>
               <a><span>what is OX-ED</span></a></div>
+              <a id="aJewelery"><span>Jewelery</span></a>
             </div>
         </div>
         
-        <a onclick="load_home('http://blog.mazurmazurmazur.pl/',1)" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);" >CAMPAIGN</a>
+        <a onclick="load_home('http://blog.mazurmazurmazur.pl/',1, 'campaign')" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);" >CAMPAIGN</a>
         <a onclick="load_home('newsSection.html',1)" class=" menuA noMobile bottomMenuA" href="javascript:void(0);" >NEWS SECTION</a>
        
     </div>
 
+    <div id="bottomMenu">
+        <a onclick="load_home('about.html', 0)" class=" noMobile  menuA" href="javascript:void(0);">ABOUT</a>  
+        <a onclick="load_home('pastStories.html',0)" class=" noMobile  menuA" href="javascript:void(0);">PAST STORIES</a>
+        <a onclick="load_home('contact.html', 0)" class=" noMobile  menuA" href="javascript:void(0);">CONTACT</a>
+        </div>
+    
 
     <!-- MODAL DISPLAYING SELECTED PRODUCT -->
 
@@ -107,10 +114,10 @@
         <br/>
         <div class="socialbtns">
         <ul>
-        <li><a href="#" class=" smButton fa fa-lg fa-facebook"></a></li>
-        <li><a href="#" class=" smButton fa fa-lg fa-pinterest"></a></li>
-        <li><a href="#" class=" smButton fa fa-lg fa-instagram"></a></li>
-        <li><a href="#" class=" smButton fa fa-lg fa-youtube"></a></li>
+        <li><a target="_blank" rel="noopener noreferrer" href="http://facebook.com/" class=" smButton fa fa-lg fa-facebook"></a></li>
+        <li><a target="_blank" rel="noopener noreferrer" href="http://pinterest.com/" class=" smButton fa fa-lg fa-pinterest"></a></li>
+        <li><a target="_blank" rel="noopener noreferrer" href="http://instagram.com/" class=" smButton fa fa-lg fa-instagram"></a></li>
+        <li><a target="_blank" rel="noopener noreferrer" href="http://youtube.com/" class=" smButton fa fa-lg fa-youtube"></a></li>
         </ul>
         </div>
   
@@ -171,29 +178,19 @@
 
 
 
-      <a class="upperMobileItem" onclick="load_home('news.html', 0); closeMobileNav()">CAMPAIGN</a>
-      <a class="upperMobileItem" onclick="load_home('shopSliderGeneric.html', 0);closeMobileNav()"">OX-ED</a>
-      <a class="upperMobileItem" onclick="load_home('news.html', 0); closeMobileNav()">NEWS SECTION</a>
+      <a class="upperMobileItem" onclick="load_home('http://blog.mazurmazurmazur.pl/',1, 'campaign'); closeMobileNav()">CAMPAIGN</a>
+      <a class="upperMobileItem" onclick="load_home('testGall.html', 1, 'webshop');closeMobileNav()"">WEBSHOP</a>
+      <a class="upperMobileItem" onclick="load_home('newsSection.html', 1); closeMobileNav()">NEWS SECTION</a>
 <br><br>
     <a class="bottomMobileItem" onclick="load_home('about.html', 0); closeMobileNav()"><span>ABOUT</span></a>
-    <a class="bottomMobileItem" href="#"><span>PAST STORIES</span></a>
-    <a class="bottomMobileItem" onclick="load_home('contact.html', 0);; closeMobileNav()"><span>CONTACT</span></a>
+    <a class="bottomMobileItem" onclick="load_home('pastStories.html', 0);closeMobileNav()"><span>PAST STORIES</span></a>
+    <a class="bottomMobileItem" onclick="load_home('contact.html', 0); closeMobileNav()"><span>CONTACT</span></a>
   </div>
 
 </div>
 
 <!-- Use any element to open/show the overlay navigation menu -->
 <span class="noDesktop" id = "openMobileNav" onclick="openMobileNav()">MENU</span>
-
-
-
-
-
-    <div id="bottomMenu">
-    <a onclick="load_home('about.html', 0)" class=" noMobile  menuA" href="javascript:void(0);">ABOUT</a>  
-    <a onclick="openNav('past.html', 0)" class=" noMobile  menuA" href="javascript:void(0);">PAST STORIES</a>
-    <a onclick="load_home('contact.html', 0)" class=" noMobile  menuA" href="javascript:void(0);">CONTACT</a>
-    </div>
 
 
 
@@ -204,15 +201,90 @@
     <script>
       
 
+      var x = window.matchMedia("(min-width: 900px)")
+
+
+  let iframe = document.getElementById('mainContent');
+  let innerDoc = iframe.contentDocument;
+
+
+function setWebshopCustom(){
+
+if(!x.matches){ 
+  $("#mainContent").css("top", "15vh");
+  $(".newsGallery").css(
+    {"left":"0",
+    "width":"100vw",
+    "height":"80vh"
+});
+
+}
+else{
+
+  $("#mainContent").css("top", "15vh");
+  $(".newsGallery").css(
+    {"left":"10vw",
+    "width":"80vw"
+   
+});}
+}
+function setCampaignCustom(){
+
+  if(x.matches){ 
+  $("#mainContent").css("top", "15vh");
+  $(".newsGallery").css(
+    {"left":"0",
+    "width":"100vw",
+    "height":"80vh"
+});
+
+}
+else{
+
+  $("#mainContent").css("top", "0");
+  $(".newsGallery").css(
+    {
+    "width":"100vw",
+    "height":"100vh"
+});}
+
+}
+
+function setRegularSize(){
+
+  if(x.matches){ 
+  $("#mainContent").css("top", "15vh");
+  $(".newsGallery").css(
+    {"left":"0",
+    "width":"100vw",
+    "height":"80vh"
+});
+
+}
+else{
+
+  $("#mainContent").css("top", "15vh");
+  $(".newsGallery").css(
+    {"left":"0",
+    "width":"100vw",
+    "height":"80vh"
+});}
+}
+
 
 //FUNCTION TAKING CARE OF MOVING OUT PREVIOUS MAIN CONTENT IN ORDER TO REPLACE IT WITH NEW ONE
 
-function load_home(element_flowing_in, startBottomOrTop) { //bottom is 0, top is 1
+function load_home(element_flowing_in, startBottomOrTop, customSize) { //bottom is 0, top is 1
   let mainContent = document.getElementById("mainContent");
   let mainContentCurrentChild = mainContent.children[0];  //this is the current element in the main content area
   mainContentCurrentChild.style.transition = "ease-in-out 1s"; // adding smooth animation to every new element
+  
+  
+  
+  
 
-    
+
+
 
   
   if(startBottomOrTop == 0)
@@ -224,8 +296,7 @@ function load_home(element_flowing_in, startBottomOrTop) { //bottom is 0, top is
    
   setTimeout(function(){
     mainContent.removeChild(mainContentCurrentChild);
-
-  }, 2000)
+  }, 500)
    
 
     let newObject = document.createElement('object');     ///////
@@ -250,12 +321,24 @@ function load_home(element_flowing_in, startBottomOrTop) { //bottom is 0, top is
         flowing_in_content.style.transform="translateY(0)";       ////
         
        
-      
+      setTimeout(function(){
+        if(customSize == "webshop"){
+  setWebshopCustom();
+}
+else if(customSize == "campaign"){
+  setCampaignCustom();
+}
+else{
+setRegularSize();
+}
+
+      },300);
+
       
        
 }
 
-load_home('shopSliderGeneric.html',1);
+load_home('testGall.html',1,'webshop');
 
 //END OF FUNCTION TAKING CARE OF MOVING OUT PREVIOUS MAIN CONTENT IN ORDER TO REPLACE IT WITH NEW ONE
 

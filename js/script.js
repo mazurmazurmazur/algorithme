@@ -30,7 +30,7 @@ aOX.on("click", function(){
 "color" : "white"});
   $(this).next().slideDown();
   aOXED.next().slideUp();
-  aOXEDs.css({"background" : "transparent",
+  aOXEDs.css({"background" : "white",
   "color" : "black"});
 })
 
@@ -39,7 +39,7 @@ aOXED.on("click", function(){
   "color" : "white"});
     $(this).next().slideDown();
   aOX.next().slideUp();
-  aOXs.css({"background" : "transparent",
+  aOXs.css({"background" : "white",
   "color" : "black"});
 
 })
@@ -158,12 +158,8 @@ function defer(method) {
 
 ////COLOR PICKER///
 
-$('select[name="colorpicker"]').simplecolorpicker();
-$('select[name="colorpicker"]').simplecolorpicker('selectColor', '#7bd148');
-$('select[name="colorpicker"]').simplecolorpicker('destroy');
 $('select[name="colorpicker"]').simplecolorpicker({picker: false});
 ////END COLOR PICKER///
-
 
 
 
@@ -171,15 +167,17 @@ $('select[name="colorpicker"]').simplecolorpicker({picker: false});
 //////NEWSLETTER 
 
 
-// $(document).ready(function () {
-//   if(x.matches){                           //FUNCTION THAT SHOWS NEWSLETTER AUTOMATICALLY
-//   setTimeout(fnShowPopup, 5000);}
-// });
+$(document).ready(function () {
+  if(x.matches){                           //FUNCTION THAT SHOWS NEWSLETTER AUTOMATICALLY
+  setTimeout(fnShowPopup, 5000);}
+});
 function fnShowPopup() {
   document.getElementById("newsletterContainer").style.display = "block";
-  document.getElementById("newsletterContainer").style.zIndex = 30;
+  document.getElementById("newsletterContainer").style.zIndex = 120;
   document.getElementById("overlayMain").style.backgroundColor = "rgba(0,0,0,0.4)";
-  document.getElementById("overlayMain").style.zIndex = 20;
+  document.getElementById("overlayMain").style.zIndex = 110;
+  document.getElementById("overlayMain").style.display = "block";
+
 
   //code to show popup
 }

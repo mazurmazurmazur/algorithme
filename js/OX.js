@@ -93,12 +93,12 @@ function defer(method) {
   let closemodale = $(".closemodale", parentBody);
   
   
-//   $('.openmodale').click(function () {
-//     modale.classList.add("opened");
-// });
-// closemodale.click(function () {
-//     modale.classList.remove('opened');
-// });
+  $('.openmodale').click(function () {
+    modale.classList.add("opened");
+});
+closemodale.click(function () {
+    modale.classList.remove('opened');
+});
 
 
 

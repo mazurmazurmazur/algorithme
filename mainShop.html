@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Page Title</title>
+    <title>A L G O R I T H M E</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
     <link rel="stylesheet" href="css/jquery.simplecolorpicker.css">
@@ -26,11 +26,13 @@
           <img id="logoMobile" src="images/logoClassic.png">
         </div>
 
+        <div id="cartWrapper"><a href="cart.html">(<span id="amountInCart">0</span>)<img id="cart" src="images/luggage.png"></a></div>
+
 
     <div id="headMenu">
         <div class="dropdownHead"><a onclick="load_home('testGall.html',1,'webshop' )" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);" >WEBSHOP</a>
           <div class="dropdownHead-content">
-            <div class="dragonflyDiv"><img src="images/dragonfly.png" class="dragonflyImg"></div>
+            <div class="dragonflyDiv"><img src="images/dot.png" class="dragonflyImg"></div>
             
               <a id="aOX"><span>OX⌄</span></a>
               <div class ="subSubMenu" id="OXdiv">
@@ -54,7 +56,7 @@
 
     <div id="bottomMenu">
         <a onclick="load_home('about.html', 0)" class=" noMobile  menuA" href="javascript:void(0);">ABOUT</a>  
-        <a onclick="load_home('pastStories.html',0)" class=" noMobile  menuA" href="javascript:void(0);">PAST STORIES</a>
+        <a onclick="load_home('https://lasertheme.tumblr.com/',0,'campaign')" class=" noMobile  menuA" href="javascript:void(0);">PAST STORIES</a>
         <a onclick="load_home('contact.html', 0)" class=" noMobile  menuA" href="javascript:void(0);">CONTACT</a>
         </div>
     
@@ -70,7 +72,8 @@
             <a href="#" class="btn-close closemodale" aria-hidden="true">&times;</a>
           </div>
           <div class="modal-body">
-              <a href="/#"><img id= "imageInModal" src="images/sampler.jpg"></a><br>
+              <a id ="detailsModalButton" href="#">Details... ></a>
+              <a href="javascript:void(0);"><img id= "imageInModal" src="images/sampler.jpg"></a><br>
 
                 <!--Size picker-->
 
@@ -107,11 +110,14 @@
             <a href="#" class="btn closemodale" id="btn_ingresar">Order</a>
           </div>
         </div>
+        <div id="modalDetailsDiv"></div>
       </div>
       <!-- /Modal -->
 
         <!-- social media buttons -->
         <br/>
+
+        <div class="shoppingBag"><a target="_blank" rel="noopener noreferrer" href="http://facebook.com/" class=" fas fa-shopping-bag"></a></div>
         <div class="socialbtns">
         <ul>
         <li><a target="_blank" rel="noopener noreferrer" href="http://facebook.com/" class=" smButton fa fa-lg fa-facebook"></a></li>
@@ -183,7 +189,7 @@
       <a class="upperMobileItem" onclick="load_home('newsSection.html', 1); closeMobileNav()">NEWS SECTION</a>
 <br><br>
     <a class="bottomMobileItem" onclick="load_home('about.html', 0); closeMobileNav()"><span>ABOUT</span></a>
-    <a class="bottomMobileItem" onclick="load_home('pastStories.html', 0);closeMobileNav()"><span>PAST STORIES</span></a>
+    <a class="bottomMobileItem" onclick="load_home('https://lasertheme.tumblr.com/', 0,'campaign');closeMobileNav()"><span>PAST STORIES</span></a>
     <a class="bottomMobileItem" onclick="load_home('contact.html', 0); closeMobileNav()"><span>CONTACT</span></a>
   </div>
 
@@ -231,11 +237,12 @@ else{
 function setCampaignCustom(){
 
   if(x.matches){ 
-  $("#mainContent").css("top", "15vh");
+  $("#mainContent").css("top", "0vh");
   $(".newsGallery").css(
     {"left":"0",
     "width":"100vw",
-    "height":"80vh"
+    "height":"100vh",
+    "overflow":"scroll"
 });
 
 }

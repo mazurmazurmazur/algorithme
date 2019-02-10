@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title> A L G O R I T H M E CART</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/5175/utf-latest.min.css"
+    />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/5175/utf-latest.min.css"
+    />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/cart.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+
+    <script src="js/script.js"></script>
+  </head>
+  <body>
+    <div id="bodyWrapper">
+      <div class="mainCart">
+        <h1 class="headingCart">Shopping cart</h1>
+<div id="bounceWrapperCart" >
+        <div class="bounce">
+          <a> < </a>
+        </div><div><a id="cartBack" href="mainShop.html">Back</a></div></div>
+
+        <section class="shopping-cart">
+          <ol class="ui-list shopping-cart--list" id="shopping-cart--list">
+            <script id="shopping-cart--list-item-template" type="text/template">
+              <li class="_grid shopping-cart--list-item">
+                <div class="_column product-image">
+                  <img class="product-image--img" src="{{=img}}" alt="Item image" />
+                </div>
+                <div class="_column product-info">
+                  <h4 class="product-name">{{=name}}</h4>
+                  <p class="product-desc">{{=desc}}</p>
+                  <div class="price product-single-price"><span class="currencySmall">$</span>{{=price}}</div>
+                </div>
+                <div class="_column product-modifiers" data-product-price="{{=price}}">
+                  <div class="_grid">
+                    <button class="_btn _column product-subtract">&minus;</button>
+                    <div class="_column product-qty">{{=quantity}}</div>
+                    <button class="_btn _column product-plus">&plus;</button>
+                    <p class="productIdHidden" style="">{{=prodId}}</p>
+                  </div>
+                  <button class="_btn entypo-trash product-remove">Remove</button>
+                  <div class="price product-total-price">${{=prod-total}}</div>
+                </div>
+              </li>
+            </script>
+          </ol>
+
+          <footer class="_grid cart-totals">
+            <div class=" noMobile _column subtotal" id="subtotalCtr">
+              <div class="cart-totals-key">Subtotal</div>
+              <div class="cart-totals-value">$0.00</div>
+            </div>
+            <div class="_column shipping" id="shippingCtr">
+              <div class="cart-totals-key">Shipping</div>
+              <div class="cart-totals-value">$0.00</div>
+            </div>
+            <div class="noMobile _column taxes" id="taxesCtr">
+              <div class="cart-totals-key">Taxes</div>
+              <div class="cart-totals-value">$0.00</div>
+            </div>
+            <div class="_column total" id="totalCtr">
+              <div class="cart-totals-key">Total</div>
+              <div class="cart-totals-value">$0.00</div>
+            </div>
+            <div class="_column checkout">
+              <form
+                class="stripeForm"
+                action="your-server-side-code"
+                method="POST"
+              >
+                <script
+                  src="https://checkout.stripe.com/checkout.js"
+                  class="stripe-button"
+                  data-key="pk_test_bT3UbDOB5yBLgJfLUopLsaOu"
+                  data-amount="999"
+                  data-name="Demo Site"
+                  data-description="Widget"
+                  data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                  data-locale="auto"
+                  data-currency="$"
+                ></script>
+              </form>
+            </div>
+          </footer>
+        </section>
+      </div>
+    </div>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js"></script>
+    <script src="js/cart.js"></script>
+  </body>
+</html>

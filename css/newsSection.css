@@ -123,9 +123,9 @@ and (-webkit-min-device-pixel-ratio: 1) {
 
     .parent {
     display: flex;
-    align-items: center;
-    padding-left: 20%;
-    padding-right: 20%;
+   
+    padding-left: 3%;
+    padding-right: 22%;
         
 }
 
@@ -139,11 +139,12 @@ and (-webkit-min-device-pixel-ratio: 1) {
 
     }
      #leftImg {
-         padding-right: 1%;
+         padding-right: 4%;
         align-self: flex-start;
 }
 
      #rightImg{
+         padding-left: 4%;
                 width: 100%;
           align-self: flex-start;
 

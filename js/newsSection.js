@@ -46,6 +46,7 @@ getAllPaintings();
             var img = document.createElement("img");
             img.src = paintings[i];
             img.setAttribute("class", "a"+years[i]);
+            img.style.padding =((Math.random())*5 +"vw");
             document.querySelector("#leftImg").appendChild(img);
         }
 
@@ -53,6 +54,7 @@ getAllPaintings();
             var img = document.createElement("img");
             img.src = paintings[i];
             img.setAttribute("class", "a"+years[i]);
+            img.style.padding =((Math.random())*5 +"vw");
             document.querySelector("#rightImg").appendChild(img);
         }
             a2020 = document.querySelectorAll(".a2020");

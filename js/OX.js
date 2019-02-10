@@ -102,7 +102,37 @@ closemodale.click(function () {
 
 
 
+//ADVANCED DETAILS ABOUT PRODUCT 
+
+let detailsModalButton = $("#detailsModalButton");
+let modalDialog = $(".modal-dialog");
+
+
+detailsModalButton.on("click", function(){
+  alert("lol");
+  modalDialog.css({
+    "background":"red",
+    "width" : "50vw",
+"left":"25vw"});
+
+})
+
+
+
+// END ADVANCED DETAILS ABOUT PRODUCT 
+
+
+
+
+
+
+
+
+
+
 //////END OF MODAL WITH PRODUCT DETAILS///////
+
+
 
 
 

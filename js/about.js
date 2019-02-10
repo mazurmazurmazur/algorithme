@@ -25,6 +25,8 @@ $(document).ready(function(){
           }
         });
 
+        setTimeout(function(){$("#presentText").trigger("click")}, 500);
+
     
 });    
 

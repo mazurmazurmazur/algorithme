@@ -48,6 +48,11 @@ aOXED.on("click", function(){
  /** submenus hide/show  END**/
 
 
+ $("#logoContainerDesktop").on("click", function(){
+  window.location = "mainShop.html";
+ })
+
+
 
 
 function animateMainContent(){
@@ -190,3 +195,30 @@ function closeNewsletter(){
 
 
 ////END OF NEWSLETTER
+
+
+//GLOBAL CART SYSTEM
+ let cartAmount = document.getElementById("amountInCart");
+ console.log(cartAmount);
+function updateCart() {
+  //function called to update amount of all items in cart
+
+  if (localStorage.length > 0) {
+    let sum = 0;
+    for (let i = 0, leng = localStorage.length - 1; i < leng; i++) {
+      let key = localStorage.key(i);
+      let val = localStorage.getItem(key);
+      let valAll = val.split("*");
+      sum += parseInt(valAll[0]);
+      if (isNaN(sum)) {
+        cartAmount.innerHTML = "0";
+      } else {
+        cartAmount.innerHTML = sum;
+      }
+    }
+  }
+}
+
+let cartState = document.querySelector("#amountInCart");
+
+  updateCart(cartState); //global cart update

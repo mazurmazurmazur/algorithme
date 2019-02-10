@@ -119,13 +119,12 @@ input[type=submit]:hover {
 
 .contact-form-container {
     max-width: 35vw;
-    margin: 50px auto;
+    margin: auto;
     background-color: #fff;
     padding: 20px;
-    border-radius: 0;
-    border: 1px solid #d6d6d6;
-    position: absolute;
-    left:5vw;
+    border: none;
+	text-align: center;
+	
   }
 
 
@@ -135,8 +134,7 @@ input[type=submit]:hover {
         margin: 50px auto;
         background-color: #fff;
         padding: 20px;
-        border-radius: 0;
-		border: 1px solid #d6d6d6;
+		border: none;
 		position: initial;
         
       }
@@ -166,6 +164,7 @@ input[type=submit]:hover {
     display: flex;
 	justify-content: center;
 	align-items: center;
+	display: none;
 }
 
 /* MOBILE */
@@ -287,6 +286,7 @@ ul{
 		display: block;
 		max-width: 80vw;
 		margin-left: 10vw;
+		display: none;
 	}
 	
 	.card{

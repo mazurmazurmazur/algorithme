@@ -15,6 +15,7 @@ html {
   .slideshow {
     list-style: none;
     z-index: 1;
+    overflow: hidden;
   }
   .slideshow li span {
     width: 100%;
@@ -179,7 +180,7 @@ html {
 
 
   #mainOverlayImage{
-      height:100vh;
+      height:100%;
       width: auto;
       position: absolute;
       right: 0;
@@ -187,6 +188,7 @@ html {
       z-index: 5;
       margin:0;
       padding:0;
+      overflow: hidden;
   }
 
 
@@ -214,9 +216,28 @@ text-decoration: none;}
 	-moz-animation: bounce 2s infinite;
 	-o-animation: bounce 2s infinite;
 }
- 
 @keyframes bounce {
 	0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
 	40% {transform: translateX(30px);}
 	60% {transform: translateX(15px);}
+}
+
+
+@media screen and (max-device-width: 760px) { 
+
+  .bounceWrapper {
+    position: absolute;
+    bottom: 3vh;
+    right: 5vw ;
+      width: 40vw;
+      z-index: 10;
+      color: white;
+      font-size: 20px;
+      background: black;
+  }
+
+  .mainOverlayImage{
+    left: -75vw;
+  }
+
 }

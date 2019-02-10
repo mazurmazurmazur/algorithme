@@ -2,7 +2,7 @@ let colours = [];
 let sizes = [];
 
 function getAllPaintings() {
-  fetch("http://dashboard.algorithme.co/wp-json/wp/v2/oxproduct?_embed&per_page=50")
+  fetch("http://dashboard.algorithme.co/wp-json/wp/v2/oxproduct?_embed&per_page=100")
     .then(res => res.json())
     .then(showPaintings)
     .then(resize)
@@ -26,9 +26,11 @@ function showPaintings(data) {
       let image = clone.querySelector(".openmodale");
       let priceTag = clone.querySelector(".priceUnderTitle span");
       let titleTag = clone.querySelector(".underTitle");
+      let link = clone.querySelector(".linkToProduct");
 
       
-      let photo = thePainting._embedded["wp:featuredmedia"]["0"].media_details.sizes.full.source_url;
+      let photo = thePainting.acf.colorpick.imagescolor1.image1;
+      
       let price = thePainting.acf.price;
       let title = thePainting.title.rendered;
       let dataId = thePainting.id;
@@ -39,6 +41,7 @@ function showPaintings(data) {
             image.setAttribute("data-id", dataId);
             priceTag.innerHTML = price;
             titleTag.innerHTML = title;
+            link.setAttribute("href", "product.html?id=" + dataId);
 
             
 
@@ -75,7 +78,7 @@ function doneResizing() {
  
  
  $('.openmodale').click(function () {
-    modale.classList.add("opened");     //opening the modale
+    // modale.classList.add("opened");     //opening the modale
 
 
   ////filling current modale with appropriate json data BELOW

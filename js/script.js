@@ -157,18 +157,6 @@ function defer(method) {
 
 
 
-
-
-
-
-////COLOR PICKER///
-
-$('select[name="colorpicker"]').simplecolorpicker({picker: false});
-////END COLOR PICKER///
-
-
-
-
 //////NEWSLETTER 
 
 
@@ -222,3 +210,26 @@ function updateCart() {
 let cartState = document.querySelector("#amountInCart");
 
   updateCart(cartState); //global cart update
+
+
+// BEGINNING OF DYNAMICALLY FETCHING CATEGORIES NAMES
+
+  function fetchTerms() {
+    fetch(
+      "http://dashboard.algorithme.co/wp-json/wp/v2/oxproduct"
+    ) //only one entry in json file (WP REST)
+      .then(res => res.json())
+      .then(showTerms);
+  }
+  function showTerms(json) {
+    console.log(json[0]); //shows json file in console, makes development much easier
+  
+    
+    let termsText = document.getElementById("termsText");
+  
+    let jsonText = json.content.rendered;
+  
+    termsText.innerHTML = jsonText;
+  }
+  
+  fetchTerms();

@@ -251,13 +251,14 @@ h1,
 /* extras */
 
 #bounceWrapperCart{
+  display: block;
   position: fixed;
   top:0;
   margin-top: 5px;
 
 }
 
-#cartBack, .bounce{   /*    button going back to main*/
+#cartBackText, .bounce{   /*    button going back to main*/
   margin-left: 30px;
   text-decoration: none;
   color: black;

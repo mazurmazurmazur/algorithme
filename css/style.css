@@ -805,7 +805,7 @@ float:right;
 
 /**NESLETTER**/
 
-#newsletterInput {
+#email {
   font-size: 15px;
   padding: 15px 10px 10px;
   border: 1px solid black;
@@ -819,23 +819,33 @@ float:right;
   box-sizing: border-box;
   width: 200px;
   max-width: 600px;
+  margin-bottom: 30px;
 }
 #submitNewsletter {
   font-size: 12px;
   text-align: center;
-  margin-top: 15px;
+  margin-top: 25px;
   margin-bottom: 25px;
   background-color: black;
   padding-top: 10px;
   padding-bottom: 10px;
-  padding-right: 70px;
-  padding-left: 35px;
+  padding-right: 50px;
+  padding-left: 50px;
   border: 1px solid black;
   -webkit-transition: .5s;
   transition: .5s;
   cursor: pointer;
   width: 30%;
   color: #fff;
+  
+}
+
+#result{
+  margin-top: 30px;
+}
+
+#submitNewsletter span{
+  text-align: center;
 }
 #submitNewsletter:hover {
   background: rgb(197, 202, 202);

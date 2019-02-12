@@ -114,13 +114,20 @@
           BETTER NOT TO BE BEHIND...
         </p>
            </div>
-      <div class="p2-container">
-  
-        <input  id ="newsletterInput"type="email" name="email" placeholder="Email" />
-        <button onclick="closeNewsletter()" id="submitNewsletter" type="submit">
-        Send
-      </button>
+      <form id="newsletter-form" class="p2-container">
+        <div id="newsletterWrapper">
+        <input id="email"
+        type="email"
+        name="emailAdress"
+        placeholder="email address">
+        <a id="submitNewsletter" href="javascript:void(0)">
+        <span>Send</span>
+        </a>
+      <p id="result"></p>
       </div>
+    </form>
+
+
     </div>
   </div>
 

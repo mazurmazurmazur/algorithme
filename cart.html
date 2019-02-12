@@ -46,14 +46,14 @@
         <section class="shopping-cart">
           <ol class="ui-list shopping-cart--list" id="shopping-cart--list">
             <script id="shopping-cart--list-item-template" type="text/template">
-              <li class="_grid shopping-cart--list-item">
+              <li class="_grid shopping-cart--list-item" data-ls="{{=prodLocalStorage}}">
                 <div class="_column product-image">
                   <img class="product-image--img" src="{{=img}}" alt="Item image" />
                 </div>
                 <div class="_column product-info">
                   <h4 class="product-name">{{=name}}</h4>
                   <p class="product-desc">{{=desc}}</p>
-                  <div class="price product-single-price"><span class="currencySmall">$</span>{{=price}}</div>
+                  <div class="price product-single-price"><span class="currencySmall">DKK</span>{{=price}}</div>
                 </div>
                 <div class="_column product-modifiers" data-product-price="{{=price}}">
                   <div class="_grid">
@@ -63,7 +63,7 @@
                     <p class="productIdHidden" style="">{{=prodId}}</p>
                   </div>
                   <button class="_btn entypo-trash product-remove">Remove</button>
-                  <div class="price product-total-price">${{=prod-total}}</div>
+                  <div class="price product-total-price">{{=prod-total}}</div>
                 </div>
               </li>
             </script>
@@ -72,19 +72,19 @@
           <footer class="_grid cart-totals">
             <div class=" noMobile _column subtotal" id="subtotalCtr">
               <div class="cart-totals-key">Subtotal</div>
-              <div class="cart-totals-value">$0.00</div>
+              <div class="cart-totals-value">0.00</div>
             </div>
             <div class="_column shipping" id="shippingCtr">
               <div class="cart-totals-key">Shipping</div>
-              <div class="cart-totals-value">$0.00</div>
+              <div class="cart-totals-value">0.00</div>
             </div>
             <div class="noMobile _column taxes" id="taxesCtr">
               <div class="cart-totals-key">Taxes</div>
-              <div class="cart-totals-value">$0.00</div>
+              <div class="cart-totals-value">0.00</div>
             </div>
             <div class="_column total" id="totalCtr">
               <div class="cart-totals-key">Total</div>
-              <div class="cart-totals-value">$0.00</div>
+              <div class="cart-totals-value">0.00</div>
             </div>
             <div class="_column checkout">
               <form
@@ -101,7 +101,7 @@
                   data-description="Widget"
                   data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
                   data-locale="auto"
-                  data-currency="$"
+                  data-currency="DKK"
                 ></script>
               </form>
             </div>

@@ -6,12 +6,32 @@ var x = window.matchMedia("(min-width: 900px)")
   /* Open */
   function openMobileNav() {
     document.getElementById("myNav").style.height = "100%";
+    $(".closebtn").css("position", "fixed");
   }
   
   /* Close */
   function closeMobileNav() {
     document.getElementById("myNav").style.height = "0%";
+    $(".closebtn").css("position", "absolute");
   }
+
+
+
+function showCategories(){
+  $(".mainMobileMenu").css("display", "none");
+    $(".categoriesMobileMenu").css("display", "block");
+    $(".categoriesMobileMenu span").css("display", "block");
+}
+
+function showMainMenu(){
+  $(".mainMobileMenu").css("display", "block");
+    $(".categoriesMobileMenu").css("display", "none");
+    $(".categoriesMobileMenu span").css("display", "none");
+
+}
+
+
+
   
     /**END NAVIGATION MOBILE */  
 
@@ -187,9 +207,10 @@ function closeNewsletter(){
 
 //GLOBAL CART SYSTEM
  let cartAmount = document.getElementById("amountInCart");
- console.log(cartAmount);
+
 function updateCart() {
   //function called to update amount of all items in cart
+  let cartAmountParent = window.parent.document.querySelector("#amountInCart");
 
   if (localStorage.length > 0) {
     let sum = 0;
@@ -197,12 +218,18 @@ function updateCart() {
       let key = localStorage.key(i);
       let val = localStorage.getItem(key);
       let valAll = val.split("*");
+      console.log("valAll = " + valAll);
       sum += parseInt(valAll[0]);
       if (isNaN(sum)) {
-        cartAmount.innerHTML = "0";
+        cartAmountParent.innerHTML = "0";
+        console.log("option1 happened")
       } else {
-        cartAmount.innerHTML = sum;
+        cartAmountParent.innerHTML = sum;
+        console.log("option2 happened")
       }
+      
+     
+      
     }
   }
 }
@@ -212,24 +239,164 @@ let cartState = document.querySelector("#amountInCart");
   updateCart(cartState); //global cart update
 
 
-// BEGINNING OF DYNAMICALLY FETCHING CATEGORIES NAMES
 
-  function fetchTerms() {
-    fetch(
-      "http://dashboard.algorithme.co/wp-json/wp/v2/oxproduct"
-    ) //only one entry in json file (WP REST)
-      .then(res => res.json())
-      .then(showTerms);
-  }
-  function showTerms(json) {
-    console.log(json[0]); //shows json file in console, makes development much easier
+
+
+
+  ///MIGRATED FROM LOCAL SCRIPT IN MAINSHOP.HTML BELOW
+
+
+
+  var x = window.matchMedia("(min-width: 900px)")
+
+
+  let iframe = document.getElementById('mainContent');
+  let innerDoc = iframe.contentDocument;
+
+
+function setWebshopCustom(){
+
+if(!x.matches){ 
+  $("#mainContent").css("top", "15vh");
+  $(".newsGallery").css(
+    {"left":"0",
+    "width":"100vw",
+    "height":"80vh"
+});
+
+}
+else{
+
+  $("#mainContent").css("top", "15vh");
+  $(".newsGallery").css(
+    {"left":"10vw",
+    "width":"80vw"
+   
+});}
+}
+function setCampaignCustom(){
+
+  if(x.matches){ 
+  $("#mainContent").css("top", "0vh");
+  $(".newsGallery").css(
+    {"left":"0",
+    "width":"100vw",
+    "height":"100vh",
+    "overflow":"scroll"
+});
+
+}
+else{
+
+  $("#mainContent").css("top", "7vh");
+  $(".newsGallery").css(
+    {
+    "width":"100vw",
+    "height":"100vh"
+});}
+
+}
+
+function setRegularSize(){
+
+  if(x.matches){ 
+  $("#mainContent").css("top", "15vh");
+  $(".newsGallery").css(
+    {"left":"0",
+    "width":"100vw",
+    "height":"80vh"
+});
+
+}
+else{
+
+  $("#mainContent").css("top", "15vh");
+  $(".newsGallery").css(
+    {"left":"0",
+    "width":"100vw",
+    "height":"80vh"
+});}
+}
+
+
+//FUNCTION TAKING CARE OF MOVING OUT PREVIOUS MAIN CONTENT IN ORDER TO REPLACE IT WITH NEW ONE
+
+function load_home(element_flowing_in, startBottomOrTop, customSize) { //bottom is 0, top is 1
+  let mainContent = document.getElementById("mainContent");
+  let mainContentCurrentChild = mainContent.children[0];  //this is the current element in the main content area
+  mainContentCurrentChild.style.transition = "ease-in-out 1s"; // adding smooth animation to every new element
   
+  
+  
+  
+
+
+
+
+  
+  if(startBottomOrTop == 0)
+    mainContentCurrentChild.style.transform="translateY(-120vh)";
+  else
+    mainContentCurrentChild.style.transform="translateY(100vh)";
+
+ 
+   
+  setTimeout(function(){
+    mainContent.removeChild(mainContentCurrentChild);
+  }, 500)
+   
+
+    let newObject = document.createElement('object');     ///////
+    $(newObject).attr('type', 'text/html');              //////
+    $(newObject).attr('data',element_flowing_in);       //////TAKES CARE OF IMPORTING NEW HTML FILE INTO MAIN SPACE
+    newObject.classList.add("newsGallery");       //////
     
-    let termsText = document.getElementById("termsText");
-  
-    let jsonText = json.content.rendered;
-  
-    termsText.innerHTML = jsonText;
-  }
-  
-  fetchTerms();
+
+ 
+
+
+    mainContent.appendChild(newObject);                 //////
+
+       let flowing_in_content = mainContent.children[1];
+       
+       if(startBottomOrTop == 0)                                        
+          flowing_in_content.style.transform="translateY(100vh)";
+       else
+          flowing_in_content.style.transform="translateY(-100vh)";
+
+        flowing_in_content.style.display= "block";                ///showing and placing the new item in the main space
+        flowing_in_content.style.transform="translateY(0)";       ////
+        
+       
+      setTimeout(function(){
+        if(customSize == "webshop"){
+  setWebshopCustom();
+}
+else if(customSize == "campaign"){
+  setCampaignCustom();
+}
+else{
+setRegularSize();
+}
+
+      },300);
+
+      
+       
+}
+
+load_home('testGall.html',1,'webshop');
+
+
+ //END OF FUNCTION TAKING CARE OF MOVING OUT PREVIOUS MAIN CONTENT IN ORDER TO REPLACE IT WITH NEW ONE
+
+
+
+
+ //END OF MIGRATION FROM MAINSHOP.HTML
+
+
+
+ //MOBILEMENU WEBSHOP SECTIONS
+
+ 

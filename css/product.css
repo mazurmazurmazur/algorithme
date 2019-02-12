@@ -216,6 +216,15 @@ a.add-btn:hover {
     width: 10px;
     height: 10px;
   }
+
+
+.product-image .bg {
+
+  width: 80%;
+
+  margin-left: 10%;
+
+}
 }
 
 /* END MOBILE */

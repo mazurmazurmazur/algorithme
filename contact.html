@@ -6,55 +6,100 @@
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="css/contact.css" />
+    <link
+    rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    crossorigin="anonymous"
+  />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script src="js/contact.js"></script>
 </head>
 <body>
-        <div class="contact-form-container">
-                <h1>Contact Form</h1>
-                <form>
-                  <input type="text" id="name" name="name" placeholder="Your Name">
-              
-                  <input type="email" placeholder="Email Address" size="30" required></label>
-              
-                  <textarea id="subject" name="subject" placeholder="Message" style="height:200px" required></textarea>
-              
-                  <input type="submit" value="Send">
-                </form>
-              </div>
+   <div id="bodyWrapper">
 
-
-
-              <div id= contactCardContainer>
-              <!-- Contact Card ~ #01 -->
-<div class="card">
-        <div class="card_Banner">
-           <div class="card_Avatar"></div>
+      <div class="containerContact">
+        <div class="row">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+            <h2>Contact</h2>
+          </div>
         </div>
-         <h3>Marta Dolska</h3>
-         <a href="mailto:dolska@algorithme.co">📧 dolska@algorithme.co</a>
-         <a>📱 +45 60 41 98 77</a>
-         <ul>
-            <a href="https://www.linkedin.com/in/-cbrown-" target="_blank"><i class="fa fa-linkedin" style="font-size:16px"></i></a>
-             <a href="https://www.twitter.com/___cbrown___" target="_blank"><i class="fa fa-twitter" style="font-size:16px"></i></a>
-             <a href="https://www.codepen.io/___cbrown___" target="_blank"><i class="fa fa-codepen" style="font-size:16px"></i></a>
-         </ul>
-     </div>
-     
-     <!-- Contact Card ~ #02 (Blank) -->
-     <div class="card">
-        <div class="card_Banner">
-            <div class="card_Avatar"></div>
-         </div>
-         <h3>Name</h3>
-         <a>📧 example@email.com</a>
-         <a>🌐 www.website.com</a>
-         <ul>
-            <a><i class="fa fa-github" style="font-size:16px"></i></a>
-             <a><i class="fa fa-codepen" style="font-size:16px"></i></a>
-             <a><i class="fa fa-slack" style="font-size:16px"></i></a>
-             <a><i class="fa fa-spotify" style="font-size:16px"></i></a>
-        </ul>
-     </div>
+        <div class="row">
+          <div
+            class=" formCore col-xs-6 col-sm-6 col-md-6 col-lg-6 col-xs-offset-3"
+          >
+            <form
+              id="contact-form"
+              class="form"
+              method="post"
+              action=""
+              role="form"
+            >
+              <div class="form-group">
+                <label class="form-label" for="name">Your Name</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  name="name"
+                  placeholder="Your name"
+                  tabindex="1"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="email">Your Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                  placeholder="Your Email"
+                  tabindex="2"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="subject">Subject</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="subject"
+                  name="subject"
+                  placeholder="Subject"
+                  tabindex="3"
+                />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="message">Message</label>
+                <textarea
+                  rows="5"
+                  cols="50"
+                  name="message"
+                  class="form-control"
+                  id="message"
+                  placeholder="Message..."
+                  tabindex="4"
+                  required
+                ></textarea>
+              </div>
+              <div class="text-center">
+                <a href="#" id="sendEmail" class="btn btn-start-order"
+                  >Send Message</a
+                >
+                <div><p id="sentEmail"></p></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
+
 </body>
 </html>

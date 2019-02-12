@@ -1,0 +1,65 @@
+===============================================================================
+EXTENSION NAME : linecount
+EXTENSION VERSION : 0.1.7
+-------------------------------------------------------------------------------
+count time : 2019-02-12 00:30:53
+count workspace : /Users/mazurjestboski/Desktop/ALGO INTERN/algo
+total files : 53
+total code lines : 10410
+total comment lines : 1926
+total blank lines : 3071
+
+about.html, code is 31, comment is 0, blank is 5.
+cart.html, code is 111, comment is 0, blank is 4.
+contact.html, code is 51, comment is 2, blank is 7.
+css/about.css, code is 155, comment is 4, blank is 67.
+css/cart.css, code is 276, comment is 34, blank is 40.
+css/contact.css, code is 238, comment is 4, blank is 54.
+css/frontPage.css, code is 221, comment is 0, blank is 22.
+css/magnific-popup.min.css, code is 1, comment is 0, blank is 0.
+css/newsSection.css, code is 144, comment is 5, blank is 55.
+css/OX.css, code is 0, comment is 0, blank is 0.
+css/pastStories.css, code is 144, comment is 5, blank is 54.
+css/product.css, code is 186, comment is 4, blank is 40.
+css/style.css, code is 901, comment is 25, blank is 234.
+images/algoMainMosaic.png, it is a binary file.
+images/dot.png, it is a binary file.
+images/dragonfly.png, it is a binary file.
+images/facecartoon.jpg, it is a binary file.
+images/front1.JPG, it is a binary file.
+images/front2.JPG, it is a binary file.
+images/front3.jpg, it is a binary file.
+images/front4.png, it is a binary file.
+images/logoClassic.png, it is a binary file.
+images/logoInvert.png, it is a binary file.
+images/luggage.png, it is a binary file.
+images/panda.jpg, it is a binary file.
+images/plane.png, it is a binary file.
+images/plane2.png, it is a binary file.
+images/sampler.jpg, it is a binary file.
+images/slide1.png, it is a binary file.
+images/slide2.png, it is a binary file.
+images/slide3.png, it is a binary file.
+images/slide4.png, it is a binary file.
+index.html, code is 33, comment is 0, blank is 7.
+js/about.js, code is 21, comment is 0, blank is 12.
+js/cart.js, code is 189, comment is 23, blank is 91.
+js/contact.js, code is 0, comment is 0, blank is 0.
+js/jquery-3.3.1.js, code is 6686, comment is 1727, blank is 1953.
+js/jquery.magnific-popup.min.js, code is 1, comment is 3, blank is 0.
+js/modernizr.min.js, code is 1, comment is 0, blank is 0.
+js/money.min.js, code is 1, comment is 1, blank is 0.
+js/newsSection.js, code is 85, comment is 0, blank is 21.
+js/OX.js, code is 105, comment is 11, blank is 40.
+js/OXtest.js, code is 155, comment is 24, blank is 84.
+js/pastStories.js, code is 82, comment is 0, blank is 21.
+js/product.js, code is 163, comment is 21, blank is 77.
+js/script.js, code is 148, comment is 20, blank is 60.
+js/terms.js, code is 13, comment is 2, blank is 6.
+mainShop.html, code is 95, comment is 10, blank is 38.
+newsSection.html, code is 27, comment is 0, blank is 13.
+pastStories.html, code is 27, comment is 0, blank is 13.
+product.html, code is 70, comment is 0, blank is 11.
+terms.html, code is 15, comment is 0, blank is 4.
+testGall.html, code is 34, comment is 1, blank is 38.
+===============================================================================

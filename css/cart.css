@@ -95,7 +95,7 @@ h1,
  * @extends: _column;
  */
 .product-image {
-  width: 16.663198%;
+  width: 10%;
   background: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7")
     no-repeat center / cover transparent;
 }
@@ -204,6 +204,16 @@ h1,
 .cart-totals-value {
   font-size: 1em;
 }
+
+.cart-totals-value::before {
+  content: "DKK ";
+}
+
+
+
+.product-total-price::before{
+content: "DKK";
+}
 ._column.checkout {
   text-align: right;
   padding: 0;
@@ -275,6 +285,12 @@ h1,
 
 @media screen and (max-width: 760px) {
 
+  #cartBackText{   /*    button going back to main*/
+    margin-left: 10vw !important;
+    font-size: 20px;
+  }
+  
+
   .mainCart{
     margin-top: 10vh;
   }
@@ -282,7 +298,7 @@ h1,
     border: none !important;
   }
   .product-name {
-    font-size: 20px;
+    font-size: 15px;
   }
 
   .product-info {
@@ -294,12 +310,17 @@ h1,
   }
 
   .shopping-cart--list-item > ._column {
-    height: 80%;
-    width: 50%;
+    width: 25%;
+    height: 100%;
   }
 
   .product-single-price {
-    right: 1em;
+    margin-bottom: -1rem;
+    font-size: 1.5em;
+    margin-top: 1em;
+}
+  .product-total-price{
+    padding: 0;
   }
 
   .cart-totals ._column {

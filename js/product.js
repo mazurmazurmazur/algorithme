@@ -16,6 +16,7 @@ var dynamicContent = getParameterByName("id");
 
 
 let currentProductNum;
+let jsonOut;
 
 function getAllProducts() {
   fetch(
@@ -30,8 +31,8 @@ function getAllProducts() {
 }
 
 function showProducts(json) {
-   console.log(json.acf);       //shows json file in console, makes development much easier
   let acf = json.acf;
+  jsonOut = json;
   let colorpick = acf.colorpick;
 
   let colorPicker = document.querySelector(".select-color");
@@ -49,13 +50,13 @@ function showProducts(json) {
       counter++;
     }
   }
+  
   let image = document.querySelector(".product-image .bg");
   let priceTag = document.querySelector(".price span"); //selecting DOM elements
   let titleTag = document.querySelector(".productName");
   let desc = document.querySelector(".desc");
 
   let photo = colorpick.imagescolor1.image1;
-  console.log(photo);
   let price = json.acf.price; //selecting JSON elements
   let title = json.title.rendered;
   let descJson = acf.description;
@@ -68,9 +69,16 @@ function showProducts(json) {
   /////color selector
   $(".color").on("click", function() {
     $(".color").css("border", "1px solid gray");
+    if($('.color').hasClass('active')){
+      $('.color').removeClass('active')
+   }
     $(this).css("border", "2px solid black");
+    $(this).addClass('active');
     checkColor($(this).attr("id"));
   });
+  $("#color" ).trigger( "click" );
+
+
 
   function setMainImage(url) {
     image.style.opacity = 0;
@@ -95,6 +103,9 @@ function showProducts(json) {
 
     
   }
+
+
+
 
 function createDotsGallery(i){
   let imagesColor = "imagescolor" + i;
@@ -163,7 +174,6 @@ $('.selectSize').on('change', function (e) {
   let optionSelected = $("option:selected", this);
   
   let valueSelected = this.value;
-  console.log(valueSelected);
   let sizeNumber = "size" + currentProductNum;
   let sizes = colorpick[sizeNumber]
   let selectAmount = document.querySelector(".selectQuantity");
@@ -194,22 +204,48 @@ $('.selectSize').on('change', function (e) {
 
 getAllProducts();
 
+
+
+function returnColor(id) {
+  let photoId= colorName.split("r").pop();
+  let imagesColor = "imagescolor" + photoId;
+  if(photoId != ""){
+    return photoId;
+  }
+
+
+
+  
+}
+
+
 function afterFetch(json) {
+  
   let addButton = document.getElementById("addProduct-btn");
-  let productName = "id" + dynamicContent; //id from url
+  let productName = ("id" + dynamicContent); //id from url
+
+
 
   addButton.addEventListener("click", function(event) {
     event.preventDefault();
 
+    let activeColor = $(".active").attr("id");
+    console.log(activeColor);
+
+
     let e = document.querySelector(".selectQuantity");
+    let sizeSelector = document.querySelector(".selectSize");
     let strUser = e.options[e.selectedIndex].text; ///amount selected in option
-    if (localStorage[productName]) {
+    let sizeSelected = sizeSelector.options[sizeSelector.selectedIndex].text; ///size selected in option
+
+    if (localStorage[sizeSelected + " " + activeColor +" "+productName]) {
       //increasing amount of selected product in cart
-      localStorage[productName] =
-        Number(localStorage[productName]) + Number(strUser); //increasing by amount selected in select-dropdown
+      localStorage[sizeSelected + " " + activeColor +" "+productName] =
+        Number(localStorage[sizeSelected + " " + activeColor +" "+productName]) + Number(strUser); //increasing by amount selected in select-dropdown
     } else {
-      localStorage[productName] = strUser;
+      localStorage[sizeSelected + " " + activeColor +" "+productName] = strUser;
     }
-    //updateCart(localStorage.length); ///dynamic cart update after click, calls global function in home.js
+    updateCart(localStorage.length); ///dynamic cart update after click, calls global function in home.js
   });
 }
+

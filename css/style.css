@@ -570,6 +570,10 @@ font-size: 13px;
 
   @media screen and (max-width: 760px) {
 
+    .mainContent{
+      top: 7vh !important;
+    }
+
 
   /* The Overlay (background) */
   .overlay {
@@ -581,7 +585,7 @@ font-size: 13px;
     left: 0;
     background-color: rgb(0,0,0);
     background-color: rgba(0,0,0, 0.9);
-    overflow-y: hidden;
+    overflow-y: scroll;
     transition: 0.5s;
 }
 
@@ -597,7 +601,6 @@ font-size: 13px;
     padding: 8px;
     text-decoration: none;
     color: #818181;
-    display: block;
     transition: 0.3s;
 }
 
@@ -744,7 +747,7 @@ font-size: 13px;
 
 
 #cartWrapper{
-  position: absolute;
+  position: fixed;
   width: 5vw;
   top: 1vh;
   right: 0.5vw;
@@ -1049,6 +1052,8 @@ display: none !important;
   border-bottom: #818181;
   border-bottom-style: solid;
   border-width: 1px;
+  z-index: 30;
+  background: white;
 }
 
 #logoMobile{
@@ -1097,6 +1102,10 @@ left: 10vw;
   background: white;
 }
 
+
+
+
+
 #sizepicker{
   width:20vw;
 }
@@ -1143,6 +1152,26 @@ padding-bottom: 50px;
   width: 35%; /* Change this to whatever width you want. */
   padding-top: 20px; /* This creates some space between the element and the border. */
   border-bottom: 1px solid rgb(253, 253, 253); /* This creates the border. Replace black with whatever color you want. */
+}
+
+
+.mainMobileMenu{
+display:block;
+}
+
+.categoriesMobileMenu{
+  display:none;
+  font-size: 30px;
+  margin:0;
+}
+
+
+.categoriesMobileMenu span{
+  display:none;
+  font-size: 20px;
+  margin:0;
+  padding:0;
+  background-color: rgba(124, 117, 117, 0.1)
 }
 
 

@@ -1,5 +1,30 @@
+// Parse the URL parameter
+function getParameterByName(name, url) {
+  if (!url) url = window.location.href;
+  name = name.replace(/[\[\]]/g, "\\$&");
+  var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+    results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return "";
+  return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+// Give the parameter a variable name
+let dynamicContent = getParameterByName("cat");
+let dynamicGender = getParameterByName("gender");
+console.log(dynamicContent);
+console.log(dynamicGender);
+//getParameterByName is a function that fetches the id from URL
+//the id in URL comes from dynamically set "href" in blog.html through blog.js
+//the id set in this URL comes from fetched json file in blog.js
+
+
+
+
+
+
 let colours = [];
 let sizes = [];
+let appendOrNot;
 
 function getAllPaintings() {
   fetch("http://dashboard.algorithme.co/wp-json/wp/v2/oxproduct?_embed&per_page=100")
@@ -11,15 +36,17 @@ function getAllPaintings() {
 }
 
 function showPaintings(data) {
-  console.log(data);
     let list = document.querySelector(".resource-slider-frame");
     let template = document.querySelector("#paintingTemplate").content;
     let clone = template.cloneNode(true);
+    console.log(data);    
 
 
     let galleryItemFromLeft = 0;
 
     data.forEach(function(thePainting) {
+
+      appendOrNot = false;
       let clone = template.cloneNode(true);
 
       let parentBody = window.parent.document.body;
@@ -27,6 +54,7 @@ function showPaintings(data) {
       let priceTag = clone.querySelector(".priceUnderTitle span");
       let titleTag = clone.querySelector(".underTitle");
       let link = clone.querySelector(".linkToProduct");
+     
 
       
       let photo = thePainting.acf.colorpick.imagescolor1.image1;
@@ -34,6 +62,58 @@ function showPaintings(data) {
       let price = thePainting.acf.price;
       let title = thePainting.title.rendered;
       let dataId = thePainting.id;
+      let category = thePainting.category;
+      let sex = thePainting.gender;
+
+if(dynamicContent ===null && dynamicGender===null){appendOrNot=true}
+else{
+      if(Array.isArray(category)){
+      
+      for(let i = 0; i<category.length; i++){
+        console.log(category[i].toLowerCase() +" vs "+dynamicContent)
+        if(category[i].toLowerCase()==dynamicContent){
+          appendOrNot=true;
+          console.log("approved");
+      }
+    }
+  }
+  else{
+    console.log(category.toLowerCase() +" vs "+dynamicContent)
+    if(category.toLowerCase()==dynamicContent){
+      appendOrNot=true;
+      console.log("approved");
+
+    }
+  }
+
+
+
+if(dynamicGender!== null && appendOrNot==true){
+  if(Array.isArray(sex)){
+      
+    for(let i = 0; i<sex.length; i++){
+      console.log(sex[i].toLowerCase() +" vs "+dynamicGender)
+      if(sex[i].toLowerCase()==dynamicGender){
+        appendOrNot=true;
+        console.log("approved");
+    }
+    else{
+      appendOrNot=false;
+    }
+  }
+}
+else{
+  console.log(sex.toLowerCase() +" vs "+dynamicGender)
+  if(sex.toLowerCase()==dynamicGender){
+    appendOrNot=true;
+    console.log("approved");
+  }
+  else{
+    appendOrNot=false;
+  }
+}
+}
+}
 
     
             //paintings.push(colours);
@@ -44,8 +124,8 @@ function showPaintings(data) {
             link.setAttribute("href", "product.html?id=" + dataId);
 
             
-
-            list.appendChild(clone);
+        if(appendOrNot==true){
+            list.appendChild(clone);}
     })
 }
 

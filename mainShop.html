@@ -32,18 +32,19 @@
           <div class="dropdownHead-content">
             <div class="dragonflyDiv"><img src="images/dot.png" class="dragonflyImg"></div>
             
-              <a id="aOX"><span>OX⌄</span></a>
+              <a onclick="load_home('testGall.html?cat=ox',1,'webshop' )"  id="aOX"><span>OX⌄</span></a>
               <div class ="subSubMenu" id="OXdiv">
-              <a><span>O - women</span></a>
-              <a><span>X - men</span></a>
-              <a><span>OX - uni</span></a></div>
-              <a id="aOXED"><span>OX-ED⌄</span></a>
+                  <a onclick="load_home('testGall.html?cat=ox&gender=female',1,'webshop' )"  ><span>O - women</span></a>
+                  <a onclick="load_home('testGall.html?cat=ox&gender=male',1,'webshop' )"  ><span>X - men</span></a>
+                  <a onclick="load_home('testGall.html?cat=ox&gender=unisex',1,'webshop' )"  ><span>OX - uni</span></a></div>
+              <a onclick="load_home('testGall.html?cat=ox-ed',1,'webshop' )"  id="aOXED"><span>OX-ED⌄</span></a>
               <div class ="subSubMenu" id = "OXEDdiv">
-                  <a><span>O - women</span></a>
-                  <a><span>X - men</span></a>
-                  <a><span>OX - uni</span></a>
-              <a><span>what is OX-ED</span></a></div>
-              <a id="aJewelery"><span>Jewelery</span></a>
+                  <a onclick="load_home('testGall.html?cat=ox-ed&gender=female',1,'webshop' )"  ><span>O - women</span></a>
+                  <a onclick="load_home('testGall.html?cat=ox-ed&gender=male',1,'webshop' )"  ><span>X - men</span></a>
+                  <a onclick="load_home('testGall.html?cat=ox-ed&gender=unisex',1,'webshop' )"  ><span>OX - uni</span></a>
+              <!-- <a><span>what is OX-ED</span></a> -->
+            </div>
+              <a onclick="load_home('testGall.html?cat=jewellery',1,'webshop' )"  id="aJewelery"><span>Jewelery</span></a>
             </div>
         </div>
         
@@ -64,52 +65,7 @@
 
 
     <div class="modale" id="newsInside" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-header">
-            <h2>Kolorowa kiecuszka</h2>
-            <a href="#" class="btn-close closemodale" aria-hidden="true">&times;</a>
-          </div>
-          <div class="modal-body">
-              <a id ="detailsModalButton" href="#">Details... ></a>
-              <a href="javascript:void(0);"><img id= "imageInModal" src="images/sampler.jpg"></a><br>
-
-                <!--Size picker-->
-
-<select id="sizepicker">
-    <option value="XS">XS</option>
-    <option value="S">S</option>
-    <option value="M">M</option>
-    <option value="L">L</option>
-    <option value="XL">XL</option>
-  </select>
-  <br>
-
-  <!--/Size picker-->
-
-                    <!--Color picker-->
-      <select name="colorpicker">
-          <option value="#7bd148">Green</option>
-          <option value="#46d6db">Turquoise</option>
-          <option value="#7ae7bf">Light green</option>
-          <option value="#fbd75b">Yellow</option>
-          <option value="#ffb878">Orange</option>
-          <option value="#dc2127">Bold red</option>
-          <option value="#dbadff">Purple</option>
-          <option value="#e1e1e1">Gray</option>
-        </select><br>
-<!--/Color picker-->
-
-                  
-
-            <input type="number" name="u" placeholder="Amount" size="20" /><br>
-          <div class="modal-footer">
-        
-      
-            <a href="#" class="btn closemodale" id="btn_ingresar">Order</a>
-          </div>
-        </div>
-        <div id="modalDetailsDiv"></div>
-      </div>
+       
       <!-- /Modal -->
 
         <!-- social media buttons -->
@@ -175,21 +131,41 @@
 <div id="myNav" class="overlay noDesktop">
 
   <!-- Button to close the overlay navigation -->
-  <a href="javascript:void(0)" class="closebtn" onclick="closeMobileNav()">&times;</a>
+  <a href="javascript:void(0)" class="closebtn" onclick="closeMobileNav();showMainMenu();">&times;</a>
 
   <!-- MOBILE MENU -->
   <div class="overlay-content">
       <a  id="mobileMenuLogo" href="#"><img id="mobileMenuLogoImg" src="images/logoInvert.png"></a>
 
 
-
-      <a class="upperMobileItem" onclick="load_home('http://blog.mazurmazurmazur.pl/',1, 'campaign'); closeMobileNav()">CAMPAIGN</a>
-      <a class="upperMobileItem" onclick="load_home('testGall.html', 1, 'webshop');closeMobileNav()"">WEBSHOP</a>
-      <a class="upperMobileItem" onclick="load_home('newsSection.html', 1); closeMobileNav()">NEWS SECTION</a>
+      <a class="mainMobileMenu upperMobileItem" onclick="load_home('http://blog.mazurmazurmazur.pl/',1, 'campaign'); closeMobileNav()">CAMPAIGN</a>
+      <a class="mainMobileMenu upperMobileItem" onclick="showCategories()"">WEBSHOP</a>
+      <a class="mainMobileMenu upperMobileItem" onclick="load_home('newsSection.html', 1); closeMobileNav()">NEWS SECTION</a>
 <br><br>
-    <a class="bottomMobileItem" onclick="load_home('about.html', 0); closeMobileNav()"><span>ABOUT</span></a>
-    <a class="bottomMobileItem" onclick="load_home('https://lasertheme.tumblr.com/', 0,'campaign');closeMobileNav()"><span>PAST STORIES</span></a>
-    <a class="bottomMobileItem" onclick="load_home('contact.html', 0); closeMobileNav()"><span>CONTACT</span></a>
+    <a class="mainMobileMenu bottomMobileItem" onclick="load_home('about.html', 0); closeMobileNav()"><span>ABOUT</span></a>
+    <a class="mainMobileMenu bottomMobileItem" onclick="load_home('https://lasertheme.tumblr.com/', 0,'campaign');closeMobileNav()"><span>PAST STORIES</span></a>
+    <a class="mainMobileMenu bottomMobileItem" onclick="load_home('contact.html', 0); closeMobileNav()"><span>CONTACT</span></a>
+
+
+
+    <a class="categoriesMobileMenu upperMobileItem" onclick="load_home('testGall.html', 1, 'webshop');closeMobileNav()"">WEBSHOP</a>
+    <a  class="categoriesMobileMenu upperMobileItem" onclick="load_home('testGall.html?cat=ox-ed',1,'webshop' );closeMobileNav()"" >OX</a>
+    <div  class="categoriesMobileMenu upperMobileItem" >
+        <a  class="categoriesMobileMenu bottomMobileItem" onclick="load_home('testGall.html?cat=ox&gender=female',1,'webshop' );closeMobileNav()""  ><span>O - women</span></a>
+        <a  class="categoriesMobileMenu bottomMobileItem" onclick="load_home('testGall.html?cat=ox&gender=male',1,'webshop' );closeMobileNav()""  ><span>X - men</span></a>
+        <a  class="categoriesMobileMenu bottomMobileItem" onclick="load_home('testGall.html?cat=ox&gender=unisex',1,'webshop' );closeMobileNav()""  ><span>OX - uni</span></a></div>
+    <a  class="categoriesMobileMenu upperMobileItem" onclick="load_home('testGall.html?cat=ox-ed',1,'webshop' );closeMobileNav()"" >OX-ED</a>
+    <div class="categoriesMobileMenu upperMobileItem" >
+        <a  class="categoriesMobileMenu bottomMobileItem" onclick="load_home('testGall.html?cat=ox-ed&gender=female',1,'webshop' );closeMobileNav()""  ><span>O - women</span></a>
+        <a  class="categoriesMobileMenu bottomMobileItem" onclick="load_home('testGall.html?cat=ox-ed&gender=male',1,'webshop' );closeMobileNav()""  ><span>X - men</span></a>
+        <a  class="categoriesMobileMenu bottomMobileItem" onclick="load_home('testGall.html?cat=ox-ed&gender=unisex',1,'webshop' );closeMobileNav()""  ><span>OX - uni</span></a>
+  </div>
+  <a  class="categoriesMobileMenu upperMobileItem" onclick="load_home('testGall.html?cat=jewellery',1,'webshop' );closeMobileNav()"">Jewelery</a>
+
+
+
+
+
   </div>
 
 </div>
@@ -202,153 +178,6 @@
     <div id = "overlayMain"></div>
 
   </div>
- 
-    <script>
-      
-
-      var x = window.matchMedia("(min-width: 900px)")
-
-
-  let iframe = document.getElementById('mainContent');
-  let innerDoc = iframe.contentDocument;
-
-
-function setWebshopCustom(){
-
-if(!x.matches){ 
-  $("#mainContent").css("top", "15vh");
-  $(".newsGallery").css(
-    {"left":"0",
-    "width":"100vw",
-    "height":"80vh"
-});
-
-}
-else{
-
-  $("#mainContent").css("top", "15vh");
-  $(".newsGallery").css(
-    {"left":"10vw",
-    "width":"80vw"
-   
-});}
-}
-function setCampaignCustom(){
-
-  if(x.matches){ 
-  $("#mainContent").css("top", "0vh");
-  $(".newsGallery").css(
-    {"left":"0",
-    "width":"100vw",
-    "height":"100vh",
-    "overflow":"scroll"
-});
-
-}
-else{
-
-  $("#mainContent").css("top", "0");
-  $(".newsGallery").css(
-    {
-    "width":"100vw",
-    "height":"100vh"
-});}
-
-}
-
-function setRegularSize(){
-
-  if(x.matches){ 
-  $("#mainContent").css("top", "15vh");
-  $(".newsGallery").css(
-    {"left":"0",
-    "width":"100vw",
-    "height":"80vh"
-});
-
-}
-else{
-
-  $("#mainContent").css("top", "15vh");
-  $(".newsGallery").css(
-    {"left":"0",
-    "width":"100vw",
-    "height":"80vh"
-});}
-}
-
-
-//FUNCTION TAKING CARE OF MOVING OUT PREVIOUS MAIN CONTENT IN ORDER TO REPLACE IT WITH NEW ONE
-
-function load_home(element_flowing_in, startBottomOrTop, customSize) { //bottom is 0, top is 1
-  let mainContent = document.getElementById("mainContent");
-  let mainContentCurrentChild = mainContent.children[0];  //this is the current element in the main content area
-  mainContentCurrentChild.style.transition = "ease-in-out 1s"; // adding smooth animation to every new element
-  
-  
-  
-  
-
-
-
-
-  
-  if(startBottomOrTop == 0)
-    mainContentCurrentChild.style.transform="translateY(-120vh)";
-  else
-    mainContentCurrentChild.style.transform="translateY(100vh)";
-
- 
-   
-  setTimeout(function(){
-    mainContent.removeChild(mainContentCurrentChild);
-  }, 500)
-   
-
-    let newObject = document.createElement('object');     ///////
-    $(newObject).attr('type', 'text/html');              //////
-    $(newObject).attr('data',element_flowing_in);       //////TAKES CARE OF IMPORTING NEW HTML FILE INTO MAIN SPACE
-    newObject.classList.add("newsGallery");       //////
-    
-
- 
-
-
-    mainContent.appendChild(newObject);                 //////
-
-       let flowing_in_content = mainContent.children[1];
-       
-       if(startBottomOrTop == 0)                                        
-          flowing_in_content.style.transform="translateY(100vh)";
-       else
-          flowing_in_content.style.transform="translateY(-100vh)";
-
-        flowing_in_content.style.display= "block";                ///showing and placing the new item in the main space
-        flowing_in_content.style.transform="translateY(0)";       ////
-        
-       
-      setTimeout(function(){
-        if(customSize == "webshop"){
-  setWebshopCustom();
-}
-else if(customSize == "campaign"){
-  setCampaignCustom();
-}
-else{
-setRegularSize();
-}
-
-      },300);
-
-      
-       
-}
-
-load_home('testGall.html',1,'webshop');
-
-//END OF FUNCTION TAKING CARE OF MOVING OUT PREVIOUS MAIN CONTENT IN ORDER TO REPLACE IT WITH NEW ONE
-
-</script>
 
 <script src="js/script.js"></script>
 </body>

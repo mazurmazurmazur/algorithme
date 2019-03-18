@@ -39,10 +39,19 @@ function showPaintings(data) {
     let list = document.querySelector(".resource-slider-frame");
     let template = document.querySelector("#paintingTemplate").content;
     let clone = template.cloneNode(true);
-    console.log(data);    
+    let showAllButton= document.getElementById("show-all-button");
+
+    if(dynamicContent == null)
+    showAllButton.setAttribute("href", "grid.html");
+    else if(dynamicGender !=null)
+    showAllButton.setAttribute("href", "grid.html?cat=" + dynamicContent + "&gender=" +dynamicGender);
+    else
+    showAllButton.setAttribute("href", "grid.html?cat=" + dynamicContent);
+    
+
+    //testGall.html?cat=ox-ed&gender=female
 
 
-    let galleryItemFromLeft = 0;
 
     data.forEach(function(thePainting) {
 
@@ -81,7 +90,6 @@ else{
     console.log(category.toLowerCase() +" vs "+dynamicContent)
     if(category.toLowerCase()==dynamicContent){
       appendOrNot=true;
-      console.log("approved");
 
     }
   }
@@ -95,7 +103,6 @@ if(dynamicGender!== null && appendOrNot==true){
       console.log(sex[i].toLowerCase() +" vs "+dynamicGender)
       if(sex[i].toLowerCase()==dynamicGender){
         appendOrNot=true;
-        console.log("approved");
     }
     else{
       appendOrNot=false;
@@ -106,7 +113,6 @@ else{
   console.log(sex.toLowerCase() +" vs "+dynamicGender)
   if(sex.toLowerCase()==dynamicGender){
     appendOrNot=true;
-    console.log("approved");
   }
   else{
     appendOrNot=false;

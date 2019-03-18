@@ -218,6 +218,9 @@ display: none;
         .aboutSection{
             font-size: 35px;
         }
+        .plane-animation{
+          display: none;
+        }
 
 
 

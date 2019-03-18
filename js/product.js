@@ -18,6 +18,23 @@ var dynamicContent = getParameterByName("id");
 let currentProductNum;
 let jsonOut;
 
+
+
+let desc;
+  let descImage;
+  let descButtonOverview;
+  let descButtonDetails;
+  let descButtonCare ;
+  let descButtonFit;
+
+  let descJson;
+  let descDetailsTextJson;
+  let descDetailsImageJson ;
+  let descCareJson;
+  let descFitTextJson ;
+  let descFitImageJson ;
+
+
 function getAllProducts() {
   fetch(
     "http://dashboard.algorithme.co/wp-json/wp/v2/oxproduct/" +
@@ -32,6 +49,7 @@ function getAllProducts() {
 
 function showProducts(json) {
   let acf = json.acf;
+  console.log(json);
   jsonOut = json;
   let colorpick = acf.colorpick;
 
@@ -54,17 +72,42 @@ function showProducts(json) {
   let image = document.querySelector(".product-image .bg");
   let priceTag = document.querySelector(".price span"); //selecting DOM elements
   let titleTag = document.querySelector(".productName");
-  let desc = document.querySelector(".desc");
+  desc = document.querySelector(".desc");
+   descImage = document.getElementById("product-desc-image");
+   descButtonOverview = document.querySelector(".product-overview");
+   descButtonDetails = document.querySelector(".product-details");
+   descButtonCare = document.querySelector(".product-care");
+   descButtonFit = document.querySelector(".product-fit");
 
   let photo = colorpick.imagescolor1.image1;
   let price = json.acf.price; //selecting JSON elements
   let title = json.title.rendered;
-  let descJson = acf.description;
+   descJson = acf.description.overview;
+   descDetailsTextJson = acf.description.details.detailstext;
+   descDetailsImageJson = acf.description.details.detailsimage.sizes.medium_large;
+   descCareJson = acf.description.care;
+   descFitTextJson = acf.description.fit.fittext;
+   descFitImageJson = acf.description.fit.fitimage.sizes.medium_large;
+
+  console.log(descFitImageJson + descCareJson + descDetailsTextJson + descJson)
 
   image.style.backgroundImage = "url(" + photo + ")";
   priceTag.innerHTML = price; ///populating HTML with JSON content
   titleTag.innerHTML = title;
   desc.innerHTML = descJson;
+
+
+
+  ///product det buttons changing description content
+  descButtonOverview.addEventListener("click", function() {fillDesc("overview")});
+  descButtonCare.addEventListener("click", function() {fillDesc("care")});
+  descButtonDetails.addEventListener("click", function() {fillDesc("details")});
+  descButtonFit.addEventListener("click", function() {fillDesc("fit")});
+
+
+
+  ///
+
 
   /////color selector
   $(".color").on("click", function() {
@@ -200,9 +243,43 @@ $('.selectSize').on('change', function (e) {
 
 
   checkColor("color1");
+
+
+
+
+  
+
 }
 
 getAllProducts();
+
+
+function fillDesc(descElement){
+
+  desc.innerHTML= "";
+  descImage.setAttribute("src", "");
+  if(descElement =="overview"){
+    desc.innerHTML=descJson;
+    console.log("1");
+  }
+  else if(descElement =="details"){
+    desc.innerHTML=descDetailsTextJson;
+    descImage.setAttribute("src", descDetailsImageJson);
+    console.log("2");
+    
+  }
+  else if(descElement =="care"){
+    desc.innerHTML=descCareJson;
+    console.log("3");
+  }
+  else{
+    desc.innerHTML=descFitTextJson
+    descImage.setAttribute("src", descFitImageJson);
+    console.log("4");
+  }
+}
+
+
 
 
 
@@ -248,4 +325,5 @@ function afterFetch(json) {
     updateCart(localStorage.length); ///dynamic cart update after click, calls global function in home.js
   });
 }
+
 

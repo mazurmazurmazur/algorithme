@@ -190,6 +190,15 @@ a.add-btn:hover {
   cursor: pointer;
 }
 
+
+#product-desc-wrapper{
+  width: 100%;
+}
+
+#product-desc-image{
+  width: inherit;
+}
+
 /* DESKTOP BELOW */
 @media screen and (min-width: 761px) {
   .col-1-2 {

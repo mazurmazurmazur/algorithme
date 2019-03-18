@@ -68,7 +68,7 @@ $(document).ready(function() {
           Host: "smtp.gmail.com",
           Username: "mail.algorithme@gmail.com",
           Password: "algoalgo",
-          To: "mail.algorithme@gmail.com",
+          To: "mddolska@gmail.com",
           From: "mail.algorithme@gmail.com",
           Subject: "ALGORITHME: " + subject.value,
           Body:

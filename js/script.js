@@ -469,6 +469,12 @@ load_home('testGall.html',1,'webshop');
 
 
 
- //MOBILEMENU WEBSHOP SECTIONS
+///SEARCH BAR BELOW
 
- 
+
+// document.getElementById("search_submit").addEventListener("click", function(event){
+//   event.preventDefault()
+// });
+
+////END OF SEARCHBAR
+

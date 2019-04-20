@@ -95,9 +95,7 @@ let app = {
  
  let productName = $(this).parent().parent().attr("data-ls"); //find localstorage name
 
- console.log(productName);
    localStorage.removeItem(productName);
-   console.log("removed?");
 
  
 
@@ -110,7 +108,6 @@ let app = {
     var qtyCtr = $(this).prev(".product-qty"),
       quantity = parseInt(qtyCtr.html(), 10) + 1;
 
-      console.log(quantity);
 
     app.updateProductSubtotal(this, quantity);
 
@@ -182,7 +179,6 @@ let app = {
       );
     }
 
-    console.log(document.querySelector(".stripe-button"));
     document
       .querySelector(".stripe-button")
       .setAttribute("data-amount", subtotal * 100);
@@ -207,9 +203,9 @@ let app = {
   attachEvents: function() {
     "use strict";
 
-    $(".product-remove").on("click", app.removeProduct);
-    $(".product-plus").on("click", app.addProduct);
-    $(".product-subtract").on("click", app.subtractProduct);
+    $(".product-remove").on("click  touchstart ", app.removeProduct);
+    $(".product-plus").on("click touchstart", app.addProduct);
+    $(".product-subtract").on("click touchstart", app.subtractProduct);
   },
 
   setProductImages: function() {
@@ -245,7 +241,6 @@ let app = {
 };
 
 function showProducts(json) {
-  console.log(json);
 
   for (let i = 0; i < localStorage.length-1; i++) {
 
@@ -259,11 +254,9 @@ let selectedItem = localStorage.key(i);
 
     if(colorId==" "){
       colorId="imagescolor"+1;
-      console.log(colorId + "option1");
     }
     else{
       colorId="imagescolor"+colorId;
-      console.log(colorId + "option2");
     }
 
 
@@ -288,7 +281,6 @@ let selectedItem = localStorage.key(i);
     
     json.forEach(function(theProduct) {
 
-      // console.log(theProduct.acf.colorpick[colorId].image1);
       if (theProduct.id == productId){
         app.products.push({
           prodLocalStorage: selectedItem,

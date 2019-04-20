@@ -66,6 +66,35 @@ input[type="submit"]:hover {
   opacity: 0.8;
 }
 
+#breadcrumbs{
+  position: absolute;
+  top: 10vh;
+  left: 6.5vw;
+  color: rgb(179, 174, 174);
+}
+#breadcrumbs > *{ display:inline;}
+
+.BCLink{
+  font-size: 10px;
+  color: black;
+  font-weight: bold;
+  margin-left: 1vw;
+}
+
+
+
+@media screen and (max-width: 1024px) {
+
+  .BCLink{
+    font-size: 18px;
+  }
+
+
+  #breadcrumbs-text{
+    font-size: 25px
+  }
+}
+
 
 @media screen and (max-width: 761px) {
 
@@ -75,4 +104,15 @@ input[type="submit"]:hover {
     width: 50vw;
   }
 
+  .BCLink{
+    font-size: 10px;
+  }
+
+
+  #breadcrumbs-text{
+    font-size: 15px
+  }
 }
+
+
+

@@ -23,6 +23,12 @@ body{
   color: black;
   }
 
+  #searchResults{
+    position: absolute;
+    top:0;
+    left:0;
+  }
+
 
 
 
@@ -80,7 +86,6 @@ body{
     .flex-item{
         width: 80%;
         height: 40vh;
-        background: red;
         margin: 2% 10%;
     }
 

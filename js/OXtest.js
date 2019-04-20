@@ -49,7 +49,7 @@ function showPaintings(data) {
     showAllButton.setAttribute("href", "grid.html?cat=" + dynamicContent);
     
 
-    //testGall.html?cat=ox-ed&gender=female
+    //webshop.html?cat=ox-ed&gender=female
 
 
 
@@ -186,14 +186,7 @@ function doneResizing() {
     modaleColorPicker.setAttribute("value", "#777777");
 
 
-  //   for (let key in colorPick) {
-  //     if (colorPick.hasOwnProperty(key)) {
-  //       let option = document.createElement('option');
-  //         option.setAttribute("value", colorPick[key]);
-  //         option.innerHTML = "Color";
-  //         modaleColorPicker.appendChild(option);
-  //     }
-  // }
+
 
 
     modaleTitle.innerHTML=jsonTitle;
@@ -201,9 +194,6 @@ function doneResizing() {
   }
 
   fillModale();
-});
-closemodale.click(function () {
-   modale.classList.remove('opened');
 });
 
 
@@ -241,8 +231,9 @@ function checkArrows() {
   else {
     $(".next").css("visibility", "visible");
   }
-  if ( totalScroll < itemWidth ) {
+  if ( totalScroll+10 < itemWidth ) {
     $(".prev").css("visibility", "hidden");
+    
   }
   else {
     $(".prev").css("visibility", "visible");

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>ALGORITHME</title>
+    <title>SiQiuli</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
       rel="stylesheet"
@@ -20,17 +20,43 @@
       media="screen"
       href="css/product.css"
     />
+
     <script src="js/money.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <script src="js/product.js"></script>
-    <script src="js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-zoom/1.7.21/jquery.zoom.min.js"></script>
 
+    <script src="js/cartHandler.js"></script>
+
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
   </head>
   <body>
     <div id="bodyWrapper">
-
       <link
         rel="stylesheet"
         href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
@@ -41,6 +67,7 @@
         <div class="product group">
           <div class="col-1-2 product-image">
             <div class="bg"></div>
+
             <div class="indicator"></div>
           </div>
           <div class="col-1-2 product-info">
@@ -48,9 +75,7 @@
             <h2 class="price">DKK <span></span></h2>
 
             <div class="select-dropdown">
-              <select class="selectSize">
-
-              </select>
+              <select class="selectSize"> </select>
             </div>
 
             <div class="select-dropdown">
@@ -68,22 +93,33 @@
 
             <a href="" id="addProduct-btn" class="add-btn">Add To Cart</a>
 
+            <a
+              href="javascript:void(0)"
+              class="prod_desc_section product-overview"
+              >Overview</a
+            >
+            <a
+              href="javascript:void(0)"
+              class="prod_desc_section product-details"
+              >Details</a
+            >
+            <a href="javascript:void(0)" class="prod_desc_section product-care"
+              >Care</a
+            >
+            <a href="javascript:void(0)" class="prod_desc_section product-fit"
+              >Fit</a
+            >
+
             <div id="product-desc-wrapper">
-              <img id="product-desc-image" src="">
-              <p class="desc">
-
-              </p>
+              <img id="product-desc-image" src="" />
+              <br />
+              <p class="desc"></p>
             </div>
-
-            
-
-            <a href="javascript:void(0)" class="prod_desc_section product-overview" >Overview</a>
-            <a href="javascript:void(0)" class="prod_desc_section product-details" >Details</a>
-            <a href="javascript:void(0)" class="prod_desc_section product-care" >Care</a>
-            <a href="javascript:void(0)" class="prod_desc_section product-fit">Fit</a>
           </div>
         </div>
       </div>
     </div>
+
+    <script src="js/product.js"></script>
   </body>
 </html>

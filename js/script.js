@@ -45,7 +45,7 @@ let aOXED = $("#aOXED");
 let aOXs = $("#aOX span");
 let aOXEDs = $("#aOXED span");
 
-aOX.on("click", function(){
+aOX.on("click  touchstart ", function(){
   $(this).find("span").css({"background" : "black",
 "color" : "white"});
   $(this).next().slideDown();
@@ -54,7 +54,7 @@ aOX.on("click", function(){
   "color" : "black"});
 })
 
-aOXED.on("click", function(){
+aOXED.on("click  touchstart ", function(){
   $(this).find("span").css({"background" : "black",
   "color" : "white"});
     $(this).next().slideDown();
@@ -68,23 +68,27 @@ aOXED.on("click", function(){
  /** submenus hide/show  END**/
 
 
- $("#logoContainerDesktop").on("click", function(){
+ $("#logoContainerDesktop").on("click  touchstart ", function(){
+  window.location = "mainShop.html";
+ })
+
+ $("#logoContainerMobile").on("click  touchstart ", function(){
   window.location = "mainShop.html";
  })
 
 
 
-
 function animateMainContent(){
+  console.log(document.getElementById("mainContent"))
   document.getElementById("mainContent").children[0].style.transition = "ease-in-out 1.5s";
 
 
 }
 
-animateMainContent();
+//animateMainContent();
 
 
-function defer(method) {
+function defer(method) { 
     if (window.jQuery)
       method();
     else
@@ -129,7 +133,7 @@ function defer(method) {
         }
       }
       
-      $('.arrow').on('click', function() {
+      $('.arrow').on('click touchstart', function() {
         var $this = $(this),
           width = $('.resource-slider-item').width(),
           speed = 500;
@@ -179,26 +183,51 @@ function defer(method) {
 
 //////NEWSLETTER 
 
+let newsletterContainer = document.getElementById("newsletterContainer");
+let overlayMain = document.getElementById("overlayMain");
+
 
 $(document).ready(function () {
   if(x.matches){                           //FUNCTION THAT SHOWS NEWSLETTER AUTOMATICALLY
   setTimeout(fnShowPopup, 5000);}
+
+  document.addEventListener('keyup', function (event) { 
+    if (event.defaultPrevented) {
+      return;
+  }
+
+  var key = event.key || event.keyCode;
+
+  if (key === 'Escape' || key === 'Esc' || key === 27 && newsletterContainer.classList.contains("NLActive")) { 
+
+closeNewsletter();
+  }
+
+  });
+
+
 });
 function fnShowPopup() {
-  document.getElementById("newsletterContainer").style.display = "block";
-  document.getElementById("newsletterContainer").style.zIndex = 120;
-  document.getElementById("overlayMain").style.backgroundColor = "rgba(0,0,0,0.4)";
-  document.getElementById("overlayMain").style.zIndex = 110;
-  document.getElementById("overlayMain").style.display = "block";
+  
+  newsletterContainer.style.display = "block";
+  newsletterContainer.style.zIndex = 120;
+  newsletterContainer.classList.add("NLActive");
+  overlayMain.style.backgroundColor = "rgba(0,0,0,0.4)";
+  overlayMain.style.zIndex = 110;
+  overlayMain.style.display = "block";
 
 
   //code to show popup
 }
 
+
+
 function closeNewsletter(){
-  document.getElementById("newsletterContainer").style.display = "none";
-  document.getElementById("overlayMain").style.backgroundColor = "transparent";
-  document.getElementById("overlayMain").style.zIndex = -10;
+  newsletterContainer.style.display = "none";
+  overlayMain.style.backgroundColor = "transparent";
+  overlayMain.style.zIndex = -10;
+  newsletterContainer.classList.remove("NLActive");
+
 }
 
 
@@ -247,7 +276,7 @@ function closeNewsletter(){
     return false;
   }
 
-  $("#submitNewsletter").bind("click", validate);
+  $("#submitNewsletter").bind("click touchstart", validate);
 
   ///////END VALIDATION IF EMAIL ADDRESS IS CORRECT PLUS INFO TO USER
 
@@ -275,42 +304,6 @@ function closeNewsletter(){
 
 
 ////END OF NEWSLETTER
-
-
-//GLOBAL CART SYSTEM
- let cartAmount = document.getElementById("amountInCart");
-
-function updateCart() {
-  //function called to update amount of all items in cart
-  let cartAmountParent = window.parent.document.querySelector("#amountInCart");
-
-  if (localStorage.length > 0) {
-    let sum = 0;
-    for (let i = 0, leng = localStorage.length - 1; i < leng; i++) {
-      let key = localStorage.key(i);
-      let val = localStorage.getItem(key);
-      let valAll = val.split("*");
-      console.log("valAll = " + valAll);
-      sum += parseInt(valAll[0]);
-      if (isNaN(sum)) {
-        cartAmountParent.innerHTML = "0";
-        console.log("option1 happened")
-      } else {
-        cartAmountParent.innerHTML = sum;
-        console.log("option2 happened")
-      }
-      
-     
-      
-    }
-  }
-}
-
-let cartState = document.querySelector("#amountInCart");
-
-  updateCart(cartState); //global cart update
-
-
 
 
 
@@ -393,7 +386,18 @@ else{
 
 //FUNCTION TAKING CARE OF MOVING OUT PREVIOUS MAIN CONTENT IN ORDER TO REPLACE IT WITH NEW ONE
 
+
+function get_action (){
+  let searchValue = document.getElementById("search").value;
+  load_home('grid.html?search='+searchValue,1,'webshop' );
+}
+
 function load_home(element_flowing_in, startBottomOrTop, customSize) { //bottom is 0, top is 1
+
+
+
+fillBreadcrumbs(element_flowing_in, element_flowing_in);
+
   let mainContent = document.getElementById("mainContent");
   let mainContentCurrentChild = mainContent.children[0];  //this is the current element in the main content area
   mainContentCurrentChild.style.transition = "ease-in-out 1s"; // adding smooth animation to every new element
@@ -418,9 +422,9 @@ function load_home(element_flowing_in, startBottomOrTop, customSize) { //bottom 
   }, 500)
    
 
-    let newObject = document.createElement('object');     ///////
+    let newObject = document.createElement('iframe');     ///////
     $(newObject).attr('type', 'text/html');              //////
-    $(newObject).attr('data',element_flowing_in);       //////TAKES CARE OF IMPORTING NEW HTML FILE INTO MAIN SPACE
+    $(newObject).attr('src',element_flowing_in);       //////TAKES CARE OF IMPORTING NEW HTML FILE INTO MAIN SPACE
     newObject.classList.add("newsGallery");       //////
     
 
@@ -457,7 +461,7 @@ setRegularSize();
        
 }
 
-load_home('testGall.html',1,'webshop');
+load_home('webshop.html',1,'webshop');
 
 
  //END OF FUNCTION TAKING CARE OF MOVING OUT PREVIOUS MAIN CONTENT IN ORDER TO REPLACE IT WITH NEW ONE
@@ -468,13 +472,70 @@ load_home('testGall.html',1,'webshop');
  //END OF MIGRATION FROM MAINSHOP.HTML
 
 
+///BREADCRUMBS:
 
-///SEARCH BAR BELOW
 
 
-// document.getElementById("search_submit").addEventListener("click", function(event){
-//   event.preventDefault()
-// });
+// Parse the URL parameter
+function getParameterByName(name, url) {
+  
+  name = name.replace(/[\[\]]/g, "\\$&");
+  var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+    results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return "";
+  return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+// Give the parameter a variable name
+var dynamicContent = getParameterByName("id");
 
-////END OF SEARCHBAR
 
+function fillBreadcrumbs(currentLink){
+  let breadcrumbsLink = document.getElementById("breadcrumbs-link");
+if(currentLink){
+
+  let paraCat = document.createElement("a");
+  let paraGen = document.createElement("a");
+  let paraProd = document.createElement("a");
+
+  paraCat.classList.add("BCLink");
+  paraGen.classList.add("BCLink");
+  paraProd.classList.add("BCLink");
+
+  let s = currentLink.substring(0, currentLink.indexOf('.'));
+  let link1 = currentLink.substring(0, currentLink.indexOf('?'));
+  let link2 = currentLink.substring(0, currentLink.indexOf('&'));
+  console.log("LINK2 "+link2);
+  
+    breadcrumbsLink.innerHTML = s;
+    breadcrumbsLink.setAttribute("href", currentLink);
+   
+
+
+    
+
+    let categoryBC = getParameterByName("cat", currentLink);
+    let genderBC = getParameterByName("gender", currentLink);
+
+    if(categoryBC){
+      paraCat.innerHTML = " > "+ categoryBC;
+      breadcrumbsLink.appendChild(paraCat);
+      if(genderBC){
+        paraGen.innerHTML = " > "+ genderBC;
+        breadcrumbsLink.appendChild(paraGen);
+        
+      }
+    }
+}
+
+}
+
+///END OF BREADCRUMBS
+
+var fixed = document.getElementsByTagName("BODY")[0];
+
+fixed.addEventListener('touchmove', function(e) {
+
+        e.preventDefault();
+
+}, false);

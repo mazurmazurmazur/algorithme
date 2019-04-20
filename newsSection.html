@@ -1,40 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ALGORITHME</title>
+    <link rel="stylesheet" href="css/newsSection.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
+  </head>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ALGORITHME</title>
-  <link rel="stylesheet" href="css/newsSection.css">
-</head>
+  <body>
+    <h2 id="button2013" onclick="hideOtherYears(a2013)">Collabs</h2>
+    <h2 id="button2014" onclick="hideOtherYears(a2014)">Events</h2>
+    <h2 id="button2015" onclick="hideOtherYears(a2015)">Projects</h2>
+    <h2 id="button2016" onclick="hideOtherYears(a2016)">OX-ED</h2>
+    <h2 id="button2017" onclick="hideOtherYears(a2017)">Publicity</h2>
+    <h2 id="button2018" onclick="hideOtherYears(a2018)"></h2>
 
-<body>
-
-
-
-
-  
-
-    <h2 id = "button2013" onclick="hideOtherYears(a2013)">Collabs</h2>
-    <h2 id = "button2014" onclick="hideOtherYears(a2014)">Events</h2>
-    <h2 id = "button2015" onclick="hideOtherYears(a2015)">Projects</h2>
-    <h2 id = "button2016" onclick="hideOtherYears(a2016)">OX-ED</h2>
-    <h2 id = "button2017" onclick="hideOtherYears(a2017)">Publicity</h2>
-    <h2 id = "button2018" onclick="hideOtherYears(a2018)"></h2>
- 
-
-
-            <div class="parent">
-                <div id="leftImg"></div>
-                <div id="rightImg"></div>
-            </div>
+    <div class="parent">
+      <div id="leftImg"></div>
+      <div id="rightImg"></div>
+    </div>
 
     <section id="wrapper"></section>
-    <template id = "paintingTemplate">
-        <article id="painting">
-        </article>
+    <template id="paintingTemplate">
+      <article id="painting"></article>
     </template>
-  <script src="js/newsSection.js"></script>
-</body>
-
+    <script src="js/newsSection.js"></script>
+  </body>
 </html>

@@ -12,6 +12,7 @@ function getParameterByName(name, url) {
 
   let dynamicContent = getParameterByName("cat");
 let dynamicGender = getParameterByName("gender");
+let dynamicSearch = getParameterByName("search");
 console.log(dynamicContent);
 console.log(dynamicGender);
   
@@ -22,7 +23,24 @@ console.log(dynamicGender);
   
   
   
-  
+  function getAllTags() {
+    
+    fetch("http://dashboard.algorithme.co/wp-json/wp/v2/tags?slug="+dynamicSearch)
+      .then(res => res.json())
+      .then(getSearchResults) 
+  }
+
+  function getSearchResults(data){
+
+    if(data.length>0)
+    fetch("https://dashboard.algorithme.co/wp-json/wp/v2/oxproduct?tags=" +data[0].id)
+    .then(res => res.json())
+    .then(showPaintings)
+    .then(resultsOfSearch(data))
+    else{
+      resultsOfSearch(0);
+    }
+  }
   
   let colours = [];
   let sizes = [];
@@ -112,6 +130,8 @@ console.log(dynamicGender);
   }
   }
   }
+
+  
   
       
               image.setAttribute("src", photo);
@@ -126,8 +146,31 @@ console.log(dynamicGender);
       })
   }
   
-  
+
+
+
+
+
+
+function resultsOfSearch(data){
+  let resultsAmount = 0;
+  if(data!=0){
+    resultsAmount = data[0].count;
+  }
+  let resultsText = document.getElementById("searchResults");
+  resultsText.innerHTML="You found " + resultsAmount + " results for query: " + dynamicSearch;
+
+
+}
+
+
+
+  if(!dynamicSearch)
   getAllPaintings();
+
+  if(dynamicSearch){
+    getAllTags();
+  }
   
   
   

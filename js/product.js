@@ -34,6 +34,8 @@ let desc;
   let descFitTextJson ;
   let descFitImageJson ;
 
+  let zoomImageLink;
+
 
 function getAllProducts() {
   fetch(
@@ -44,7 +46,9 @@ function getAllProducts() {
 
     .then(res => res.json())
     .then(showProducts) //filling DOM with json data
-    .then(afterFetch);
+    .then(afterFetch)
+    .then(activateZoom)
+    .then(initiateColorPicker)
 }
 
 function showProducts(json) {
@@ -84,17 +88,18 @@ function showProducts(json) {
   let title = json.title.rendered;
    descJson = acf.description.overview;
    descDetailsTextJson = acf.description.details.detailstext;
-   descDetailsImageJson = acf.description.details.detailsimage.sizes.medium_large;
+   if(acf.description.details.detailsimage.sizes) descDetailsImageJson = acf.description.details.detailsimage.sizes.medium_large;
    descCareJson = acf.description.care;
    descFitTextJson = acf.description.fit.fittext;
-   descFitImageJson = acf.description.fit.fitimage.sizes.medium_large;
+   if(acf.description.fit.fitimage.sizes) descFitImageJson = acf.description.fit.fitimage.sizes.medium_large;
 
-  console.log(descFitImageJson + descCareJson + descDetailsTextJson + descJson)
 
   image.style.backgroundImage = "url(" + photo + ")";
   priceTag.innerHTML = price; ///populating HTML with JSON content
   titleTag.innerHTML = title;
   desc.innerHTML = descJson;
+
+  zoomImageLink = photo; ////link for the jquery-zoom plugin 
 
 
 
@@ -110,7 +115,7 @@ function showProducts(json) {
 
 
   /////color selector
-  $(".color").on("click", function() {
+  $(".color").on("click touchstart", function() {
     $(".color").css("border", "1px solid gray");
     if($('.color').hasClass('active')){
       $('.color').removeClass('active')
@@ -258,24 +263,19 @@ function fillDesc(descElement){
 
   desc.innerHTML= "";
   descImage.setAttribute("src", "");
-  if(descElement =="overview"){
+  if(descElement =="overview" && descJson!=null ){
     desc.innerHTML=descJson;
-    console.log("1");
   }
-  else if(descElement =="details"){
+  else if(descElement =="details" && descDetailsImageJson!=null && descDetailsTextJson!=null){
     desc.innerHTML=descDetailsTextJson;
-    descImage.setAttribute("src", descDetailsImageJson);
-    console.log("2");
-    
+    descImage.setAttribute("src", descDetailsImageJson); 
   }
-  else if(descElement =="care"){
+  else if(descElement =="care" && descCareJson !=null){
     desc.innerHTML=descCareJson;
-    console.log("3");
   }
-  else{
+  else if(descElement =="fit" && descFitImageJson!=null && descFitTextJson!=null){
     desc.innerHTML=descFitTextJson
     descImage.setAttribute("src", descFitImageJson);
-    console.log("4");
   }
 }
 
@@ -300,6 +300,10 @@ function afterFetch(json) {
   
   let addButton = document.getElementById("addProduct-btn");
   let productName = ("id" + dynamicContent); //id from url
+  let selectColor = $(".select-color");
+
+
+  selectColor.append('<label for="color-input" id="color-label"><p>CUSTOM ></p></label><input type="checkbox" id="color-input"></input><div id="color-picker"><canvas id="color-block" height="150" width="150"></canvas><canvas id="color-strip" height="150" width="30"></canvas><a href="javascript:void(0)"class="custom-color-order-btn">ORDER...</a></div>');
 
 
 
@@ -326,4 +330,123 @@ function afterFetch(json) {
   });
 }
 
+function activateZoom(){
+$(document).ready(function(){
+  $('.bg').zoom({url: zoomImageLink});
+});
+}
 
+
+
+
+
+// CUSTOM COLOR PICKER BELOW
+
+function initiateColorPicker(){
+
+var colorBlock = document.getElementById('color-block');
+var ctx1 = colorBlock.getContext('2d');
+var width1 = colorBlock.width;
+var height1 = colorBlock.height;
+
+var colorStrip = document.getElementById('color-strip');
+var ctx2 = colorStrip.getContext('2d');
+var width2 = colorStrip.width;
+var height2 = colorStrip.height;
+
+var colorLabel = document.getElementById('color-label');
+var colorInput = document.getElementById('color-input');
+var colorPicker = document.getElementById('color-picker');
+
+
+
+var x = 0;
+var y = 0;
+var drag = false;
+var rgbaColor = 'rgba(255,0,0,1)';
+
+ctx1.rect(0, 0, width1, height1);
+fillGradient();
+
+ctx2.rect(0, 0, width2, height2);
+var grd1 = ctx2.createLinearGradient(0, 0, 0, height1);
+grd1.addColorStop(0, 'rgba(255, 0, 0, 1)');
+grd1.addColorStop(0.17, 'rgba(255, 255, 0, 1)');
+grd1.addColorStop(0.34, 'rgba(0, 255, 0, 1)');
+grd1.addColorStop(0.51, 'rgba(0, 255, 255, 1)');
+grd1.addColorStop(0.68, 'rgba(0, 0, 255, 1)');
+grd1.addColorStop(0.85, 'rgba(255, 0, 255, 1)');
+grd1.addColorStop(1, 'rgba(255, 0, 0, 1)');
+ctx2.fillStyle = grd1;
+ctx2.fill();
+
+function click(e) {
+  x = e.offsetX;
+  y = e.offsetY;
+  var imageData = ctx2.getImageData(x, y, 1, 1).data;
+  rgbaColor = 'rgba(' + imageData[0] + ',' + imageData[1] + ',' + imageData[2] + ',1)';
+  fillGradient();
+}
+
+function fillGradient() {
+  ctx1.fillStyle = rgbaColor;
+  ctx1.fillRect(0, 0, width1, height1);
+
+  var grdWhite = ctx2.createLinearGradient(0, 0, width1, 0);
+  grdWhite.addColorStop(0, 'rgba(255,255,255,1)');
+  grdWhite.addColorStop(1, 'rgba(255,255,255,0)');
+  ctx1.fillStyle = grdWhite;
+  ctx1.fillRect(0, 0, width1, height1);
+
+  var grdBlack = ctx2.createLinearGradient(0, 0, 0, height1);
+  grdBlack.addColorStop(0, 'rgba(0,0,0,0)');
+  grdBlack.addColorStop(1, 'rgba(0,0,0,1)');
+  ctx1.fillStyle = grdBlack;
+  ctx1.fillRect(0, 0, width1, height1);
+}
+
+function mousedown(e) {
+  drag = true;
+  changeColor(e);
+}
+
+function mousemove(e) {
+  if (drag) {
+    changeColor(e);
+  }
+}
+
+function mouseup(e) {
+  drag = false;
+}
+
+function changeColor(e) {
+  x = e.offsetX;
+  y = e.offsetY;
+  var imageData = ctx1.getImageData(x, y, 1, 1).data;
+  rgbaColor = 'rgba(' + imageData[0] + ',' + imageData[1] + ',' + imageData[2] + ',1)';
+  colorLabel.style.backgroundColor = rgbaColor;
+}
+
+colorStrip.addEventListener("click", click, false);
+
+colorBlock.addEventListener("mousedown", mousedown, false);
+colorBlock.addEventListener("mouseup", mouseup, false);
+colorBlock.addEventListener("mousemove", mousemove, false);
+
+
+
+// document.body.addEventListener('click', function(){
+//   if(colorInput.checked!=false){
+//   colorInput.checked = false;}
+// }, false); 
+
+// colorPicker.addEventListener('click', function(ev){
+//   ev.stopPropagation;
+// }, false);
+
+}
+
+
+
+//END CuSTOM COLOR PICKER

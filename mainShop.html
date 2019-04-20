@@ -12,6 +12,16 @@
   crossorigin="anonymous"></script>
 
 
+<link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+<link rel="manifest" href="favicon/site.webmanifest">
+<link rel="mask-icon" href="favicon/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+
+
 </head>
 <body>
      
@@ -29,37 +39,42 @@
 
 
     <div id="headMenu">
-        <div class="dropdownHead"><a onclick="load_home('testGall.html',1,'webshop' )" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);" >WEBSHOP</a>
+        <div class="dropdownHead"><a onclick="load_home('webshop.html',1,'webshop' )" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);" >WEBSHOP</a>
           <div class="dropdownHead-content">
             <div class="dragonflyDiv"><img src="images/dot.png" class="dragonflyImg"></div>
             
-              <a onclick="load_home('testGall.html?cat=ox',1,'webshop' )"  id="aOX"><span>OX⌄</span></a>
+              <a onclick="load_home('webshop.html?cat=ox',1,'webshop' )"  id="aOX"><span>OX⌄</span></a>
               <div class ="subSubMenu" id="OXdiv">
-                  <a onclick="load_home('testGall.html?cat=ox&gender=female',1,'webshop' )"  ><span>O - women</span></a>
-                  <a onclick="load_home('testGall.html?cat=ox&gender=male',1,'webshop' )"  ><span>X - men</span></a>
-                  <a onclick="load_home('testGall.html?cat=ox&gender=unisex',1,'webshop' )"  ><span>OX - uni</span></a></div>
-              <a onclick="load_home('testGall.html?cat=ox-ed',1,'webshop' )"  id="aOXED"><span>OX-ED⌄</span></a>
+                  <a onclick="load_home('webshop.html?cat=ox&gender=female',1,'webshop' )"  ><span>O - women</span></a>
+                  <a onclick="load_home('webshop.html?cat=ox&gender=male',1,'webshop' )"  ><span>X - men</span></a>
+                  <a onclick="load_home('webshop.html?cat=ox&gender=unisex',1,'webshop' )"  ><span>OX - uni</span></a></div>
+              <a onclick="load_home('webshop.html?cat=ox-ed',1,'webshop' )"  id="aOXED"><span>OX-ED⌄</span></a>
               <div class ="subSubMenu" id = "OXEDdiv">
-                  <a onclick="load_home('testGall.html?cat=ox-ed&gender=female',1,'webshop' )"  ><span>O - women</span></a>
-                  <a onclick="load_home('testGall.html?cat=ox-ed&gender=male',1,'webshop' )"  ><span>X - men</span></a>
-                  <a onclick="load_home('testGall.html?cat=ox-ed&gender=unisex',1,'webshop' )"  ><span>OX - uni</span></a>
+                  <a onclick="load_home('webshop.html?cat=ox-ed&gender=female',1,'webshop' )"  ><span>O - women</span></a>
+                  <a onclick="load_home('webshop.html?cat=ox-ed&gender=male',1,'webshop' )"  ><span>X - men</span></a>
+                  <a onclick="load_home('webshop.html?cat=ox-ed&gender=unisex',1,'webshop' )"  ><span>OX - uni</span></a>
               <!-- <a><span>what is OX-ED</span></a> -->
             </div>
-              <a onclick="load_home('testGall.html?cat=jewellery',1,'webshop' )"  id="aJewelery"><span>Jewelery</span></a>
+              <a onclick="load_home('webshop.html?cat=jewellery',1,'webshop' )"  id="aJewelery"><span>Jewelery</span></a>
             </div>
         </div>
         
-        <a onclick="load_home('http://blog.mazurmazurmazur.pl/',1, 'campaign')" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);" >CAMPAIGN</a>
+        <a onclick="load_home('http://campaign.algorithme.co',1, 'campaign')" class=" noMobile  menuA bottomMenuA" href="javascript:void(0);" >CAMPAIGN</a>
         <a onclick="load_home('newsSection.html',1)" class=" menuA noMobile bottomMenuA" href="javascript:void(0);" >NEWS SECTION</a>
        
     </div>
 
     <div id="bottomMenu">
         <a onclick="load_home('about.html', 0)" class=" noMobile  menuA" href="javascript:void(0);">ABOUT</a>  
-        <a onclick="load_home('https://lasertheme.tumblr.com/',0,'campaign')" class=" noMobile  menuA" href="javascript:void(0);">PAST STORIES</a>
+        <a onclick="load_home('http://past-stories.algorithme.co/',0,'campaign')" class=" noMobile  menuA" href="javascript:void(0);">PAST STORIES</a>
         <a onclick="load_home('contact.html', 0)" class=" noMobile  menuA" href="javascript:void(0);">CONTACT</a>
         </div>
     
+
+<div id="breadcrumbs"><p id="breadcrumbs-text">You are in: </p><div id="breadcrumbs-links">
+  <a href="javascript:void(0)" id="breadcrumbs-link" class="BCLink"></a>
+</div></div>
+
 
     <!-- MODAL DISPLAYING SELECTED PRODUCT -->
 
@@ -80,8 +95,8 @@
         <li><a target="_blank" rel="noopener noreferrer" href="http://pinterest.com/" class=" smButton fa fa-lg fa-pinterest"></a></li>
         <li><a target="_blank" rel="noopener noreferrer" href="http://instagram.com/" class=" smButton fa fa-lg fa-instagram"></a></li>
         <div id="wrap">
-          <form class="fa fa-lg fa-search smButton" action="" autocomplete="off">
-          <input id="search" name="search"  type="text" placeholder="What're we looking for ?"><input id="search_submit" value="Rechercher" type="submit" >
+          <form class="fa fa-lg fa-search smButton" action="javascript: get_action(this);"  method="GET" autocomplete="off">
+          <input id="search" name=""  type="text" placeholder="What're we looking for ?"><input id="search_submit" value="Rechercher" type="submit" >
           </form>
         </div>
 
@@ -91,11 +106,9 @@
        
   
       <!-- /social media buttons -->
-
     <div id="mainContent">
       <div></div>
     </div>
-
     
 
 <!-- NEWSLETTER-->
@@ -153,29 +166,29 @@
       <a  id="mobileMenuLogo" href="#"><img id="mobileMenuLogoImg" src="images/logoInvert.png"></a>
 
 
-      <a class="mainMobileMenu upperMobileItem" onclick="load_home('http://blog.mazurmazurmazur.pl/',1, 'campaign'); closeMobileNav()">CAMPAIGN</a>
+      <a class="mainMobileMenu upperMobileItem" onclick="load_home('http://campaign.algorithme.co',1, 'campaign'); closeMobileNav()">CAMPAIGN</a>
       <a class="mainMobileMenu upperMobileItem" onclick="showCategories()"">WEBSHOP</a>
       <a class="mainMobileMenu upperMobileItem" onclick="load_home('newsSection.html', 1); closeMobileNav()">NEWS SECTION</a>
 <br><br>
     <a class="mainMobileMenu bottomMobileItem" onclick="load_home('about.html', 0); closeMobileNav()"><span>ABOUT</span></a>
-    <a class="mainMobileMenu bottomMobileItem" onclick="load_home('https://lasertheme.tumblr.com/', 0,'campaign');closeMobileNav()"><span>PAST STORIES</span></a>
+    <a class="mainMobileMenu bottomMobileItem" onclick="load_home('http://past-stories.algorithme.co/', 0,'campaign');closeMobileNav()"><span>PAST STORIES</span></a>
     <a class="mainMobileMenu bottomMobileItem" onclick="load_home('contact.html', 0); closeMobileNav()"><span>CONTACT</span></a>
 
 
 
-    <a class="categoriesMobileMenu upperMobileItem" onclick="load_home('testGall.html', 1, 'webshop');closeMobileNav()"">WEBSHOP</a>
-    <a  class="categoriesMobileMenu upperMobileItem" onclick="load_home('testGall.html?cat=ox-ed',1,'webshop' );closeMobileNav()"" >OX</a>
+    <a class="categoriesMobileMenu upperMobileItem" onclick="load_home('webshop.html', 1, 'webshop');closeMobileNav()"">WEBSHOP</a>
+    <a  class="categoriesMobileMenu upperMobileItem" onclick="load_home('webshop.html?cat=ox-ed',1,'webshop' );closeMobileNav()"" >OX</a>
     <div  class="categoriesMobileMenu upperMobileItem" >
-        <a  class="categoriesMobileMenu bottomMobileItem" onclick="load_home('testGall.html?cat=ox&gender=female',1,'webshop' );closeMobileNav()""  ><span>O - women</span></a>
-        <a  class="categoriesMobileMenu bottomMobileItem" onclick="load_home('testGall.html?cat=ox&gender=male',1,'webshop' );closeMobileNav()""  ><span>X - men</span></a>
-        <a  class="categoriesMobileMenu bottomMobileItem" onclick="load_home('testGall.html?cat=ox&gender=unisex',1,'webshop' );closeMobileNav()""  ><span>OX - uni</span></a></div>
-    <a  class="categoriesMobileMenu upperMobileItem" onclick="load_home('testGall.html?cat=ox-ed',1,'webshop' );closeMobileNav()"" >OX-ED</a>
+        <a  class="categoriesMobileMenu bottomMobileItem" onclick="load_home('webshop.html?cat=ox&gender=female',1,'webshop' );closeMobileNav()""  ><span>O - women</span></a>
+        <a  class="categoriesMobileMenu bottomMobileItem" onclick="load_home('webshop.html?cat=ox&gender=male',1,'webshop' );closeMobileNav()""  ><span>X - men</span></a>
+        <a  class="categoriesMobileMenu bottomMobileItem" onclick="load_home('webshop.html?cat=ox&gender=unisex',1,'webshop' );closeMobileNav()""  ><span>OX - uni</span></a></div>
+    <a  class="categoriesMobileMenu upperMobileItem" onclick="load_home('webshop.html?cat=ox-ed',1,'webshop' );closeMobileNav()"" >OX-ED</a>
     <div class="categoriesMobileMenu upperMobileItem" >
-        <a  class="categoriesMobileMenu bottomMobileItem" onclick="load_home('testGall.html?cat=ox-ed&gender=female',1,'webshop' );closeMobileNav()""  ><span>O - women</span></a>
-        <a  class="categoriesMobileMenu bottomMobileItem" onclick="load_home('testGall.html?cat=ox-ed&gender=male',1,'webshop' );closeMobileNav()""  ><span>X - men</span></a>
-        <a  class="categoriesMobileMenu bottomMobileItem" onclick="load_home('testGall.html?cat=ox-ed&gender=unisex',1,'webshop' );closeMobileNav()""  ><span>OX - uni</span></a>
+        <a  class="categoriesMobileMenu bottomMobileItem" onclick="load_home('webshop.html?cat=ox-ed&gender=female',1,'webshop' );closeMobileNav()""  ><span>O - women</span></a>
+        <a  class="categoriesMobileMenu bottomMobileItem" onclick="load_home('webshop.html?cat=ox-ed&gender=male',1,'webshop' );closeMobileNav()""  ><span>X - men</span></a>
+        <a  class="categoriesMobileMenu bottomMobileItem" onclick="load_home('webshop.html?cat=ox-ed&gender=unisex',1,'webshop' );closeMobileNav()""  ><span>OX - uni</span></a>
   </div>
-  <a  class="categoriesMobileMenu upperMobileItem" onclick="load_home('testGall.html?cat=jewellery',1,'webshop' );closeMobileNav()"">Jewelery</a>
+  <a  class="categoriesMobileMenu upperMobileItem" onclick="load_home('webshop.html?cat=jewellery',1,'webshop' );closeMobileNav()"">Jewelery</a>
 
 
 
@@ -195,5 +208,6 @@
   </div>
 
 <script src="js/script.js"></script>
+<script src="js/cartHandler.js"></script>
 </body>
 </html>

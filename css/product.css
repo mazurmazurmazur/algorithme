@@ -1,15 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400');
+
 * {
   box-sizing: border-box;
 }
 
+body {
+  font-family: 'Montserrat', sans-serif !important;
+}
 h1 {
   font-size: 130%;
 }
 
 h2 {
-  color: #aaa;
+  color: rgb(0, 0, 0);
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 p {
@@ -25,18 +30,20 @@ p {
 }
 
 .group:after {
-  content: "";
+  content: '';
   display: table;
   clear: both;
 }
 
 .product-image .bg {
-  background-size: cover;
+  background-size: 75%;
+  background-repeat: no-repeat;
   background-position: center top;
-  width: 50%;
-  min-height: 400px;
+  width: 70%;
+  min-height: 450px;
   transition: 1s;
-  margin-left: 25%;
+  margin-left: 15%;
+
   border: solid 1px gray;
 }
 
@@ -85,7 +92,7 @@ p {
   background-color: #fff;
   border: none;
   border-radius: 2px;
-  color: #aaa;
+  color: rgb(0, 0, 0);
   font-size: 12px;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -100,7 +107,7 @@ select:focus {
 }
 
 .select-dropdown:after {
-  content: " ";
+  content: ' ';
   cursor: pointer;
   position: absolute;
   top: 30%;
@@ -157,7 +164,7 @@ a.add-btn:hover {
 }
 
 .product-info li::before {
-  content: "\2022";
+  content: '\2022';
   margin-right: 20px;
 }
 
@@ -190,14 +197,90 @@ a.add-btn:hover {
   cursor: pointer;
 }
 
-
-#product-desc-wrapper{
+#product-desc-wrapper {
   width: 100%;
 }
 
-#product-desc-image{
+#product-desc-image {
   width: inherit;
 }
+
+.prod_desc_section {
+  color: rgb(121, 115, 115);
+  margin-right: 2vw;
+  font-size: 15px;
+  font-weight: 100;
+}
+
+.prod_desc_section:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.prod_desc_section:focus {
+  text-decoration: underline;
+}
+
+/*****CUSTOM COLOR PIKER BELOW******/
+
+#color-input {
+  display: none;
+}
+
+#color-label {
+  background-color: rgb(212, 211, 211);
+  height: 10px;
+  width: auto;
+  display: inline-block;
+  margin-left: 5px;
+  position: absolute;
+  top: 50%;
+}
+
+#color-label p {
+  color: #fff;
+  font-size: 8px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#color-picker {
+  position: absolute;
+  left: 70px;
+  background-color: transparent;
+  height: 150px;
+  width: 250px;
+  display: none;
+  padding: 3px;
+}
+
+#color-input:checked ~ #color-picker {
+  display: block;
+}
+
+#color-block,
+#color-strip {
+  border: solid 3px #000;
+}
+canvas:hover {
+  cursor: crosshair;
+}
+
+.custom-color-order-btn {
+  padding: 2px;
+  border: solid 1px #000;
+  color: black;
+  text-decoration: none;
+  float: right;
+}
+
+.custom-color-order-btn:hover {
+  color: #fff;
+  background: #000;
+  border: #fff;
+}
+
+/******END CUSTOM COLOR PICKER****/
 
 /* DESKTOP BELOW */
 @media screen and (min-width: 761px) {
@@ -226,14 +309,11 @@ a.add-btn:hover {
     height: 10px;
   }
 
+  .product-image .bg {
+    width: 80%;
 
-.product-image .bg {
-
-  width: 80%;
-
-  margin-left: 10%;
-
-}
+    margin-left: 10%;
+  }
 }
 
 /* END MOBILE */

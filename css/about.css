@@ -182,11 +182,10 @@ body {
 }
 
 /* DESKTOP */
-@media screen and (min-device-width: 1000px) {
+@media screen and (min-device-width: 1025px) {
   .aboutSection {
     font-size: 50px;
   }
-
   .plane-animation {
     animation: planeAnimationFrames linear 5s;
     animation-iteration-count: 1;
@@ -250,12 +249,50 @@ body {
 }
 
 /* TABLETS */
-@media screen and (max-device-width: 999px) {
+@media screen and (max-device-width: 1024px) {
   .aboutSection {
     font-size: 35px;
   }
+
   .plane-animation {
-    display: none;
+    animation: planeAnimationFrames linear 5s;
+    animation-iteration-count: 1;
+    transform-origin: 50% 50%;
+    position: absolute;
+    top: 40vh;
+    width: 10vw;
+    left: -15vw;
+    animation-delay: 5s;
+  }
+
+  @keyframes planeAnimationFrames {
+    0% {
+      transform: translate(0px, 0px);
+    }
+    12.5% {
+      transform: translate(12.5vw, -4vh) rotate(6deg);
+    }
+    25% {
+      transform: translate(25vw, 0);
+    }
+    37.5% {
+      transform: translate(37.5vw, 4vh) rotate(-6deg);
+    }
+    50% {
+      transform: translate(50vw, 0);
+    }
+    62.5% {
+      transform: translate(62.5vw, -4vh) rotate(6deg);
+    }
+    75% {
+      transform: translate(75vw, 0);
+    }
+    87.5% {
+      transform: translate(87.5vw, 4vh) rotate(-6deg);
+    }
+    100% {
+      transform: translate(110vw, 0) rotate(0deg);
+    }
   }
 }
 

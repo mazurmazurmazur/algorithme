@@ -7,7 +7,7 @@
     this.t = a;
   }
   function l(a, b) {
-    for (var e = b.split("."); e.length; ) {
+    for (var e = b.split('.'); e.length; ) {
       if (!(e[0] in a)) return !1;
       a = a[e.shift()];
     }
@@ -17,11 +17,11 @@
     return a
       .replace(h, function(e, a, i, f, c, h, k, m) {
         var f = l(b, f),
-          j = "",
+          j = '',
           g;
-        if (!f) return "!" == i ? d(c, b) : k ? d(m, b) : "";
+        if (!f) return '!' == i ? d(c, b) : k ? d(m, b) : '';
         if (!i) return d(h, b);
-        if ("@" == i) {
+        if ('@' == i) {
           e = b._key;
           a = b._val;
           for (g in f)
@@ -34,10 +34,10 @@
       })
       .replace(k, function(a, c, d) {
         return (a = l(b, d)) || 0 === a
-          ? "%" == c
-            ? new Option(a).innerHTML.replace(/"/g, "&quot;")
+          ? '%' == c
+            ? new Option(a).innerHTML.replace(/"/g, '&quot;')
             : a
-          : "";
+          : '';
       });
   }
   var h = /\{\{(([@!]?)(.+?))\}\}(([\s\S]+?)(\{\{:\1\}\}([\s\S]+?))?)\{\{\/\1\}\}/g,
@@ -53,13 +53,12 @@ Number.prototype.to_$ = function() {
   return parseFloat(this).toFixed(2);
 };
 String.prototype.strip$ = function() {
-  return this.split("$")[1];
+  return this.split('$')[1];
 };
 
 function getAllProducts() {
   fetch(
-    "http://dashboard.algorithme.co/?rest_route=/wp/v2/oxproduct&per_page=100"
-    
+    'http://dashboard.algorithme.co/?rest_route=/wp/v2/oxproduct&per_page=100'
   )
     .then(res => res.json())
     .then(showProducts)
@@ -74,88 +73,72 @@ let app = {
   subtotals: null,
 
   removeProduct: function() {
+    'use strict';
 
-       "use strict";
+    var item = $(this).closest('.shopping-cart--list-item');
 
-
-
-
-
- 
-
-    var item = $(this).closest(".shopping-cart--list-item");
-
-    item.addClass("closing");
+    item.addClass('closing');
     window.setTimeout(function() {
       item.remove();
       app.updateTotals();
     }, 500); // Timeout for css animation
 
-     //updating localstorage and cart below
- 
- let productName = $(this).parent().parent().attr("data-ls"); //find localstorage name
+    //updating localstorage and cart below
 
-   localStorage.removeItem(productName);
+    let productName = $(this)
+      .parent()
+      .parent()
+      .attr('data-ls'); //find localstorage name
 
- 
-
-
+    localStorage.removeItem(productName);
   },
 
   addProduct: function() {
-    "use strict";
+    'use strict';
 
-    var qtyCtr = $(this).prev(".product-qty"),
+    var qtyCtr = $(this).prev('.product-qty'),
       quantity = parseInt(qtyCtr.html(), 10) + 1;
-
 
     app.updateProductSubtotal(this, quantity);
 
     //updating localstorage and cart below
-    let productName = $(this).parent().parent().parent().attr("data-ls"); //find localstorage name
+    let productName = $(this)
+      .parent()
+      .parent()
+      .parent()
+      .attr('data-ls'); //find localstorage name
 
-
-    
-      //increasing amount of selected product in cart
-      localStorage[productName] =
-        Number(localStorage[productName]) + 1; //increasing by amount selected in select-dropdown
-    
-
-
-
-
-
-
+    //increasing amount of selected product in cart
+    localStorage[productName] = Number(localStorage[productName]) + 1; //increasing by amount selected in select-dropdown
   },
 
   subtractProduct: function() {
-    "use strict";
+    'use strict';
 
-    var qtyCtr = $(this).next(".product-qty"),
+    var qtyCtr = $(this).next('.product-qty'),
       num = parseInt(qtyCtr.html(), 10) - 1,
       quantity = num <= 0 ? 0 : num;
 
     app.updateProductSubtotal(this, quantity);
 
-     //updating localstorage and cart below
-     let productName = $(this).parent().parent().parent().attr("data-ls"); //find localstorage name
+    //updating localstorage and cart below
+    let productName = $(this)
+      .parent()
+      .parent()
+      .parent()
+      .attr('data-ls'); //find localstorage name
 
-  
- 
-     
-       //decreasing amount of selected product in cart
-       localStorage[productName] =
-         Number(localStorage[productName]) - 1; //decreasing by amount selected in select-dropdown
-     
+    //decreasing amount of selected product in cart
+    localStorage[productName] = Number(localStorage[productName]) - 1; //decreasing by amount selected in select-dropdown
   },
 
   updateProductSubtotal: function(context, quantity) {
-    "use strict";
+    'use strict';
 
-    var ctr = $(context).closest(".product-modifiers"),
-      productQtyCtr = ctr.find(".product-qty"),
-      productPrice = parseFloat(ctr.data("product-price")),
-      subtotalCtr = ctr.find(".product-total-price"),
+    var ctr = $(context).closest('.product-modifiers'),
+      productQtyCtr = ctr.find('.product-qty'),
+      productPrice = parseFloat(ctr.data('product-price')),
+      subtotalCtr = ctr.find('.product-total-price'),
       subtotalPrice = quantity * productPrice;
 
     productQtyCtr.html(quantity);
@@ -165,136 +148,131 @@ let app = {
   },
 
   updateTotals: function() {
-    "use strict";
+    'use strict';
 
-    var products = $(".shopping-cart--list-item"),
+    var products = $('.shopping-cart--list-item'),
       subtotal = 0,
       shipping;
     for (var i = 0; i < products.length; i += 1) {
       subtotal += parseFloat(
         $(products[i])
-          .find(".product-total-price")
+          .find('.product-total-price')
           .html()
-          
       );
     }
 
     document
-      .querySelector(".stripe-button")
-      .setAttribute("data-amount", subtotal * 100);
+      .querySelector('.stripe-button')
+      .setAttribute('data-amount', subtotal * 100);
 
     shipping = subtotal > 0 && subtotal < 100 / 1.0 ? app.shipping : 0;
 
-    $("#subtotalCtr")
-      .find(".cart-totals-value")
+    $('#subtotalCtr')
+      .find('.cart-totals-value')
       .html(subtotal);
-    $("#taxesCtr")
-      .find(".cart-totals-value")
+    $('#taxesCtr')
+      .find('.cart-totals-value')
       // .html((subtotal * 0.0).to_$());
-      .html("0");
-    $("#totalCtr")
-      .find(".cart-totals-value")
+      .html('0');
+    $('#totalCtr')
+      .find('.cart-totals-value')
       .html(subtotal * 1.0 + shipping);
-    $("#shippingCtr")
-      .find(".cart-totals-value")
+    $('#shippingCtr')
+      .find('.cart-totals-value')
       .html(shipping);
   },
 
   attachEvents: function() {
-    "use strict";
+    'use strict';
 
-    $(".product-remove").on("click  touchstart ", app.removeProduct);
-    $(".product-plus").on("click touchstart", app.addProduct);
-    $(".product-subtract").on("click touchstart", app.subtractProduct);
+    $('.product-remove').on('click  touchstart ', app.removeProduct);
+    $('.product-plus').on('click touchstart', app.addProduct);
+    $('.product-subtract').on('click touchstart', app.subtractProduct);
   },
 
   setProductImages: function() {
-    "use strict";
+    'use strict';
 
-    var images = $(".product-image"),
+    var images = $('.product-image'),
       ctr,
       img;
 
-    for (var i = 0; i < images.length; i += 1) {
-      (ctr = $(images[i])), (img = ctr.find(".product-image--img"));
+    console.log(images);
 
-      ctr.css("background-image", "url(" + img.attr("src") + ")");
+    for (var i = 0; i < images.length; i += 1) {
+      (ctr = $(images[i])), (img = ctr.find('.product-image--img'));
+
+      ctr.css({ 'background-image': 'url(' + img.attr('src') + ')' });
+
       img.remove();
     }
   },
 
   renderTemplates: function() {
-    "use strict";
+    'use strict';
 
     var products = app.products,
       content = [],
-      template = new t($("#shopping-cart--list-item-template").html());
+      template = new t($('#shopping-cart--list-item-template').html());
 
     for (var i = 0; i < products.length; i += 1) {
       content[i] = template.render(products[i]);
     }
 
-    $("#shopping-cart--list").html(content.join(""));
+    $('#shopping-cart--list').html(content.join(''));
   }
-
-
 };
 
 function showProducts(json) {
+  for (let i = 0; i < localStorage.length; i++) {
+    if (localStorage.key(i) != 'lsid') {
+      let selectedItem = localStorage.key(i);
+      let customColorOrder = localStorage.key(i).search('rgb'); ///selecting custom color if such exists
+      console.log(localStorage.key(i));
+      customColor = selectedItem.substring(customColorOrder);
 
-  for (let i = 0; i < localStorage.length-1; i++) {
+      console.log(customColor);
 
+      let sizeOfProd = selectedItem.substr(0, selectedItem.indexOf(' '));
 
-let selectedItem = localStorage.key(i);
+      let colorId = selectedItem.indexOf('color') + 5; ////SELECTING COLOR
+      colorId = selectedItem.charAt(colorId);
 
-    let sizeOfProd = selectedItem.substr(0,selectedItem.indexOf(' '));
+      if (colorId == ' ') {
+        colorId = 'imagescolor' + 1;
+      } else {
+        colorId = 'imagescolor' + colorId;
+      }
 
-    let colorId= selectedItem.indexOf("color")+5; ////SELECTING COLOR
-    colorId= selectedItem.charAt(colorId);
+      let productIdOrder = localStorage.key(i).search('id');
+      let productId = localStorage ///SELECTING ID OF CLOTHING
+        .key(i)
+        .substring(productIdOrder, productIdOrder + 5);
+      // split and pop is for removing size and color from id +number
+      productId = productId.split('id').pop(); //split and pop is for removing "id" from the id number, the string was necessary to sustain the functionality of localstorage
+      let productQuantity = localStorage[selectedItem];
 
-    if(colorId==" "){
-      colorId="imagescolor"+1;
+      json.forEach(function(theProduct) {
+        if (theProduct.id == productId) {
+          app.products.push({
+            prodLocalStorage: selectedItem,
+            prodId: theProduct.id,
+            name: theProduct.title.rendered + ' ' + sizeOfProd,
+            price: theProduct.acf.price,
+            img: theProduct.acf.colorpick[colorId].image1,
+            customClr: customColor,
+            // size: ,
+
+            //desc: theProduct.acf.desc.split(".")[0], ///only the first sentence from description
+            quantity: productQuantity,
+            'prod-total': productQuantity * theProduct.acf.price
+          });
+        }
+        // name.style.color = 'red';
+      });
+      // document.querySelector('.product-name').style.border =
+      //   '1px solid ' + customColor;
     }
-    else{
-      colorId="imagescolor"+colorId;
-    }
-
-
-    let productId = localStorage ///SELECTING ID OF CLOTHING
-      .key(i)
-      .split(/\s+/)
-      .pop(); // split and pop is for removing size and color from id +number
-      productId=productId
-      .split("id")
-      .pop(); //split and pop is for removing "id" from the id number, the string was necessary to sustain the functionality of localstorage
-    let productQuantity = localStorage[selectedItem];
-
-
-  
-
- 
-    
-    
-    
-    
-    
-    
-    json.forEach(function(theProduct) {
-
-      if (theProduct.id == productId){
-        app.products.push({
-          prodLocalStorage: selectedItem,
-          prodId: theProduct.id,
-          name: theProduct.title.rendered + " " + sizeOfProd,
-          price: theProduct.acf.price,
-          img: theProduct.acf.colorpick[colorId].image1,
-          // size: ,
-         
-          //desc: theProduct.acf.desc.split(".")[0], ///only the first sentence from description
-          quantity: productQuantity,
-          "prod-total": productQuantity * theProduct.acf.price
-        });}
-    });
   }
 }
 

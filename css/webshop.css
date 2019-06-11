@@ -1,154 +1,145 @@
-
 /*******SLIDER BELOW*********/
 
+#resource-slider .next #arrowThereIs {
+  transform: rotate(45deg);
+  position: relative;
+  top: -15px;
+  right: -15px;
+  font-size: 10px;
+}
 
-#resource-slider .next #arrowThereIs{
-    transform: rotate(45deg);
-    position: relative;
-    top: -15px;
-    right: -15px;
-    font-size: 10px;
-  }
-  
-  #resource-slider .next #arrowMore{
-    position: relative;
-    transform: rotate(-225deg);
-    bottom: -15px;
-    right: -15px;
-    font-size: 10px;
-    color:black;
-  
-  }
-  
-  
-  #resource-slider {
-      position: relative;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      width: 100%;
-      height: 100vh;
-      margin: auto;
-      background: transparent;
-      overflow: hidden;
-    }
-    
-    #resource-slider .arrow {
-      cursor: pointer;
-      position: absolute;
-      width: 4em;
-      height: 100%;
-      padding: 0;
-      margin: 0;
-      outline: 0;
-      background: transparent;
-      border-width: 0;
-    }
-    
-    #resource-slider .arrow:hover {
-      color: rgba(0, 0, 0, 0.1);
-    }
-    
-    #resource-slider .arrow:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      width: 2.75em;
-      height: 2.75em;
-      margin: auto;
-      border-style: solid;
-    }
-    
-    #resource-slider .prev {
-      left: 0;
-      bottom: 0;
-    }
-    
-    #resource-slider .prev:before {
-      left: 0.25em;
-      border-width: 3px 0 0 3px;
-      border-color: #333 transparent transparent #333;
-      transform: rotate(-45deg);
-    }
-    
-    #resource-slider .next {
-      right: 0;
-      bottom: 0;
-      margin-right: 10px;
-    }
-    
-    #resource-slider .next:before {
-      right: 0.25em;
-      border-width: 3px 3px 0 0;
-      border-color: #333 #333 transparent transparent;
-      transform: rotate(45deg);
-    }
-    
-    #resource-slider .resource-slider-frame {
-      position: absolute;
-      top: 0;
-      left: 2em;
-      right: 2em;
-      bottom: 0;
-      border-left: 0.25em solid transparent;
-      border-right: 0.25em solid transparent;
-      overflow: hidden;
-    }
-    
-    #resource-slider .resource-slider-item {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 25%;
-      height: 100%;
-      margin-left: 20px;
-    }
-    
-    #resource-slider .resource-slider-inset {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      margin: 0.5em 0.25em;
-      overflow: hidden;
-    }
-    
-  
-    .resource{
-      text-align: center;
-      position: relative;
-    }
-  
-    #lol{
-      height: 80vh;
-      width: auto;
-      transition: border-width 0.2s ease-in-out;
-      border-bottom: solid 0px rgb(0, 0, 0);
-     
-  }
-  
-  
-  
-  /* hover effects under item \/ */
-  .galleryItemHover{
-    position: absolute;
-    bottom:5%;
-    left: 25%;
-    height: 5px;
-    width: 50%;
-    background: #000;
-    pointer-events: none;
-    display:none;
-    margin-bottom: 5px;
-  }
-  
-  
-  #detailsModalButton{
+#resource-slider .next #arrowMore {
+  position: relative;
+  transform: rotate(-225deg);
+  bottom: -15px;
+  right: -15px;
+  font-size: 10px;
+  color: black;
+}
+
+#resource-slider {
+  position: relative;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  margin: auto;
+  background: transparent;
+  overflow: hidden;
+}
+
+#resource-slider .arrow {
+  cursor: pointer;
+  position: absolute;
+  width: 4em;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  background: transparent;
+  border-width: 0;
+}
+
+#resource-slider .arrow:hover {
+  color: rgba(0, 0, 0, 0.1);
+}
+
+#resource-slider .arrow:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 2.75em;
+  height: 2.75em;
+  margin: auto;
+  border-style: solid;
+}
+
+#resource-slider .prev {
+  left: 0;
+  bottom: 0;
+}
+
+#resource-slider .prev:before {
+  left: 0.25em;
+  border-width: 3px 0 0 3px;
+  border-color: #333 transparent transparent #333;
+  transform: rotate(-45deg);
+}
+
+#resource-slider .next {
+  right: 0;
+  bottom: 0;
+  margin-right: 10px;
+}
+
+#resource-slider .next:before {
+  right: 0.25em;
+  border-width: 3px 3px 0 0;
+  border-color: #333 #333 transparent transparent;
+  transform: rotate(45deg);
+}
+
+#resource-slider .resource-slider-frame {
+  position: absolute;
+  top: 0;
+  left: 2em;
+  right: 2em;
+  bottom: 0;
+  border-left: 0.25em solid transparent;
+  border-right: 0.25em solid transparent;
+  overflow: hidden;
+}
+
+#resource-slider .resource-slider-item {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 25%;
+  height: 100%;
+  /* margin-left: 20px; */
+}
+
+#resource-slider .resource-slider-inset {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0.5em 0.25em;
+  overflow: hidden;
+}
+
+.resource {
+  text-align: center;
+  position: relative;
+}
+
+#lol {
+  height: 80vh;
+  width: auto;
+  transition: border-width 0.2s ease-in-out;
+  border-bottom: solid 0px rgb(0, 0, 0);
+}
+
+/* hover effects under item \/ */
+.galleryItemHover {
+  position: absolute;
+  bottom: 5%;
+  left: 25%;
+  height: 5px;
+  width: 50%;
+  background: #000;
+  pointer-events: none;
+  display: none;
+  margin-bottom: 5px;
+}
+
+#detailsModalButton {
   color: black;
   font-weight: 200;
   font-size: 11px;
@@ -156,124 +147,100 @@
   top: 1vh;
   right: 1vw;
   text-decoration: none;
-  }
-  
-  
-  
-  #imageInModal{
-    height: 50vh;
-    width: auto;
-    border-top: solid 0px rgb(0, 0, 0);
-    border-bottom: solid 0px rgb(0, 0, 0);
-    transition: border-width 0.2s ease-in-out;
-    cursor: default;
-  }
-  
-  .underTitle{
+}
+
+#imageInModal {
+  height: 50vh;
+  width: auto;
+  border-top: solid 0px rgb(0, 0, 0);
+  border-bottom: solid 0px rgb(0, 0, 0);
+  transition: border-width 0.2s ease-in-out;
+  cursor: default;
+}
+
+.underTitle {
   font-weight: 100;
   font-size: 13px;
+}
+
+#show-all-button {
+  position: absolute;
+  right: 0;
+  bottom: 5vh;
+  color: black;
+  text-decoration: underline;
+  text-decoration-style: dashed;
+}
+
+/************END SLIDER**********/
+
+/******SMALL SCREEN/WIDE TABLET******/
+@media screen and (min-width: 1025px) and (max-width: 1366px) {
+  #lol {
+    width: 20vw;
+    height: auto;
+    margin-top: 15vh;
   }
-  
-  #show-all-button{
-    position: absolute;
-    right:0;
-    bottom: 5vh;
-    color: black;
-    text-decoration: underline;
-    text-decoration-style: dashed;
-  }
-  
-  
-    
-    /************END SLIDER**********/
+}
 
-
-
-
-
-
-
-
-
-
+/******END SMALL SCREEN/WIDE TABLET******/
 /******SPECIFICALLY TABLET*********/
 
-@media screen and (max-width: 1024px) {
-
-
-
-
-    /* SLIDER */
-.modal-dialog{
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  /* SLIDER */
+  .modal-dialog {
     width: 80vw;
     left: 10vw;
-  }  
+  }
 
   #resource-slider .resource-slider-item {
     margin-left: 0;
-    
-    }
-    
+  }
 
+  #resource-slider .resource-slider-item {
+    width: 25%;
+  }
 
+  #lol {
+    /***this is the picture in slider****/
+    width: 20vw;
+    height: auto;
+  }
 
-    #resource-slider .resource-slider-item {
-        width: 50%;
-      }
+  .lolWrapper {
+    margin-top: 15vw;
+  }
+  a#show-all-button {
+    margin-right: 10vw;
+    margin-bottom: 5vw;
+  }
 
+  #show-all-button {
+    font-size: 1.8em;
+  }
 
-      #lol{ /***this is the picture in slider****/
-        height: 60vh;
-      }
-
-      .lolWrapper{
-          margin-top: 15vh;
-      }
-      a#show-all-button{
-        margin-right: 10vw;
-        margin-bottom: 10vw;
-    }
-
-    #show-all-button{
-      font-size: 1.8em;
-    }
-
-
-
-      /***END SLIDER***/
-
-
+  /***END SLIDER***/
 } /******END TABLET*********/
-
-
-
 
 /******SPECIFICALLY MOBILE*********/
 
 @media screen and (max-width: 768px) {
-    #resource-slider .resource-slider-item {
-        margin-left: 0;
-        
-        }
+  #resource-slider .resource-slider-item {
+    margin-left: 0;
+  }
 
-        #resource-slider .resource-slider-item {
-            width: 100%;
-          }
-          #resource-slider {
-            height: 100vh;
-          }
+  #resource-slider .resource-slider-item {
+    width: 100%;
+  }
+  #resource-slider {
+    height: 100vh;
+  }
 
-
-          a#show-all-button{
-              margin-right: 20vw;
-              font-size: 1em;
-              margin-bottom: 0;
-          }
-
-       
-        
-
-
+  a#show-all-button {
+    margin-right: 20vw;
+    font-size: 1em;
+    margin-bottom: 0;
+  }
 } /******END MOBILE*********/
 
 /* 
@@ -296,23 +263,17 @@
 
   } */
 
+/******LARGE DESKTOP*********/
 
+@media only screen and (min-width: 1624px) {
+  #lol {
+    /***this is the picture in slider****/
+    height: 60vh;
+  }
 
-  /******LARGE DESKTOP*********/
-
-  @media only screen 
-  and (min-width : 1624px) {
-
-
-
-      #lol{ /***this is the picture in slider****/
-        height: 60vh;
-      }
-
-      .lolWrapper{
-          margin-top: 15vh;
-      }
-
+  .lolWrapper {
+    margin-top: 15vh;
+  }
 }
 
 /* END LARGE DESKTOP*/

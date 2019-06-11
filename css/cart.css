@@ -20,7 +20,7 @@ h1,
   font-weight: 300;
 }
 
-.headingCart{
+.headingCart {
   font-size: 40px;
   margin-bottom: 10vh;
 }
@@ -40,7 +40,7 @@ h1,
   text-rendering: optimizespeed;
 }
 ._grid:after {
-  content: "";
+  content: '';
   display: inline-block;
   width: 100%;
 }
@@ -96,8 +96,9 @@ h1,
  */
 .product-image {
   width: 10%;
-  background: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7")
+  background: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')
     no-repeat center / cover transparent;
+  background-size: auto 100%;
 }
 
 /**
@@ -109,7 +110,7 @@ h1,
   padding: 0.5rem;
 }
 .product-name {
-  font: 300 2.4em/1 "Lato", sans-serif;
+  font: 300 2.4em/1 'Lato', sans-serif;
   letter-spacing: -0.025em;
   margin: 0 0 0.125em;
 }
@@ -153,6 +154,7 @@ h1,
   color: #ecf0f1;
   width: 100%;
   visibility: hidden;
+  cursor: pointer;
 }
 .product-modifiers:hover .product-remove {
   visibility: visible;
@@ -170,7 +172,7 @@ h1,
   padding: 0.5rem;
 }
 .shopping-cart--list-item:hover .product-total-price {
-  background-color: #3498db;
+  background-color: #c5cace;
   color: #ecf0f1;
 }
 
@@ -206,13 +208,11 @@ h1,
 }
 
 .cart-totals-value::before {
-  content: "DKK ";
+  content: 'DKK ';
 }
 
-
-
-.product-total-price::before{
-content: "DKK";
+.product-total-price::before {
+  content: 'DKK';
 }
 ._column.checkout {
   text-align: right;
@@ -224,7 +224,7 @@ content: "DKK";
   margin-right: 0.5em;
 }
 ._btn.checkout-btn:hover {
-  background-color: #2980b9;
+  background-color: #c1c1c2;
 }
 ._btn.checkout-btn {
   border: solid 1px black;
@@ -246,7 +246,7 @@ content: "DKK";
 .stripe-button-el span {
   background: transparent !important;
   color: black !important;
-  font-family: "Roboto", sans-serif !important;
+  font-family: 'Montserrat', sans-serif !important;
   font-weight: 300 !important;
 }
 
@@ -260,22 +260,23 @@ content: "DKK";
 
 /* extras */
 
-#bounceWrapperCart{
+#bounceWrapperCart {
   display: block;
   position: fixed;
-  top:0;
+  top: 0;
   margin-top: 5px;
-
 }
 
-#cartBackText, .bounce{   /*    button going back to main*/
+#cartBackText,
+.bounce {
+  /*    button going back to main*/
   margin-left: 30px;
   text-decoration: none;
   color: black;
   font-size: 30px;
 }
 
-#bounceWrapperCart div{
+#bounceWrapperCart div {
   display: inline-block;
 }
 
@@ -284,14 +285,13 @@ content: "DKK";
 /* MOBILE */
 
 @media screen and (max-width: 760px) {
-
-  #cartBackText{   /*    button going back to main*/
+  #cartBackText {
+    /*    button going back to main*/
     margin-left: 10vw !important;
     font-size: 20px;
   }
-  
 
-  .mainCart{
+  .mainCart {
     margin-top: 10vh;
   }
   ._column {
@@ -318,8 +318,8 @@ content: "DKK";
     margin-bottom: -1rem;
     font-size: 1.5em;
     margin-top: 1em;
-}
-  .product-total-price{
+  }
+  .product-total-price {
     padding: 0;
   }
 
@@ -332,19 +332,14 @@ content: "DKK";
     text-align: center;
   }
 
+  #bounceWrapperCart {
+    width: 100%;
+    background-color: white;
+    margin: 0;
+  }
 
-#bounceWrapperCart{
-  width: 100%;
-  background-color: white;
-  margin:0;
+  #bounceWrapperCart div {
+    display: inline-block;
+    margin: auto;
+  }
 }
-
-#bounceWrapperCart div{
-display: inline-block;
-margin: auto;
-
-}
-
-}
-
-

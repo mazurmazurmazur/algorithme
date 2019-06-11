@@ -43,8 +43,22 @@ p {
   min-height: 450px;
   transition: 1s;
   margin-left: 15%;
+  border: solid 1px rgb(0, 0, 0);
+  position: relative;
+}
 
-  border: solid 1px gray;
+#customColorDiv {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 20%;
+  height: 5%;
+  border: 1px black solid;
+  display: none;
+}
+
+#customColorDiv p {
+  font-size: 3%;
 }
 
 .product-image .indicator {
@@ -52,7 +66,7 @@ p {
 }
 
 .product-image .dot {
-  background-color: #aaa;
+  background-color: rgb(114, 114, 114);
   border-radius: 50%;
   cursor: pointer;
   display: inline-block;
@@ -91,7 +105,7 @@ p {
   padding: 12px 72px 12px 15px;
   background-color: #fff;
   border: none;
-  border-radius: 2px;
+  border-radius: 0px;
   color: rgb(0, 0, 0);
   font-size: 12px;
   -webkit-appearance: none;
@@ -116,11 +130,11 @@ select:focus {
   height: 0;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-  border-top: 5px solid #aaa;
+  border-top: 5px solid rgb(0, 0, 0);
 }
 
 .product-info a.add-btn {
-  background-color: #444;
+  background-color: rgb(0, 0, 0);
   border-radius: 2px;
   color: #eee;
   display: inline-block;
@@ -130,6 +144,12 @@ select:focus {
   text-align: center;
   text-decoration: none;
   transition: all 400ms ease;
+  font-weight: 300;
+}
+
+#deliveryWarn {
+  font-size: 0.5em;
+  max-width: 50vw;
 }
 
 a.add-btn:hover {
@@ -193,8 +213,9 @@ a.add-btn:hover {
   width: 20px;
   margin: 1px;
   display: inline-block;
-  border: 1px solid gray;
+  border: 1px solid rgb(0, 0, 0);
   cursor: pointer;
+  background-size: cover;
 }
 
 #product-desc-wrapper {
@@ -228,56 +249,45 @@ a.add-btn:hover {
 }
 
 #color-label {
-  background-color: rgb(212, 211, 211);
-  height: 10px;
+  background-color: rgb(255, 255, 255);
   width: auto;
   display: inline-block;
   margin-left: 5px;
   position: absolute;
-  top: 50%;
+  height: 20px;
+  width: 20px;
+  margin: 1px;
+  border: 1px solid rgb(0, 0, 0);
+  cursor: pointer;
+  background-size: cover;
 }
 
 #color-label p {
-  color: #fff;
-  font-size: 8px;
-  text-decoration: underline;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  text-decoration: none;
   cursor: pointer;
+  text-align: center;
+  margin-top: -7px;
 }
 
 #color-picker {
   position: absolute;
   left: 70px;
-  background-color: transparent;
-  height: 150px;
-  width: 250px;
+  background-color: white;
+  height: auto;
+  max-width: 137px;
   display: none;
-  padding: 3px;
+  padding: 0;
+  text-align: center;
 }
 
 #color-input:checked ~ #color-picker {
   display: block;
 }
 
-#color-block,
-#color-strip {
-  border: solid 3px #000;
-}
-canvas:hover {
-  cursor: crosshair;
-}
-
-.custom-color-order-btn {
-  padding: 2px;
+#color-block {
   border: solid 1px #000;
-  color: black;
-  text-decoration: none;
-  float: right;
-}
-
-.custom-color-order-btn:hover {
-  color: #fff;
-  background: #000;
-  border: #fff;
 }
 
 /******END CUSTOM COLOR PICKER****/

@@ -1,0 +1,30 @@
+{
+  "name": "algo",
+  "version": "1.0.0",
+  "description": "webshop for algorithme",
+  "main": "server.js",
+  "scripts": {
+    "test": "tst"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mazurmazurmazur/algorithme.git"
+  },
+  "author": "mazur",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mazurmazurmazur/algorithme/issues"
+  },
+  "homepage": "https://github.com/mazurmazurmazur/algorithme#readme",
+  "dependencies": {
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "nodemon": "^1.19.4",
+    "stripe": "^7.9.1",
+    "wpapi": "^1.2.1"
+  },
+  "devDependencies": {
+    "dotenv": "^8.1.0"
+  }
+}

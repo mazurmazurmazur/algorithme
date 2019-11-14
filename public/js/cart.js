@@ -56,6 +56,8 @@ String.prototype.strip$ = function() {
   return this.split('$')[1];
 };
 
+let subtotalPass;
+
 function getAllProducts() {
   fetch(
     'http://dashboard.algorithme.co/?rest_route=/wp/v2/oxproduct&per_page=100'
@@ -64,6 +66,40 @@ function getAllProducts() {
     .then(showProducts)
     .then(startCart)
     .then(app.updateTotals);
+}
+
+var stripeHandler = StripeCheckout.configure({
+  key: stripePublicKey,
+  locale: 'auto',
+  currency: 'DKK',
+  token: function(token) {
+    var subtotalPassBE = subtotalPass;
+    fetch('/purchase', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json'
+      },
+      body: JSON.stringify({
+        stripeTokenId: token.id,
+        total: subtotalPassBE
+      })
+    })
+      .then(function(res) {
+        console.log('ej');
+        return res.json();
+      })
+      .then(function(data) {
+        alert(data.message);
+        alert('lol');
+      });
+  }
+});
+
+function purchaseClicked(subtotalPrice) {
+  stripeHandler.open({
+    amount: subtotalPrice
+  });
 }
 
 let app = {
@@ -162,8 +198,10 @@ let app = {
     }
 
     document
-      .querySelector('.stripe-button')
-      .setAttribute('data-amount', subtotal * 100);
+      .getElementById('checkoutButton')
+      .addEventListener('click', function() {
+        purchaseClicked(subtotal * 100);
+      }); ///ties total price with stripe function
 
     shipping = subtotal > 0 && subtotal < 100 / 1.0 ? app.shipping : 0;
 
@@ -173,13 +211,15 @@ let app = {
     $('#taxesCtr')
       .find('.cart-totals-value')
       // .html((subtotal * 0.0).to_$());
-      .html('0');
+      .html('included');
     $('#totalCtr')
       .find('.cart-totals-value')
       .html(subtotal * 1.0 + shipping);
     $('#shippingCtr')
       .find('.cart-totals-value')
       .html(shipping);
+
+    subtotalPass = subtotal;
   },
 
   attachEvents: function() {
@@ -196,8 +236,6 @@ let app = {
     var images = $('.product-image'),
       ctr,
       img;
-
-    console.log(images);
 
     for (var i = 0; i < images.length; i += 1) {
       (ctr = $(images[i])), (img = ctr.find('.product-image--img'));
@@ -223,7 +261,10 @@ let app = {
   }
 };
 
+console.log(BEProductsJSON);
+
 function showProducts(json) {
+  console.log(json);
   for (let i = 0; i < localStorage.length; i++) {
     if (localStorage.key(i) != 'lsid') {
       let selectedItem = localStorage.key(i);

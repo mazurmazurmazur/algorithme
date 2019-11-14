@@ -179,7 +179,6 @@
   #lol {
     width: 20vw;
     height: auto;
-    margin-top: 15vh;
   }
 }
 
@@ -208,7 +207,6 @@
   }
 
   .lolWrapper {
-    margin-top: 15vw;
   }
   a#show-all-button {
     margin-right: 10vw;
@@ -277,3 +275,19 @@
 }
 
 /* END LARGE DESKTOP*/
+/* @media screen and (min-aspect-ratio: 1/1) and (max-aspect-ratio: 1/1) {
+  #lol {
+    width: auto;
+    height: 40vh;
+  }
+
+  #show-all-button {
+    bottom: 0vh;
+  }
+} */
+
+@media screen and (min-width: 800px) and (max-width: 1300px) and (min-height: 1000px) and (max-height: 1600px) {
+  #lol {
+    margin-top: 20vh;
+  }
+}

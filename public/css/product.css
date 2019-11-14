@@ -251,7 +251,7 @@ a.add-btn:hover {
 #color-label {
   background-color: rgb(255, 255, 255);
   width: auto;
-  display: inline-block;
+  display: none;
   margin-left: 5px;
   position: absolute;
   height: 20px;

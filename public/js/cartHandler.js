@@ -1,21 +1,20 @@
 //GLOBAL CART SYSTEM
-let cartAmount = document.getElementById('amountInCart');
+let cartAmount = document.getElementById("amountInCart");
 
 function updateCart() {
   //function called to update amount of all items in cart
-  let cartAmountParent = window.parent.document.querySelector('#amountInCart');
+  let cartAmountParent = window.parent.document.querySelector("#amountInCart");
 
   if (localStorage.length > 0) {
     let sum = 0;
     for (let i = 0, leng = localStorage.length - 1; i < leng; i++) {
       let key = localStorage.key(i);
-      if (key != 'lsid') {
-        console.log(key);
+      if (key != "lsid" && key != "lastclear") {
         let val = localStorage.getItem(key);
-        let valAll = val.split('*');
+        let valAll = val.split("*");
         sum += parseInt(valAll[0]);
         if (isNaN(sum)) {
-          cartAmountParent.innerHTML = '0';
+          cartAmountParent.innerHTML = "0";
         } else {
           cartAmountParent.innerHTML = sum;
         }
@@ -24,6 +23,6 @@ function updateCart() {
   }
 }
 
-let cartState = document.querySelector('#amountInCart');
+let cartState = document.querySelector("#amountInCart");
 
 updateCart(cartState); //global cart update

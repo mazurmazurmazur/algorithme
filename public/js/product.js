@@ -1,15 +1,15 @@
 // Parse the URL parameter
 function getParameterByName(name, url) {
   if (!url) url = window.location.href;
-  name = name.replace(/[\[\]]/g, '\\$&');
-  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+  name = name.replace(/[\[\]]/g, "\\$&");
+  var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
     results = regex.exec(url);
   if (!results) return null;
-  if (!results[2]) return '';
-  return decodeURIComponent(results[2].replace(/\+/g, ' '));
+  if (!results[2]) return "";
+  return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 // Give the parameter a variable name
-var dynamicContent = getParameterByName('id');
+var dynamicContent = getParameterByName("id");
 //getParameterByName is a function that fetches the id from URL
 //the id in URL comes from dynamically set "href" in blog.html through blog.js
 //the id set in this URL comes from fetched json file in blog.js
@@ -17,7 +17,7 @@ var dynamicContent = getParameterByName('id');
 let currentProductNum;
 let jsonOut;
 
-const allSizes = ['XS', 'S', 'M', 'L', 'XL'];
+const allSizes = ["XS", "S", "M", "L", "XL"];
 
 let desc;
 let descImage;
@@ -35,12 +35,12 @@ let descFitImageJson;
 
 let zoomImageLink;
 
-let select = document.querySelector('.selectSize');
-let selectAmount = document.querySelector('.selectQuantity');
+let select = document.querySelector(".selectSize");
+let selectAmount = document.querySelector(".selectQuantity");
 
 function getAllProducts() {
   fetch(
-    'http://dashboard.algorithme.co/wp-json/wp/v2/oxproduct/' + dynamicContent
+    "http://dashboard.algorithme.co/wp-json/wp/v2/oxproduct/" + dynamicContent
   )
     //only one entry in json file (WP REST)
 
@@ -53,35 +53,34 @@ function getAllProducts() {
 
 function showProducts(json) {
   let acf = json.acf;
-  console.log(json);
   jsonOut = json;
   let colorpick = acf.colorpick;
 
-  let colorPicker = document.querySelector('.select-color');
+  let colorPicker = document.querySelector(".select-color");
   let counter = 0;
 
   for (key in colorpick) {
     ///looping through all keys in this product(acf= advanced custom fields)
-    if (key.startsWith('color') && colorpick[key] != '') {
+    if (key.startsWith("color") && colorpick[key] != "") {
       ////filling the available colors from CMS
-      let newDiv = document.createElement('div');
+      let newDiv = document.createElement("div");
       newDiv.id = key;
-      newDiv.className = 'color';
+      newDiv.className = "color";
       newDiv.style.background = colorpick[key];
       colorPicker.appendChild(newDiv);
       counter++;
     }
   }
 
-  let image = document.querySelector('.product-image .bg');
-  let priceTag = document.querySelector('.price span'); //selecting DOM elements
-  let titleTag = document.querySelector('.productName');
-  desc = document.querySelector('.desc');
-  descImage = document.getElementById('product-desc-image');
-  descButtonOverview = document.querySelector('.product-overview');
-  descButtonDetails = document.querySelector('.product-details');
-  descButtonCare = document.querySelector('.product-care');
-  descButtonFit = document.querySelector('.product-fit');
+  let image = document.querySelector(".product-image .bg");
+  let priceTag = document.querySelector(".price span"); //selecting DOM elements
+  let titleTag = document.querySelector(".productName");
+  desc = document.querySelector(".desc");
+  descImage = document.getElementById("product-desc-image");
+  descButtonOverview = document.querySelector(".product-overview");
+  descButtonDetails = document.querySelector(".product-details");
+  descButtonCare = document.querySelector(".product-care");
+  descButtonFit = document.querySelector(".product-fit");
 
   let photo = colorpick.imagescolor1.image1;
   let price = json.acf.price; //selecting JSON elements
@@ -96,7 +95,7 @@ function showProducts(json) {
   if (acf.description.fit.fitimage.sizes)
     descFitImageJson = acf.description.fit.fitimage.sizes.medium_large;
 
-  image.style.backgroundImage = 'url(' + photo + ')';
+  image.style.backgroundImage = "url(" + photo + ")";
   priceTag.innerHTML = price; ///populating HTML with JSON content
   titleTag.innerHTML = title;
   desc.innerHTML = descJson;
@@ -104,47 +103,50 @@ function showProducts(json) {
   zoomImageLink = photo; ////link for the jquery-zoom plugin
 
   ///product det buttons changing description content
-  descButtonOverview.addEventListener('click', function() {
-    fillDesc('overview');
+  descButtonOverview.addEventListener("click", function() {
+    fillDesc("overview");
   });
-  descButtonCare.addEventListener('click', function() {
-    fillDesc('care');
+  descButtonCare.addEventListener("click", function() {
+    fillDesc("care");
   });
-  descButtonDetails.addEventListener('click', function() {
-    fillDesc('details');
+  descButtonDetails.addEventListener("click", function() {
+    fillDesc("details");
   });
-  descButtonFit.addEventListener('click', function() {
-    fillDesc('fit');
+  descButtonFit.addEventListener("click", function() {
+    fillDesc("fit");
   });
 
   ///
 
   /////color selector
-  $('.color').on('click touchstart', function() {
-    $('.color').css('border', '1px solid black');
-    $('#color-label').css('border', '1px solid black');
-    if ($('.color').hasClass('active')) {
-      $('.color').removeClass('active');
+  $(".color").on("click touchstart", function() {
+    $(".color").css("border", "1px solid black");
+    $("#color-label").css("border", "1px solid black");
+    if ($(".color").hasClass("active")) {
+      $(".color").removeClass("active");
     }
-    $(this).css('border', '2px solid black');
-    $(this).addClass('active');
-    $('#color-label').removeClass('activeCustom');
-    $('#customColorDiv').css('display', 'none');
+    $(this).css("border", "2px solid black");
+    $(this).addClass("active");
+    $("#color-label").removeClass("activeCustom");
+    $("#customColorDiv").css("display", "none");
 
-    checkColor($(this).attr('id'));
+    checkColor($(this).attr("id"));
   });
-  $('#color').trigger('click');
+  $("#color").trigger("click");
 
   function setMainImage(url) {
     image.style.opacity = 0;
-    image.style.backgroundImage = 'url(' + url + ')';
+    image.style.backgroundImage = "url(" + url + ")";
+
     image.style.opacity = 1;
+    zoomImageLink = url;
+    activateZoom();
   }
 
   function checkColor(colorName) {
-    let photoId = colorName.split('r').pop();
-    let imagesColor = 'imagescolor' + photoId;
-    if (photoId != '') {
+    let photoId = colorName.split("r").pop();
+    let imagesColor = "imagescolor" + photoId;
+    if (photoId != "") {
       setMainImage(colorpick[imagesColor].image1);
       createDotsGallery(photoId);
     } else {
@@ -156,27 +158,27 @@ function showProducts(json) {
   }
 
   function createDotsGallery(i) {
-    let imagesColor = 'imagescolor' + i;
+    let imagesColor = "imagescolor" + i;
     let images = colorpick[imagesColor];
-    let indicator = document.querySelector('.indicator');
-    indicator.innerHTML = '';
+    let indicator = document.querySelector(".indicator");
+    indicator.innerHTML = "";
 
     populateSizes(i);
 
     for (key in colorpick[imagesColor]) {
       if (
-        key.startsWith('image') &&
+        key.startsWith("image") &&
         images[key] != false &&
-        images[key] != ''
+        images[key] != ""
       ) {
-        let newDiv = document.createElement('div');
+        let newDiv = document.createElement("div");
         let currentImage;
         currentImage = images[key];
 
         newDiv.id = key;
-        newDiv.className = 'dot';
+        newDiv.className = "dot";
 
-        newDiv.addEventListener('click', function() {
+        newDiv.addEventListener("click", function() {
           setMainImage(currentImage);
         });
         indicator.appendChild(newDiv);
@@ -186,47 +188,47 @@ function showProducts(json) {
 
   function populateSizes(i) {
     ///checking if custom color is not selected, because custom colors always have all sizes and quantity up to 5.
-    $('.selectSize').empty();
+    $(".selectSize").empty();
 
-    if (!$('#color-label').hasClass('activeCustom')) {
+    if (!$("#color-label").hasClass("activeCustom")) {
       //populte sizes in product
       currentProductNum = i;
-      let sizeNumber = 'size' + i;
+      let sizeNumber = "size" + i;
       let sizes = colorpick[sizeNumber];
       for (key in sizes) {
         if (sizes[key] > 0) {
-          let newOption = document.createElement('option');
-          newOption.id = 'option' + key;
+          let newOption = document.createElement("option");
+          newOption.id = "option" + key;
           newOption.innerHTML = key.toUpperCase();
           select.appendChild(newOption);
         }
       }
     } else {
       for (let i = 0; i < allSizes.length; i++) {
-        let newOption = document.createElement('option');
-        newOption.id = 'option' + i;
+        let newOption = document.createElement("option");
+        newOption.id = "option" + i;
         newOption.innerHTML = allSizes[i];
         select.appendChild(newOption);
       }
     }
   }
 
-  $('.selectSize').on('change', function(e) {
-    $('.selectQuantity').empty();
+  $(".selectSize").on("change", function(e) {
+    $(".selectQuantity").empty();
 
     ///checking if custom color is not selected, because custom colors always have all sizes and quantity up to 5.
-    if (!$('#color-label').hasClass('activeCustom')) {
-      let optionSelected = $('option:selected', this);
+    if (!$("#color-label").hasClass("activeCustom")) {
+      let optionSelected = $("option:selected", this);
 
       let valueSelected = this.value;
-      let sizeNumber = 'size' + currentProductNum;
+      let sizeNumber = "size" + currentProductNum;
       let sizes = colorpick[sizeNumber];
 
       for (key in sizes) {
         if (key.toUpperCase() == valueSelected) {
           for (let i = 1; i < sizes[key] && i < 5; i++) {
-            let newOption = document.createElement('option');
-            newOption.id = 'option' + i;
+            let newOption = document.createElement("option");
+            newOption.id = "option" + i;
             newOption.innerHTML = i;
             selectAmount.appendChild(newOption);
           }
@@ -234,99 +236,99 @@ function showProducts(json) {
       }
     } else {
       for (let i = 1; i < 6; i++) {
-        let newOption = document.createElement('option');
-        newOption.id = 'option' + i;
+        let newOption = document.createElement("option");
+        newOption.id = "option" + i;
         newOption.innerHTML = i;
         selectAmount.appendChild(newOption);
       }
     }
   });
 
-  checkColor('color1');
+  checkColor("color1");
 }
 
 getAllProducts();
 
 function fillDesc(descElement) {
-  desc.innerHTML = '';
-  descImage.setAttribute('src', '');
-  if (descElement == 'overview' && descJson != null) {
+  desc.innerHTML = "";
+  descImage.setAttribute("src", "");
+  if (descElement == "overview" && descJson != null) {
     desc.innerHTML = descJson;
   } else if (
-    descElement == 'details' &&
+    descElement == "details" &&
     descDetailsImageJson != null &&
     descDetailsTextJson != null
   ) {
     desc.innerHTML = descDetailsTextJson;
-    descImage.setAttribute('src', descDetailsImageJson);
-  } else if (descElement == 'care' && descCareJson != null) {
+    descImage.setAttribute("src", descDetailsImageJson);
+  } else if (descElement == "care" && descCareJson != null) {
     desc.innerHTML = descCareJson;
   } else if (
-    descElement == 'fit' &&
+    descElement == "fit" &&
     descFitImageJson != null &&
     descFitTextJson != null
   ) {
     desc.innerHTML = descFitTextJson;
-    descImage.setAttribute('src', descFitImageJson);
+    descImage.setAttribute("src", descFitImageJson);
   }
 }
 
 function returnColor(id) {
-  let photoId = colorName.split('r').pop();
-  let imagesColor = 'imagescolor' + photoId;
-  if (photoId != '') {
+  let photoId = colorName.split("r").pop();
+  let imagesColor = "imagescolor" + photoId;
+  if (photoId != "") {
     return photoId;
   }
 }
 
 function afterFetch(json) {
-  let addButton = document.getElementById('addProduct-btn');
-  let productName = 'id' + dynamicContent; //id from url
-  let selectColor = $('.select-color');
+  let addButton = document.getElementById("addProduct-btn");
+  let productName = "id" + dynamicContent; //id from url
+  let selectColor = $(".select-color");
 
   selectColor.append(
     '<label for="color-input" id="color-label"><p id="color-plus">+</p></label><input type="checkbox" id="color-input"></input><div id="color-picker"><div id="color-block"></div></div>'
   );
 
-  addButton.addEventListener('click', function(event) {
+  addButton.addEventListener("click", function(event) {
     event.preventDefault();
 
     let activeColor;
     let customColor;
 
-    if ($('.active') && $('.active').attr('id')) {
-      activeColor = $('.active').attr('id');
+    if ($(".active") && $(".active").attr("id")) {
+      activeColor = $(".active").attr("id");
     } else {
-      activeColor = 'color1';
+      activeColor = "color1";
     }
 
-    if (!$('#color-label').hasClass('activeCustom')) {
-      let newSpan = document.createElement('span');
-      newSpan.className = 'customColorCartText';
+    if (!$("#color-label").hasClass("activeCustom")) {
+      let newSpan = document.createElement("span");
+      newSpan.className = "customColorCartText";
       newSpan.style.background = document.getElementById(
-        'color-label'
+        "color-label"
       ).style.backgroundColor;
     }
 
-    let e = document.querySelector('.selectQuantity');
-    let sizeSelector = document.querySelector('.selectSize');
+    let e = document.querySelector(".selectQuantity");
+    let sizeSelector = document.querySelector(".selectSize");
     let strUser = e.options[e.selectedIndex].text; ///amount selected in option
     let sizeSelected = sizeSelector.options[sizeSelector.selectedIndex].text; ///size selected in option
-    let customColorSelected = '';
+    let customColorSelected = "";
 
-    if ($('#color-label').hasClass('activeCustom')) {
+    if ($("#color-label").hasClass("activeCustom")) {
       customColorSelected =
-        ' ' + document.getElementById('color-label').style.backgroundColor;
+        " " + document.getElementById("color-label").style.backgroundColor;
     } else {
-      customColorSelected = '';
+      customColorSelected = "";
     }
 
     if (
       localStorage[
         sizeSelected +
-          ' ' +
+          " " +
           activeColor +
-          ' ' +
+          " " +
           productName +
           customColorSelected
       ]
@@ -334,18 +336,18 @@ function afterFetch(json) {
       //increasing amount of selected product in cart
       localStorage[
         sizeSelected +
-          ' ' +
+          " " +
           activeColor +
-          ' ' +
+          " " +
           productName +
           customColorSelected
       ] =
         Number(
           localStorage[
             sizeSelected +
-              ' ' +
+              " " +
               activeColor +
-              ' ' +
+              " " +
               productName +
               customColorSelected
           ]
@@ -353,9 +355,9 @@ function afterFetch(json) {
     } else {
       localStorage[
         sizeSelected +
-          ' ' +
+          " " +
           activeColor +
-          ' ' +
+          " " +
           productName +
           customColorSelected
       ] = strUser;
@@ -368,71 +370,71 @@ function afterFetch(json) {
 
 function activateZoom() {
   $(document).ready(function() {
-    $('.bg').zoom({ url: zoomImageLink });
+    $(".bg").zoom({ url: zoomImageLink });
   });
 }
 
 function initiateColorPicker() {
   let acf = jsonOut.acf;
   let customColors = acf.custom_colors;
-  let colorBlock = document.getElementById('color-block');
-  let colorLabel = document.getElementById('color-label');
-  let colorInput = document.getElementById('color-input');
-  let colorPicker = document.getElementById('color-picker');
+  let colorBlock = document.getElementById("color-block");
+  let colorLabel = document.getElementById("color-label");
+  let colorInput = document.getElementById("color-input");
+  let colorPicker = document.getElementById("color-picker");
 
   for (key in customColors) {
     let cc = customColors[key].color;
     let cci = customColors[key].image;
 
     //looping through all keys in this product(acf= advanced custom fields)
-    if (cc != '#empty' || cci != false) {
+    if (cc != "#empty" || cci != false) {
       ////filling the available colors from CMS
-      let newDiv = document.createElement('div');
+      let newDiv = document.createElement("div");
       newDiv.id = key;
-      newDiv.className = 'color';
+      newDiv.className = "color";
       newDiv.style.background = cc;
       if (cci != false) {
-        newDiv.style.backgroundImage = 'url(' + cci + ')';
+        newDiv.style.backgroundImage = "url(" + cci + ")";
       }
-      newDiv.addEventListener('click', function() {
+      newDiv.addEventListener("click", function() {
         colorInput.checked = false; ///hides color palette when chosen color
         if (cci == false) {
-          $('.color').css('border', '1px solid black');
-          $('#addProduct-btn').html(
+          $(".color").css("border", "1px solid black");
+          $("#addProduct-btn").html(
             'Add To Cart <span id="deliveryWarn"> (Extended Delivery Time)</span>'
           );
-          colorLabel.style.borderWidth = '2px';
-          colorLabel.style.backgroundImage = 'none';
+          colorLabel.style.borderWidth = "2px";
+          colorLabel.style.backgroundImage = "none";
           colorLabel.style.backgroundColor = cc;
 
-          if ($('.color').hasClass('active')) {
-            $('.color').removeClass('active');
+          if ($(".color").hasClass("active")) {
+            $(".color").removeClass("active");
           }
-          $('#color-label').addClass('activeCustom');
+          $("#color-label").addClass("activeCustom");
 
-          $('#customColorDiv').css('display', 'block');
-          $('#customColorDiv').css('background-color', cc);
+          $("#customColorDiv").css("display", "block");
+          $("#customColorDiv").css("background-color", cc);
         } else {
-          colorLabel.style.backgroundImage = 'url(' + cci + ')';
+          colorLabel.style.backgroundImage = "url(" + cci + ")";
         }
 
         //below emptying the picker for sizes before populating it all over
-        $('.selectSize').empty();
+        $(".selectSize").empty();
 
         for (let i = 0; i < allSizes.length; i++) {
-          let newOption = document.createElement('option');
-          newOption.id = 'option' + i;
+          let newOption = document.createElement("option");
+          newOption.id = "option" + i;
           newOption.innerHTML = allSizes[i];
           select.appendChild(newOption);
         }
 
         //below emptying the picker for amount before populating it all over
 
-        $('.selectQuantity').empty();
+        $(".selectQuantity").empty();
 
         for (let i = 1; i < 6; i++) {
-          let newOption = document.createElement('option');
-          newOption.id = 'option' + i;
+          let newOption = document.createElement("option");
+          newOption.id = "option" + i;
           newOption.innerHTML = i;
           selectAmount.appendChild(newOption);
         }
@@ -441,9 +443,9 @@ function initiateColorPicker() {
     }
   }
 
-  let cp = $('#color-plus');
+  let cp = $("#color-plus");
 
-  window.addEventListener('mouseup', function(event) {
+  window.addEventListener("mouseup", function(event) {
     if (
       event.target != colorPicker ||
       event.target != colorLabel ||

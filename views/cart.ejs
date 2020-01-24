@@ -118,10 +118,7 @@
               <div class="cart-totals-value">0.00</div>
             </div>
             <div class="_column checkout">
-              <button
-                id="checkout-first-button"
-                onclick="window.location.href = '#billing-first-section';"
-              >
+              <button id="checkout-first-button" onclick=" ">
                 Check Out
               </button>
               <script
@@ -130,142 +127,245 @@
               ></script>
 
               <script>
-                var stripePublicKey = '<%= stripePublicKey %>';
-                var BEProductsJSON = '<%- JSON.stringify(items) %>';
+                var stripePublicKey = "<%= stripePublicKey %>";
+                var BEProductsJSON = "<%- ('JSON.stringify(items)') %>";
               </script>
             </div>
           </footer>
         </section>
       </div>
- 
 
-    <div class="container-billing">
-      <div class="form__name">Shipping and Billing Form</div>
-      <div class="form__container">
-        <section id="billing-first-section" class="form__personal sect">
-          <div class="sections">
-            <div class="box">1</div>
-            <span>Personal Information</span>
-          </div>
-          <div class="personal--form">
-            <form class="form--name" action="">
-              <div class="first">
-                <label for="firstname">First Name</label>
-                <input placeholder="e.g. Richard" id="firstname" type="text" />
-              </div>
-              <div class="last">
-                <label for="firstname">Last Name</label>
-                <input placeholder="e.g. Bovell" id="firstname" type="text" />
-              </div>
-              <div class="email">
-                <label for="firstname">Email</label>
-                <input
-                  placeholder="e.g. rb@apple.com"
-                  id="firstname"
-                  type="email"
-                />
-              </div>
-            </form>
-          </div>
-        </section>
-        <section class="sect form__billing">
-          <div class="sections">
-            <div class="box billing">2</div>
-            <span>Billing Address</span>
-          </div>
-          <div class="shipping--form">
-            <form class="form--shipping" action="">
-              <div class="row one">
-                <div class="address">
-                  <label for="address-one">Address Line 1</label>
+      <div class="container-billing">
+        <div class="form__name">Shipping and Billing Form</div>
+        <div class="form__container">
+          <section id="billing-first-section" class="form__personal sect">
+            <div class="sections">
+              <div class="box">1</div>
+              <span>Personal Information</span>
+            </div>
+            <div class="personal--form">
+              <form id="formPersonal" class="form--name allforms" action="">
+                <div class="first">
+                  <label for="firstname">First Name</label>
                   <input
-                    placeholder="e.g. 1 Infinite Loop"
-                    id="address-one"
+                    data-name="First Name"
+                    placeholder="e.g. Richard"
+                    id="firstname"
+                    name="firstname"
                     type="text"
+                    required
                   />
                 </div>
-                <div class="address-two">
-                  <label for="address-two">Address Line 2</label>
-                  <input id="address-two" type="text" />
-                </div>
-              </div>
-              <div class="row two">
-                <div class="city">
-                  <label for="city">City</label>
-                  <input placeholder="e.g. Cupertino" id="city" type="text" />
-                </div>
-                <div class="state">
-                  <label for="state">State / Province / Region</label>
-                  <input placeholder="e.g. California" id="state" type="text" />
-                </div>
-              </div>
-              <div class="row three">
-                <div class="zip">
-                  <label for="zip">Zip / Postal Code</label>
-                  <input placeholder="e.g. 95014" id="zip" type="text" />
-                </div>
-                <div class="country">
-                  <label for="country">Country</label>
-                  <input placeholder="e.g. U.S.A" id="country" type="text" />
-                </div>
-              </div>
-            </form>
-          </div>
-        </section>
-        <section class="sect form__shipping">
-          <div class="sections">
-            <div class="box">3</div>
-            <span>Shipping Address</span>
-          </div>
-          <div class="shipping--form">
-            <form class="form--shipping" action="">
-              <div class="row one">
-                <div class="address">
-                  <label for="address-one">Address Line 1</label>
-                  <input placeholder="" id="address-one" type="text" />
-                </div>
-                <div class="address-two">
-                  <label for="address-two">Address Line 2</label>
-                  <input id="address-two" type="text" />
-                </div>
-              </div>
-              <div class="row two">
-                <div class="city">
-                  <label for="city">City</label>
-                  <input placeholder="" id="city" type="text" />
-                </div>
-                <div class="state">
-                  <label for="state">State / Province / Region</label>
-                  <input placeholder="" id="state" type="text" />
-                </div>
-              </div>
-              <div class="row three">
-                <div class="zip">
-                  <label for="zip">Zip / Postal Code</label>
-                  <input placeholder="" id="zip" type="text" />
-                </div>
-                <div class="country">
-                  <label for="country">Country</label>
+                <div class="last">
+                  <label for="firstname">Last Name</label>
                   <input
-                    value="Denmark"
-                    placeholder=""
-                    id="country"
-                    type="text"
-                    readonly
+                    data-name="Last Name"
+                    placeholder="e.g. Bovell"
+                    id="firstname"
+                    type="text" required
                   />
                 </div>
-              </div>
-            </form>
+                <div class="email">
+                  <label for="firstname">Email</label>
+                  <input
+                    data-name="Email"
+                    placeholder="e.g. rb@apple.com"
+                    id="firstname"
+                    type="email" required
+                  />
+                </div>
+              </form>
+            </div>
+          </section>
+          <section class="sect form__billing">
+            <div class="sections">
+              <div class="box billing">2</div>
+              <span>Billing Address</span>
+            </div>
+            <div class="shipping--form">
+              <form id="billingForm" class="form--shipping allforms" action="">
+                <div class="row one">
+                  <div class="address">
+                    <label for="address-one">Address Line 1</label>
+                    <input
+                      data-name="Billing Address Line 1"
+                      placeholder="e.g. 1 Infinite Loop"
+                      id="address-one"
+                      type="text"
+                      onkeyup="updateOther(this, 'address-one');" required
+                    />
+                  </div>
+                  <div class="address-two">
+                    <label for="address-two">Address Line 2</label>
+                    <input
+                      data-name="Billing Address Line 2"
+                      id="address-two"
+                      type="text"
+                      onkeyup="updateOther(this, 'address-two');"
+                    />
+                  </div>
+                </div>
+                <div class="row two">
+                  <div class="city">
+                    <label for="city">City</label>
+                    <input
+                      data-name="Billing City"
+                      placeholder="e.g. Cupertino"
+                      id="city"
+                      type="text"
+                      onkeyup="updateOther(this, 'city');" required
+                    />
+                  </div>
+                  <div class="state">
+                    <label for="state">State / Province / Region</label>
+                    <input
+                      data-name="Billing State / Province / Region"
+                      placeholder="e.g. California"
+                      id="state"
+                      type="text"
+                      onkeyup="updateOther(this, 'state');"
+                    />
+                  </div>
+                </div>
+                <div class="row three">
+                  <div class="zip">
+                    <label for="zip">Zip / Postal Code</label>
+                    <input
+                      data-name="Billing Zip / Postal Code"
+                      placeholder="e.g. 95014"
+                      id="zip"
+                      type="number"
+                      onkeyup="updateOther(this, 'zip');" required
+                    />
+                  </div>
+                  <div class="country">
+                    <label for="country">Country</label>
+                    <input
+                      data-name="Billing Country"
+                      placeholder="e.g. U.S.A"
+                      id="country"
+                      type="text" required
+                    />
+                  </div>
+                </div>
+              </form>
+            </div>
+          </section>
+          <section class="sect form__shipping">
+            <div class="sections">
+              <div class="box">3</div>
+              <span>Shipping Address</span>
+            </div>
+            <div class="shipping--form">
+              <form id="shippingForm" class="form--shipping allforms" action="">
+                <div class="row one">
+                  <div class="address">
+                    <label for="address-one">Address Line 1</label>
+                    <input
+                      data-name="Shipping Address Line 1"
+                      placeholder=""
+                      class="shipping-address-one"
+                      id="address-one"
+                      type="text" required
+                    />
+                  </div>
+                  <div class="address-two">
+                    <label for="address-two">Address Line 2</label>
+                    <input
+                      data-name="Shipping Address Line 2"
+                      class="shipping-address-two"
+                      id="address-two"
+                      type="text"
+                    />
+                  </div>
+                </div>
+                <div class="row two">
+                  <div class="city">
+                    <label for="city">City</label>
+                    <input
+                      data-name="Shipping city"
+                      placeholder=""
+                      class="shipping-city"
+                      id="city"
+                      type="text" required
+                    />
+                  </div>
+                  <div class="state">
+                    <label for="state">State / Province / Region</label>
+                    <input
+                      data-name="Shipping State / Province / Region"
+                      placeholder=""
+                      class="shipping-state"
+                      id="state"
+                      type="text"
+                    />
+                  </div>
+                </div>
+                <div class="row three">
+                  <div class="zip">
+                    <label for="zip">Zip / Postal Code</label>
+                    <input
+                      data-name="Shipping Zip / Postal Code"
+                      placeholder=""
+                      id="zip"
+                      class="shipping-zip"
+                      type="text" required
+                    />
+                  </div>
+                  <div class="country">
+                    <label for="country">Country</label>
+                    <select
+                      data-name="Shipping Country"
+                      value="Denmark"
+                      placeholder=""
+                      id="country"
+                      readonly
+                      ><option>Denmark</option>
+                      <option value=""> Austria</option
+                      ><option value=""> Belgium</option
+                      ><option value=""> Bulgaria</option
+                      ><option value=""> Croatia</option
+                      ><option value=""> Republic of Cyprus</option
+                      ><option value=""> Czech Republic</option
+                      ><option value=""> Estonia</option
+                      ><option value=""> Finland</option
+                      ><option value=""> France</option
+                      ><option value=""> Germany</option
+                      ><option value=""> Greece</option
+                      ><option value=""> Hungary</option
+                      ><option value=""> Ireland</option
+                      ><option value=""> Italy</option
+                      ><option value=""> Latvia</option
+                      ><option value=""> Lithuania</option
+                      ><option value=""> Luxembourg</option
+                      ><option value=""> Malta</option
+                      ><option value=""> Netherlands</option
+                      ><option value=""> Poland</option
+                      ><option value=""> Portugal</option
+                      ><option value=""> Romania</option
+                      ><option value=""> Slovakia</option
+                      ><option value=""> Slovenia</option
+                      ><option value=""> Spain</option
+                      ><option value=""> Sweden</option>
+                      <option value=""> UK</option></select
+                    >
+                  </div>
+                </div>
+              </form>
+            </div>
+          </section>
+          <div class="form__confirmation">
+            <input
+              
+              type="submit"
+              id="checkoutButton"
+              value="Confirm Information"
+              class="billing-button"
+            />
           </div>
-        </section>
-        <div class="form__confirmation">
-          <button id="checkoutButton" class="billing-button">
-            Confirm Information
-          </button>
         </div>
       </div>
     </div>
-  </div>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/zepto/1.0/zepto.min.js"></script>
     <script src="js/cart.js" defer></script>
   </body>

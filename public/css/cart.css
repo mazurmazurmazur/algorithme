@@ -40,7 +40,7 @@ h1,
   text-rendering: optimizespeed;
 }
 ._grid:after {
-  content: '';
+  content: "";
   display: inline-block;
   width: 100%;
 }
@@ -96,7 +96,7 @@ h1,
  */
 .product-image {
   width: 10%;
-  background: url('data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')
+  background: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7")
     no-repeat center / cover transparent;
   background-size: auto 100%;
 }
@@ -110,7 +110,7 @@ h1,
   padding: 0.5rem;
 }
 .product-name {
-  font: 300 2.4em/1 'Lato', sans-serif;
+  font: 300 2.4em/1 "Lato", sans-serif;
   letter-spacing: -0.025em;
   margin: 0 0 0.125em;
 }
@@ -208,11 +208,11 @@ h1,
 }
 
 .cart-totals-value::before {
-  content: 'DKK ';
+  content: "DKK ";
 }
 
 .product-total-price::before {
-  content: 'DKK';
+  content: "DKK";
 }
 ._column.checkout {
   text-align: right;
@@ -248,7 +248,7 @@ h1,
   border: solid black 1px;
   background: white;
   font-size: 25px;
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: "Montserrat", sans-serif !important;
   font-weight: 100;
   transition: 0.5s;
   cursor: pointer;
@@ -260,7 +260,7 @@ h1,
 .stripe-button-el span {
   background: transparent !important;
   color: black !important;
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: "Montserrat", sans-serif !important;
   font-weight: 300 !important;
 }
 
@@ -361,7 +361,7 @@ h1,
 /* SHIPPING AND BILLING INFORMATION BELOW */
 
 .container-billing {
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: "Montserrat", sans-serif !important;
   font-weight: 100;
   max-width: 60rem;
   margin: 0 auto;
@@ -369,7 +369,7 @@ h1,
 }
 
 .form__name {
-  font-family: 'Montserrat', sans-serif !important;
+  font-family: "Montserrat", sans-serif !important;
 
   color: #b9bac5;
   padding: 10px;
@@ -473,11 +473,15 @@ h1,
 .shipping--form .zip label,
 .shipping--form .zip input,
 .shipping--form .country label,
+.shipping--form .country select,
 .shipping--form .country input {
   display: block;
   min-width: 250px;
 }
 
+.shipping--form .country select {
+  height: 35px;
+}
 .form__question {
   padding: 10px 55px;
   color: #646e8a;
@@ -488,7 +492,7 @@ h1,
   font-weight: 100;
   vertical-align: middle;
 }
-.form__question input[type='checkbox'] {
+.form__question input[type="checkbox"] {
   cursor: pointer;
   display: inline-block;
   vertical-align: middle;
@@ -502,11 +506,12 @@ h1,
   border: 2px solid #646e8a;
   transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.form__question input[type='checkbox']:checked {
+.form__question input[type="checkbox"]:checked {
   background-color: #18c2c0;
 }
 
-input {
+input,
+select {
   font-size: 0.8rem;
   font-weight: 100;
   letter-spacing: 0.5px;

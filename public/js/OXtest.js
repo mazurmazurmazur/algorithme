@@ -1,16 +1,16 @@
 // Parse the URL parameter
 function getParameterByName(name, url) {
   if (!url) url = window.location.href;
-  name = name.replace(/[\[\]]/g, '\\$&');
-  var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+  name = name.replace(/[\[\]]/g, "\\$&");
+  var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
     results = regex.exec(url);
   if (!results) return null;
-  if (!results[2]) return '';
-  return decodeURIComponent(results[2].replace(/\+/g, ' '));
+  if (!results[2]) return "";
+  return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 // Give the parameter a variable name
-let dynamicContent = getParameterByName('cat');
-let dynamicGender = getParameterByName('gender');
+let dynamicContent = getParameterByName("cat");
+let dynamicGender = getParameterByName("gender");
 
 //getParameterByName is a function that fetches the id from URL
 //the id in URL comes from dynamically set "href" in blog.html through blog.js
@@ -22,7 +22,7 @@ let appendOrNot;
 
 function getAllPaintings() {
   fetch(
-    'http://dashboard.algorithme.co/wp-json/wp/v2/oxproduct?_embed&per_page=100'
+    "http://dashboard.algorithme.co/wp-json/wp/v2/oxproduct?_embed&per_page=100"
   )
     .then(res => res.json())
     .then(showPaintings)
@@ -30,18 +30,18 @@ function getAllPaintings() {
 }
 
 function showPaintings(data) {
-  let list = document.querySelector('.resource-slider-frame');
-  let template = document.querySelector('#paintingTemplate').content;
+  let list = document.querySelector(".resource-slider-frame");
+  let template = document.querySelector("#paintingTemplate").content;
   let clone = template.cloneNode(true);
-  let showAllButton = document.getElementById('show-all-button');
+  let showAllButton = document.getElementById("show-all-button");
 
-  if (dynamicContent == null) showAllButton.setAttribute('href', 'grid.html');
+  if (dynamicContent == null) showAllButton.setAttribute("href", "grid.html");
   else if (dynamicGender != null)
     showAllButton.setAttribute(
-      'href',
-      'grid.html?cat=' + dynamicContent + '&gender=' + dynamicGender
+      "href",
+      "grid.html?cat=" + dynamicContent + "&gender=" + dynamicGender
     );
-  else showAllButton.setAttribute('href', 'grid.html?cat=' + dynamicContent);
+  else showAllButton.setAttribute("href", "grid.html?cat=" + dynamicContent);
 
   //webshop.html?cat=ox-ed&gender=female
 
@@ -50,10 +50,10 @@ function showPaintings(data) {
     let clone = template.cloneNode(true);
 
     let parentBody = window.parent.document.body;
-    let image = clone.querySelector('.openmodale');
-    let priceTag = clone.querySelector('.priceUnderTitle span');
-    let titleTag = clone.querySelector('.underTitle');
-    let link = clone.querySelector('.linkToProduct');
+    let image = clone.querySelector(".openmodale");
+    let priceTag = clone.querySelector(".priceUnderTitle span");
+    let titleTag = clone.querySelector(".underTitle");
+    let link = clone.querySelector(".linkToProduct");
 
     let photo = thePainting.acf.colorpick.imagescolor1.image1;
 
@@ -98,11 +98,11 @@ function showPaintings(data) {
     }
 
     //paintings.push(colours);
-    image.setAttribute('src', photo);
-    image.setAttribute('data-id', dataId);
+    image.setAttribute("src", photo);
+    image.setAttribute("data-id", dataId);
     priceTag.innerHTML = price;
     titleTag.innerHTML = title;
-    link.setAttribute('href', 'product.html?id=' + dataId);
+    link.setAttribute("href", "product.html?id=" + dataId);
 
     if (appendOrNot == true) {
       list.appendChild(clone);
@@ -115,32 +115,32 @@ getAllPaintings();
 function doneResizing() {
   //////MODAL WITH PRODUCT DETAILS///////
   var parentBody = window.parent.document.body;
-  let modale = window.parent.document.querySelector('.modale');
-  let closemodale = $('.closemodale', parentBody);
+  let modale = window.parent.document.querySelector(".modale");
+  let closemodale = $(".closemodale", parentBody);
 
-  $('.openmodale').click(function() {
+  $(".openmodale").click(function() {
     // modale.classList.add("opened");     //opening the modale
 
     ////filling current modale with appropriate json data BELOW
-    currentId = $(this).attr('data-id');
+    currentId = $(this).attr("data-id");
     function fillModale() {
       fetch(
-        'http://dashboard.algorithme.co/wp-json/wp/v2/oxproduct/' +
+        "http://dashboard.algorithme.co/wp-json/wp/v2/oxproduct/" +
           currentId +
-          '?_embed'
+          "?_embed"
       )
         .then(res => res.json())
         .then(showModale);
     }
 
     function showModale(json) {
-      let modaleTitle = modale.querySelector('h2');
-      let modaleColorPicker = modale.querySelector('#colorpickerid option');
+      let modaleTitle = modale.querySelector("h2");
+      let modaleColorPicker = modale.querySelector("#colorpickerid option");
 
       let jsonTitle = json.title.rendered;
       let colorPick = json.acf.colorpick;
 
-      modaleColorPicker.setAttribute('value', '#777777');
+      modaleColorPicker.setAttribute("value", "#777777");
 
       modaleTitle.innerHTML = jsonTitle;
     }
@@ -150,13 +150,13 @@ function doneResizing() {
 
   //////END OF MODAL WITH PRODUCT DETAILS///////
 
-  var totalScroll = $('.resource-slider-frame').scrollLeft();
-  var itemWidth = $('.resource-slider-item').width();
+  var totalScroll = $(".resource-slider-frame").scrollLeft();
+  var itemWidth = $(".resource-slider-item").width();
   var difference = totalScroll % itemWidth;
   if (difference !== 0) {
-    $('.resource-slider-frame').animate(
+    $(".resource-slider-frame").animate(
       {
-        scrollLeft: '-=' + difference
+        scrollLeft: "-=" + difference
       },
       500,
       function() {
@@ -169,32 +169,32 @@ function doneResizing() {
 
 function checkArrows() {
   var totalWidth =
-    $('#resource-slider .resource-slider-item').length *
-    $('.resource-slider-item').width();
-  var frameWidth = $('.resource-slider-frame').width();
-  var itemWidth = $('.resource-slider-item').width();
-  var totalScroll = $('.resource-slider-frame').scrollLeft();
+    $("#resource-slider .resource-slider-item").length *
+    $(".resource-slider-item").width();
+  var frameWidth = $(".resource-slider-frame").width();
+  var itemWidth = $(".resource-slider-item").width();
+  var totalScroll = $(".resource-slider-frame").scrollLeft();
 
   if (totalWidth - frameWidth - totalScroll < itemWidth) {
-    $('.next').css('visibility', 'hidden');
+    $(".next").css("visibility", "hidden");
   } else {
-    $('.next').css('visibility', 'visible');
+    $(".next").css("visibility", "visible");
   }
   if (totalScroll + 10 < itemWidth) {
-    $('.prev').css('visibility', 'hidden');
+    $(".prev").css("visibility", "hidden");
   } else {
-    $('.prev').css('visibility', 'visible');
+    $(".prev").css("visibility", "visible");
   }
 }
 
-$('.arrow').on('click', function() {
+$(".arrow").on("click", function() {
   var $this = $(this),
-    width = $('.resource-slider-item').width(),
+    width = $(".resource-slider-item").width(),
     speed = 500;
-  if ($this.hasClass('prev')) {
-    $('.resource-slider-frame').animate(
+  if ($this.hasClass("prev")) {
+    $(".resource-slider-frame").animate(
       {
-        scrollLeft: '-=' + width
+        scrollLeft: "-=" + width
       },
       speed,
       function() {
@@ -202,10 +202,10 @@ $('.arrow').on('click', function() {
         checkArrows();
       }
     );
-  } else if ($this.hasClass('next')) {
-    $('.resource-slider-frame').animate(
+  } else if ($this.hasClass("next")) {
+    $(".resource-slider-frame").animate(
       {
-        scrollLeft: '+=' + width
+        scrollLeft: "+=" + width
       },
       speed,
       function() {
@@ -216,9 +216,9 @@ $('.arrow').on('click', function() {
   }
 }); // end on arrow click
 
-$(window).on('load resize', function() {
+$(window).on("load resize", function() {
   checkArrows();
-  $('#resource-slider .resource-slider-item').each(function(i) {
+  $("#resource-slider .resource-slider-item").each(function(i) {
     var $this = $(this),
       left = $this.width() * i;
     $this.css({
@@ -234,5 +234,17 @@ $(window).resize(function() {
 });
 
 function resize() {
-  window.dispatchEvent(new Event('resize'));
+  window.dispatchEvent(new Event("resize"));
 }
+
+///COOKIE CONSENT LOGIC
+$(document).ready(function() {
+  if (undefined == $.cookie("cookies")) $("#cookies").show();
+});
+$(".cookies-button").click(function() {
+  $.cookie("cookies", "ok", {
+    expires: 365,
+    path: "/"
+  });
+  $("#cookies").hide();
+});

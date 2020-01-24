@@ -20,11 +20,12 @@
     "ejs": "^2.7.1",
     "express": "^4.17.1",
     "fs": "0.0.1-security",
-    "nodemon": "^1.19.4",
+    "nodemailer-promise": "^2.0.0",
     "stripe": "^7.9.1",
     "wpapi": "^1.2.1"
   },
   "devDependencies": {
-    "dotenv": "^8.1.0"
+    "dotenv": "^8.1.0",
+    "nodemon": "^1.19.4"
   }
 }

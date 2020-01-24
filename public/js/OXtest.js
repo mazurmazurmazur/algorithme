@@ -22,7 +22,7 @@ let appendOrNot;
 
 function getAllPaintings() {
   fetch(
-    "http://dashboard.algorithme.co/wp-json/wp/v2/oxproduct?_embed&per_page=100"
+    "https://dashboard.algorithme.co/wp-json/wp/v2/oxproduct?_embed&per_page=100"
   )
     .then(res => res.json())
     .then(showPaintings)
@@ -125,7 +125,7 @@ function doneResizing() {
     currentId = $(this).attr("data-id");
     function fillModale() {
       fetch(
-        "http://dashboard.algorithme.co/wp-json/wp/v2/oxproduct/" +
+        "https://dashboard.algorithme.co/wp-json/wp/v2/oxproduct/" +
           currentId +
           "?_embed"
       )

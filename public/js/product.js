@@ -40,7 +40,7 @@ let selectAmount = document.querySelector(".selectQuantity");
 
 function getAllProducts() {
   fetch(
-    "http://dashboard.algorithme.co/wp-json/wp/v2/oxproduct/" + dynamicContent
+    "https://dashboard.algorithme.co/wp-json/wp/v2/oxproduct/" + dynamicContent
   )
     //only one entry in json file (WP REST)
 

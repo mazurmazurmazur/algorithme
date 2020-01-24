@@ -1,5 +1,5 @@
 function fetchTerms() {
-  fetch("http://dashboard.algorithme.co/wp-json/wp/v2/terms/496") //only one entry in json file (WP REST)
+  fetch("https://dashboard.algorithme.co/wp-json/wp/v2/terms/496") //only one entry in json file (WP REST)
     .then(res => res.json())
     .then(showTerms);
 }

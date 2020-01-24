@@ -13,7 +13,7 @@ var years = [];
 
 
 function getAllPaintings() {
-  fetch("http://dashboard.algorithme.co/wp-json/wp/v2/paststory?_embed&per_page=50")
+  fetch("https://dashboard.algorithme.co/wp-json/wp/v2/paststory?_embed&per_page=50")
     .then(res => res.json())
     .then(showPaintings)
 }

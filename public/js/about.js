@@ -1,6 +1,6 @@
 function getAllPaintings() {
   fetch(
-    "http://dashboard.algorithme.co/wp-json/wp/v2/about?_embed&per_page=100"
+    "https://dashboard.algorithme.co/wp-json/wp/v2/about?_embed&per_page=100"
   )
     .then(res => res.json())
     .then(showPaintings);

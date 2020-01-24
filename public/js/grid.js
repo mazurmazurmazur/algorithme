@@ -20,7 +20,7 @@ let dynamicSearch = getParameterByName("search");
 
 function getAllTags() {
   fetch(
-    "http://dashboard.algorithme.co/wp-json/wp/v2/tags?slug=" + dynamicSearch
+    "https://dashboard.algorithme.co/wp-json/wp/v2/tags?slug=" + dynamicSearch
   )
     .then(res => res.json())
     .then(getSearchResults);
@@ -46,7 +46,7 @@ let appendOrNot;
 
 function getAllPaintings() {
   fetch(
-    "http://dashboard.algorithme.co/wp-json/wp/v2/oxproduct?_embed&per_page=100"
+    "https://dashboard.algorithme.co/wp-json/wp/v2/oxproduct?_embed&per_page=100"
   )
     .then(res => res.json())
     .then(showPaintings);

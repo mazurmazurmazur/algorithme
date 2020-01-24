@@ -12,7 +12,7 @@ var fs = require("fs");
 const stripe = require("stripe")(stripeSecretKey);
 
 var WPAPI = require("wpapi");
-var site = new WPAPI({ endpoint: "http://dashboard.algorithme.co/wp-json" });
+var site = new WPAPI({ endpoint: "https://dashboard.algorithme.co/wp-json" });
 
 const express = require("express");
 

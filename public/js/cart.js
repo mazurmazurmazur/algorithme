@@ -70,7 +70,7 @@ let detailedFormArr = [];
 
 function getAllProducts() {
   fetch(
-    "http://dashboard.algorithme.co/?rest_route=/wp/v2/oxproduct&per_page=100"
+    "https://dashboard.algorithme.co/?rest_route=/wp/v2/oxproduct&per_page=100"
   )
     .then(res => res.json())
     .then(showProducts)

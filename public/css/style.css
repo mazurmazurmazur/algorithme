@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400');
-@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
-@import url('https://fonts.googleapis.com/css?family=Lato:300,400&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400");
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400&display=swap");
 
 html,
 body,
@@ -121,7 +121,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: '';
+  content: "";
   content: none;
 }
 table {
@@ -134,9 +134,9 @@ input {
 }
 
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 
   font-weight: 200;
 }
@@ -508,7 +508,7 @@ iframe {
   color: #919191;
 }
 .modale:before {
-  content: '';
+  content: "";
   display: none;
   background: rgba(0, 0, 0, 0.6);
   position: fixed;
@@ -606,6 +606,24 @@ iframe {
   margin-bottom: -0.4vh;
 }
 
+.cart-added {
+  animation: addedItem 3s;
+  -webkit-animation: addedItem 3s;
+}
+@keyframes addedItem {
+  0% {
+    transform: scale(1);
+  }
+  33.333% {
+    transform: scale(0.5);
+  }
+  66.666% {
+    transform: scale(2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 /******SPECIFICALLY DESKTOP*********/
 
 @media screen and (min-width: 761px) {
@@ -995,7 +1013,7 @@ iframe {
   }
 
   .upperMobileItem:after {
-    content: ''; /* This is necessary for the pseudo element to work. */
+    content: ""; /* This is necessary for the pseudo element to work. */
     display: block; /* This will put the pseudo element on its own line. */
     margin: 0 auto; /* This will center the border. */
     width: 35%; /* Change this to whatever width you want. */

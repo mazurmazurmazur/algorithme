@@ -87,7 +87,7 @@ app.post("/purchase", function(req, res) {
       .then(function() {
         var message = {
           from: "noreply@algorithme.co",
-          to: "grzaneczka@gmail.com, " + req.body.email,
+          to: "webshop@algorithme.co, " + req.body.email,
           subject: "No Reply- A L G O R I T H M E  Order Details",
           text:
             " Personal Information:  " +

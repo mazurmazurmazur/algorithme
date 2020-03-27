@@ -129,7 +129,6 @@ function showProducts(json) {
     $(this).addClass("active");
     $("#color-label").removeClass("activeCustom");
     $("#customColorDiv").css("display", "none");
-
     checkColor($(this).attr("id"));
   });
   $("#color").trigger("click");
@@ -137,7 +136,6 @@ function showProducts(json) {
   function setMainImage(url) {
     image.style.opacity = 0;
     image.style.backgroundImage = "url(" + url + ")";
-
     image.style.opacity = 1;
     zoomImageLink = url;
     activateZoom();
@@ -190,58 +188,91 @@ function showProducts(json) {
     ///checking if custom color is not selected, because custom colors always have all sizes and quantity up to 5.
     $(".selectSize").empty();
 
-    if (!$("#color-label").hasClass("activeCustom")) {
-      //populte sizes in product
-      currentProductNum = i;
-      let sizeNumber = "size" + i;
-      let sizes = colorpick[sizeNumber];
-      for (key in sizes) {
-        if (sizes[key] > 0) {
-          let newOption = document.createElement("option");
-          newOption.id = "option" + key;
-          newOption.innerHTML = key.toUpperCase();
-          select.appendChild(newOption);
-        }
-      }
-    } else {
-      for (let i = 0; i < allSizes.length; i++) {
+    // if (!$("#color-label").hasClass("activeCustom")) {
+    //populte sizes in product
+    currentProductNum = i;
+    let sizeNumber = "size" + i;
+    let sizes = colorpick[sizeNumber];
+    let j = 0;
+    for (key in sizes) {
+      console.log(sizes[key]);
+
+      if (sizes[key] > 0) {
+        j = j + sizes[key];
         let newOption = document.createElement("option");
-        newOption.id = "option" + i;
-        newOption.innerHTML = allSizes[i];
+        newOption.id = "option" + key;
+        newOption.innerHTML = key.toUpperCase();
         select.appendChild(newOption);
       }
     }
+
+    if (j == 0) {
+      let newOptionOut = document.createElement("option");
+      newOptionOut.id = "option1";
+      newOptionOut.innerHTML = "Out of stock";
+      select.appendChild(newOptionOut);
+    }
+    // } else {
+    //   let newOptionOut = document.createElement("option");
+    //   newOptionOut.id = "option1";
+    //   newOptionOut.innerHTML = "Out of stock";
+    //   select.appendChild(newOptionOut);
+
+    // } else {
+    //   for (let i = 0; i < allSizes.length; i++) {
+    //     let newOption = document.createElement("option");
+    //     newOption.id = "option" + i;
+    //     newOption.innerHTML = allSizes[i];
+    //     select.appendChild(newOption);
+    //   }
+    // }
   }
 
   $(".selectSize").on("change", function(e) {
     $(".selectQuantity").empty();
 
-    ///checking if custom color is not selected, because custom colors always have all sizes and quantity up to 5.
-    if (!$("#color-label").hasClass("activeCustom")) {
-      let optionSelected = $("option:selected", this);
+    let valueSelected = this.value;
+    let sizeNumber = "size" + currentProductNum;
+    let sizes = colorpick[sizeNumber];
 
-      let valueSelected = this.value;
-      let sizeNumber = "size" + currentProductNum;
-      let sizes = colorpick[sizeNumber];
+    for (key in sizes) {
+      // console.log("key: ");
+      // console.log(key);
+      // console.log("sizes: ");
+      // console.log(sizes);
+      console.log(
+        "keytuc: " + key.toUpperCase() + " valueselected " + valueSelected
+      );
+      if (key.toUpperCase() == valueSelected) {
+        console.log("valueSelected:");
+        console.log(valueSelected);
 
-      for (key in sizes) {
-        if (key.toUpperCase() == valueSelected) {
-          for (let i = 1; i < sizes[key] && i < 5; i++) {
+        console.log("sizes[key]: " + sizes[key]);
+        if (sizes[key] && sizes[key] > 0) {
+          for (let i = 0; i < sizes[key]; i++) {
+            console.log("sizes[key]: ");
+            console.log(sizes[key]);
             let newOption = document.createElement("option");
             newOption.id = "option" + i;
-            newOption.innerHTML = i;
+            newOption.innerHTML = i + 1;
             selectAmount.appendChild(newOption);
           }
+        } else {
+          let newOptionOut = document.createElement("option");
+          newOptionOut.id = "option1";
+          newOptionOut.innerHTML = "Out of stock";
+          selectAmount.appendChild(newOptionOut);
         }
       }
-    } else {
-      for (let i = 1; i < 6; i++) {
-        let newOption = document.createElement("option");
-        newOption.id = "option" + i;
-        newOption.innerHTML = i;
-        selectAmount.appendChild(newOption);
-      }
     }
+    // } else {
+    //   for (let i = 1; i < 6; i++) {
+    //     let newOption = document.createElement("option");
+    //     newOption.id = "option" + i;
+    //     newOption.innerHTML = i;
+    //     selectAmount.appendChild(newOption);
+    //   }
+    // }
   });
 
   checkColor("color1");
@@ -294,7 +325,7 @@ function afterFetch(json) {
     event.preventDefault();
 
     let activeColor;
-    let customColor;
+    // let customColor;
 
     if ($(".active") && $(".active").attr("id")) {
       activeColor = $(".active").attr("id");
@@ -310,62 +341,34 @@ function afterFetch(json) {
       ).style.backgroundColor;
     }
 
-    let e = document.querySelector(".selectQuantity");
+    let sQ = document.querySelector(".selectQuantity");
     let sizeSelector = document.querySelector(".selectSize");
-    let strUser = e.options[e.selectedIndex].text; ///amount selected in option
+    let strUser = sQ.options[sQ.selectedIndex].text; ///amount selected in option
     let sizeSelected = sizeSelector.options[sizeSelector.selectedIndex].text; ///size selected in option
-    let customColorSelected = "";
-
-    if ($("#color-label").hasClass("activeCustom")) {
-      customColorSelected =
-        " " + document.getElementById("color-label").style.backgroundColor;
-    } else {
-      customColorSelected = "";
-    }
+    let cart = window.parent.document.querySelector("#cart");
 
     if (
-      localStorage[
-        sizeSelected +
-          " " +
-          activeColor +
-          " " +
-          productName +
-          customColorSelected
-      ]
+      localStorage[sizeSelected + " " + activeColor + " " + productName] &&
+      sizeSelected != "Out of stock"
     ) {
       //increasing amount of selected product in cart
-      localStorage[
-        sizeSelected +
-          " " +
-          activeColor +
-          " " +
-          productName +
-          customColorSelected
-      ] =
+      localStorage[sizeSelected + " " + activeColor + " " + productName] =
         Number(
-          localStorage[
-            sizeSelected +
-              " " +
-              activeColor +
-              " " +
-              productName +
-              customColorSelected
-          ]
+          localStorage[sizeSelected + " " + activeColor + " " + productName]
         ) + Number(strUser); //increasing by amount selected in select-dropdown
+      addProdAnimation(cart); //animate cart
+    } else if (sizeSelected == "Out of stock") {
+      alert("Out of stock!");
     } else {
       localStorage[
-        sizeSelected +
-          " " +
-          activeColor +
-          " " +
-          productName +
-          customColorSelected
+        sizeSelected + " " + activeColor + " " + productName
       ] = strUser;
+      addProdAnimation(cart); //animate cart
     }
     updateCart(localStorage.length); ///dynamic cart update after click, calls global function in home.js
   });
 
-  initiateColorPicker(json);
+  // initiateColorPicker(json);
 }
 
 function activateZoom() {
@@ -374,85 +377,110 @@ function activateZoom() {
   });
 }
 
-function initiateColorPicker() {
-  let acf = jsonOut.acf;
-  let customColors = acf.custom_colors;
-  let colorBlock = document.getElementById("color-block");
-  let colorLabel = document.getElementById("color-label");
-  let colorInput = document.getElementById("color-input");
-  let colorPicker = document.getElementById("color-picker");
-
-  for (key in customColors) {
-    let cc = customColors[key].color;
-    let cci = customColors[key].image;
-
-    //looping through all keys in this product(acf= advanced custom fields)
-    if (cc != "#empty" || cci != false) {
-      ////filling the available colors from CMS
-      let newDiv = document.createElement("div");
-      newDiv.id = key;
-      newDiv.className = "color";
-      newDiv.style.background = cc;
-      if (cci != false) {
-        newDiv.style.backgroundImage = "url(" + cci + ")";
-      }
-      newDiv.addEventListener("click", function() {
-        colorInput.checked = false; ///hides color palette when chosen color
-        if (cci == false) {
-          $(".color").css("border", "1px solid black");
-          $("#addProduct-btn").html(
-            'Add To Cart <span id="deliveryWarn"> (Extended Delivery Time)</span>'
-          );
-          colorLabel.style.borderWidth = "2px";
-          colorLabel.style.backgroundImage = "none";
-          colorLabel.style.backgroundColor = cc;
-
-          if ($(".color").hasClass("active")) {
-            $(".color").removeClass("active");
-          }
-          $("#color-label").addClass("activeCustom");
-
-          $("#customColorDiv").css("display", "block");
-          $("#customColorDiv").css("background-color", cc);
-        } else {
-          colorLabel.style.backgroundImage = "url(" + cci + ")";
-        }
-
-        //below emptying the picker for sizes before populating it all over
-        $(".selectSize").empty();
-
-        for (let i = 0; i < allSizes.length; i++) {
-          let newOption = document.createElement("option");
-          newOption.id = "option" + i;
-          newOption.innerHTML = allSizes[i];
-          select.appendChild(newOption);
-        }
-
-        //below emptying the picker for amount before populating it all over
-
-        $(".selectQuantity").empty();
-
-        for (let i = 1; i < 6; i++) {
-          let newOption = document.createElement("option");
-          newOption.id = "option" + i;
-          newOption.innerHTML = i;
-          selectAmount.appendChild(newOption);
-        }
-      });
-      colorBlock.appendChild(newDiv);
-    }
-  }
-
-  let cp = $("#color-plus");
-
-  window.addEventListener("mouseup", function(event) {
-    if (
-      event.target != colorPicker ||
-      event.target != colorLabel ||
-      event.target != colorInput ||
-      event.target != cp
-    ) {
-      colorInput.checked = false; ///hides color palette when chosen color
-    }
-  });
+function addProdAnimation(ele) {
+  console.log(ele);
+  ele.classList.add("cart-added");
+  setTimeout(() => {
+    ele.classList.remove("cart-added");
+  }, 3500);
 }
+
+// function addProdAnimation(ele) {
+//   console.log(ele);
+//   ele.classList.add("cart-added");
+//   setTimeout(() => {
+//     ele.classList.remove("cart-added");
+//   }, 3500);
+
+// const div = document.createElement("div");
+// div.style.width = "2px";
+// div.style.height = "2px";
+// div.style.background = "black";
+// div.style.border = "1px solid black";
+// div.style.borderRadius = "2px";
+// div.style.position = "absolute";
+// div.style.transition = "all ease-out 1s;"
+// document.querySelector(".selectColor").appendChild(div);
+// }
+// function initiateColorPicker() {
+//   let acf = jsonOut.acf;
+//   let customColors = acf.custom_colors;
+//   let colorBlock = document.getElementById("color-block");
+//   let colorLabel = document.getElementById("color-label");
+//   let colorInput = document.getElementById("color-input");
+//   let colorPicker = document.getElementById("color-picker");
+
+// for (key in customColors) {
+//   let cc = customColors[key].color;
+//   let cci = customColors[key].image;
+
+//   //looping through all keys in this product(acf= advanced custom fields)
+//   if (cc != "#empty" || cci != false) {
+//     ////filling the available colors from CMS
+//     let newDiv = document.createElement("div");
+//     newDiv.id = key;
+//     newDiv.className = "color";
+//     newDiv.style.background = cc;
+//     if (cci != false) {
+//       newDiv.style.backgroundImage = "url(" + cci + ")";
+//     }
+//     newDiv.addEventListener("click", function() {
+//       colorInput.checked = false; ///hides color palette when chosen color
+//       if (cci == false) {
+//         $(".color").css("border", "1px solid black");
+//         $("#addProduct-btn").html(
+//           'Add To Cart <span id="deliveryWarn"> (Extended Delivery Time)</span>'
+//         );
+//         colorLabel.style.borderWidth = "2px";
+//         colorLabel.style.backgroundImage = "none";
+//         colorLabel.style.backgroundColor = cc;
+
+//         if ($(".color").hasClass("active")) {
+//           $(".color").removeClass("active");
+//         }
+//         $("#color-label").addClass("activeCustom");
+
+//         $("#customColorDiv").css("display", "block");
+//         $("#customColorDiv").css("background-color", cc);
+//       } else {
+//         colorLabel.style.backgroundImage = "url(" + cci + ")";
+//       }
+
+//       //below emptying the picker for sizes before populating it all over
+//       $(".selectSize").empty();
+
+//       for (let i = 0; i < allSizes.length; i++) {
+//         let newOption = document.createElement("option");
+//         newOption.id = "option" + i;
+//         newOption.innerHTML = allSizes[i];
+//         select.appendChild(newOption);
+//       }
+
+//       //below emptying the picker for amount before populating it all over
+
+//       $(".selectQuantity").empty();
+
+//       for (let i = 1; i < 6; i++) {
+//         let newOption = document.createElement("option");
+//         newOption.id = "option" + i;
+//         newOption.innerHTML = i;
+//         selectAmount.appendChild(newOption);
+//       }
+//     });
+//     colorBlock.appendChild(newDiv);
+//   }
+// }
+
+// let cp = $("#color-plus");
+
+// window.addEventListener("mouseup", function(event) {
+//   if (
+//     event.target != colorPicker ||
+//     event.target != colorLabel ||
+//     event.target != colorInput ||
+//     event.target != cp
+//   ) {
+//     colorInput.checked = false; ///hides color palette when chosen color
+//   }
+// });
+// }
